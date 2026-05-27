@@ -1,0 +1,30 @@
+Seazone — Gestão de Assembleias
+================================
+
+Estrutura:
+  backend/   Express + TypeScript, dados em JSON local, envia ao Slack
+  frontend/  React + Vite + TypeScript + Tailwind
+
+Pré-requisito: Node.js 18 ou superior (precisa ter `node` e `npm` no PATH).
+Se não tiver, instale via:  https://nodejs.org/  (LTS)
+
+--- Setup (uma vez) ---
+1. Configure o webhook do Slack:
+     cd backend
+     cp .env.example .env
+   Edite .env e cole o webhook em SLACK_WEBHOOK_URL.
+
+2. Instale as dependências (nos dois projetos):
+     cd backend && npm install
+     cd ../frontend && npm install
+
+--- Rodar (em dois terminais) ---
+Terminal 1 (backend, porta 3001):
+     cd backend && npm run dev
+
+Terminal 2 (frontend, porta 5173):
+     cd frontend && npm run dev
+
+Abra:  http://localhost:5173
+
+O frontend faz proxy de /api -> backend automaticamente (vite.config.ts).
