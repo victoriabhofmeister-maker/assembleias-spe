@@ -134,6 +134,7 @@ export const SPES_DISPONIVEIS: string[] = [
   "Caraguá Spot",
   "Foz Spot",
   "Ilha do Campeche Spot",
+  "Imbassaí",
   "Ingleses Spot",
   "Itacaré Spot",
   "Japaratinga Spot",
@@ -145,6 +146,7 @@ export const SPES_DISPONIVEIS: string[] = [
   "Santo Antônio Spot",
   "Sul da Ilha Spot",
   "Trancoso Spot",
+  "Urubici Spot",
   "Urubici Spot II",
 ];
 
@@ -153,10 +155,11 @@ export const ORDENS_DO_DIA: string[] = [
   "Alteração de projeto",
   "Apresentação do orçamento executivo",
   "Eleição do Conselho Fiscal",
+  "Reeleição do Conselho Fiscal",
   "Acompanhamento do andamento do empreendimento",
   "AGE de Entrega",
   "Aprovação de Contas",
-  "Reeleição do Conselho Fiscal",
+  "Alteração contratual",
   "Outro (especificar)",
 ];
 
@@ -180,86 +183,43 @@ export interface PautaConfig {
   avisoAmarelo?: string;
 }
 
-export const DOCUMENTOS_POR_ORDEM: Record<string, PautaConfig> = {
-  "Chamada de capital": {
-    campos: [
-      { tipo: "upload", nome: "Memória de cálculo da chamada", obrigatorio: true },
-      { tipo: "upload", nome: "Extrato bancário da SPE", obrigatorio: true },
-    ],
-  },
-  "Alteração de projeto": {
-    campos: [
-      { tipo: "upload", nome: "Projeto aprovado pelo órgão competente", obrigatorio: true },
-      { tipo: "upload", nome: "Memorial descritivo das alterações", obrigatorio: true },
-    ],
-  },
-  "Apresentação do orçamento executivo": {
-    campos: [
-      { tipo: "upload", nome: "Planilha de orçamento executivo", obrigatorio: true },
-      { tipo: "upload", nome: "Cronograma físico-financeiro", obrigatorio: true },
-    ],
-  },
-  "Eleição do Conselho Fiscal": {
-    campos: [
-      {
-        tipo: "texto",
-        nome: "Candidato indicado",
-        obrigatorio: false,
-        label: "Candidato indicado (nome completo) — se já houver indicação prévia",
-        ajuda: "A eleição pode ocorrer em assembleia mesmo sem indicação prévia.",
-      },
-    ],
-  },
-  "Acompanhamento do andamento do empreendimento": {
-    campos: [
-      { tipo: "upload", nome: "Relatório financeiro do período", obrigatorio: true },
-      { tipo: "upload", nome: "Relatório de andamento das aprovações e projetos", obrigatorio: true },
-    ],
-  },
-  "AGE de Entrega": {
-    campos: [
-      { tipo: "upload", nome: "Convenção de Condomínio", obrigatorio: true },
-      { tipo: "upload", nome: "Regimento Interno", obrigatorio: true },
-      { tipo: "upload", nome: "Minuta da ata de entrega", obrigatorio: true },
-      {
-        tipo: "upload",
-        nome: "Outros documentos relevantes para a entrega",
-        obrigatorio: false,
-        label: "Demais documentos de entrega",
-      },
-    ],
-    avisoAmarelo:
-      "⚠️ Documentos podem variar conforme o estágio do empreendimento. Em caso de dúvida, consulte o time Jurídico antes de enviar.",
-  },
-  "Aprovação de Contas": {
-    campos: [
-      { tipo: "upload", nome: "Demonstrativo financeiro do exercício", obrigatorio: true },
-      { tipo: "upload", nome: "Balancete assinado pelo contador", obrigatorio: true },
-      { tipo: "upload", nome: "Parecer do Conselho Fiscal", obrigatorio: false },
-    ],
-  },
-  "Reeleição do Conselho Fiscal": {
-    campos: [
-      {
-        tipo: "texto",
-        nome: "Candidatos indicados para reeleição",
-        obrigatorio: false,
-        label: "Candidatos indicados para reeleição (nomes completos)",
-      },
-      { tipo: "upload", nome: "Ata da última eleição do Conselho Fiscal", obrigatorio: true },
-    ],
-  },
-  "Outro (especificar)": {
-    campos: [
-      {
-        tipo: "upload",
-        nome: "Documentos de apoio",
-        obrigatorio: false,
-        label: "Documentos de apoio (opcional)",
-      },
-    ],
-  },
+// Documentos indispensáveis (só informativo — sem upload no form público)
+export const DOCUMENTOS_INDISPENSAVEIS: Record<string, string[]> = {
+  "Chamada de capital": [
+    "Laudo de avaliação atualizado",
+    "Demonstrativo financeiro",
+  ],
+  "Alteração de projeto": [
+    "Projeto atualizado aprovado",
+    "Memorial descritivo",
+  ],
+  "Apresentação do orçamento executivo": [
+    "Planilha de orçamento executivo",
+  ],
+  "Eleição do Conselho Fiscal": [
+    "Lista de sócios com qualificação completa",
+  ],
+  "Reeleição do Conselho Fiscal": [
+    "Lista de sócios com qualificação completa",
+  ],
+  "AGE de Entrega": [
+    "Habite-se",
+    "AVCB",
+    "Manual do proprietário",
+  ],
+  "Aprovação de Contas": [
+    "Balanço patrimonial",
+    "DRE",
+    "Relatório do auditor",
+  ],
+  "Alteração contratual": [
+    "Minuta da alteração contratual",
+  ],
 };
+
+// Mantido legado (estrutura ainda usada em outros pontos da app, se houver).
+// Form público novo usa DOCUMENTOS_INDISPENSAVEIS.
+export const DOCUMENTOS_POR_ORDEM: Record<string, PautaConfig> = {};
 
 export const UPLOAD_ACCEPT = ".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png";
 export const UPLOAD_MAX_BYTES = 10 * 1024 * 1024;

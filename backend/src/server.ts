@@ -221,7 +221,7 @@ app.post(
     const id = (req as Request & { _solicitacaoId?: string })._solicitacaoId!;
     const b = req.body as Record<string, string | undefined>;
 
-    if (!b.nomeSolicitante || !b.spe || !b.dataPretendida || !b.tipo || !b.departamentoSolicitante) {
+    if (!b.nomeSolicitante || !b.spe || !b.tipo || !b.departamentoSolicitante) {
       return res.status(400).json({ error: "Campos obrigatórios faltando" });
     }
     if (!DEPARTAMENTOS.includes(b.departamentoSolicitante as DepartamentoSolicitante)) {

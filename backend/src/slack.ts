@@ -88,44 +88,44 @@ export function buildSlackPayload(a: Assembleia) {
 
 export function buildSolicitacaoPayload(s: Solicitacao) {
   const tipoLabel = LABEL_TIPO[s.tipo] ?? s.tipo;
-  const pautas = s.ordensDoDia.length
-    ? s.ordensDoDia.map((o) => `• ${o}`).join("\n")
-    : "_(nenhuma pauta marcada)_";
+  const pautas = s.ordensDoDia.length ? s.ordensDoDia.join(", ") : "—";
+  const observacoes = s.observacoes.trim() ? s.observacoes.trim() : "—";
+
+  const linhas = [
+    "🏢 *Nova solicitação de assembleia*",
+    `*SPE:* ${s.spe}`,
+    `*Tipo:* ${s.tipo} — ${tipoLabel}`,
+    `*Ordens do dia:* ${pautas}`,
+    `*Solicitante:* ${s.nomeSolicitante} — ${s.departamentoSolicitante}`,
+    `*Observações:* ${observacoes}`,
+  ];
+  const text = linhas.join("\n");
 
   return {
-    text: `📨 Nova solicitação de assembleia — ${s.spe} (${fmtData(s.dataPretendida)})`,
+    text,
     blocks: [
       {
-        type: "header",
-        text: {
-          type: "plain_text",
-          text: `📨 Nova solicitação de assembleia`,
-          emoji: true,
-        },
+        type: "section",
+        text: { type: "mrkdwn", text: linhas[0] },
       },
       {
         type: "section",
         fields: [
-          { type: "mrkdwn", text: `*Solicitante:*\n${s.nomeSolicitante}` },
-          { type: "mrkdwn", text: `*Departamento:*\n${s.departamentoSolicitante}` },
           { type: "mrkdwn", text: `*SPE:*\n${s.spe}` },
-          { type: "mrkdwn", text: `*Data pretendida:*\n${fmtData(s.dataPretendida)}` },
           { type: "mrkdwn", text: `*Tipo:*\n${s.tipo} — ${tipoLabel}` },
-          { type: "mrkdwn", text: `*Documentos anexados:*\n${s.documentos.length}` },
+          {
+            type: "mrkdwn",
+            text: `*Solicitante:*\n${s.nomeSolicitante} — ${s.departamentoSolicitante}`,
+          },
         ],
       },
       {
         type: "section",
-        text: { type: "mrkdwn", text: `*Pautas selecionadas:*\n${pautas}` },
+        text: { type: "mrkdwn", text: `*Ordens do dia:* ${pautas}` },
       },
       {
-        type: "context",
-        elements: [
-          {
-            type: "mrkdwn",
-            text: `Status inicial: *${s.status}*. Verificar no dashboard interno.`,
-          },
-        ],
+        type: "section",
+        text: { type: "mrkdwn", text: `*Observações:* ${observacoes}` },
       },
     ],
   };
