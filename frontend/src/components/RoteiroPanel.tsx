@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Assembleia, QuorumStatus, Roteiro, RoteiroFormulario } from "../types";
-import { QUORUM_VALORES } from "../types";
+import { QUORUM_CATALOGO, QUORUM_VALORES } from "../types";
 import { deleteRoteiro, gerarRoteiro, getRoteiro } from "../api";
 
 interface Props {
@@ -105,8 +105,8 @@ export function RoteiroPanel({ assembleia }: Props) {
               onChange={(e) => setForm((f) => ({ ...f, secretario: e.target.value }))}
             />
           </div>
-          <div>
-            <label className="field-label">Quórum mínimo atingido?</label>
+          <div className="md:col-span-2">
+            <label className="field-label">Quórum necessário</label>
             <select
               className="field-input"
               value={form.quorum}
@@ -114,10 +114,11 @@ export function RoteiroPanel({ assembleia }: Props) {
             >
               {QUORUM_VALORES.map((q) => (
                 <option key={q} value={q}>
-                  {q === "Atingido" ? "✓ Sim — atingido" : q === "Não atingido" ? "✗ Não atingido" : "? A verificar"}
+                  {QUORUM_CATALOGO[q].titulo}
                 </option>
               ))}
             </select>
+            <QuorumHelp quorum={form.quorum} />
           </div>
           <div className="md:col-span-2">
             <label className="field-label">Observações / instruções especiais</label>
@@ -294,4 +295,29 @@ function splitSections(text: string): { title: string; body: string }[] {
   }
   flush();
   return sections.filter((s) => s.title || s.body);
+}
+
+function QuorumHelp({ quorum }: { quorum: QuorumStatus }) {
+  const info = QUORUM_CATALOGO[quorum];
+  if (!info || quorum === "A verificar") return null;
+  return (
+    <div className="mt-2 rounded-lg border border-line bg-muted/30 p-3 text-xs">
+      <p className="font-medium text-fg">{info.resumo}</p>
+      {info.materias.length > 0 && (
+        <ul className="mt-1.5 space-y-0.5 text-muted-fg">
+          {info.materias.map((m) => (
+            <li key={m} className="flex gap-1.5">
+              <span className="text-[#0048D7]">•</span>
+              <span>{m}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {info.baseLegal && (
+        <p className="mt-1.5 text-[10px] uppercase tracking-wider text-muted-fg">
+          Base legal: {info.baseLegal}
+        </p>
+      )}
+    </div>
+  );
 }

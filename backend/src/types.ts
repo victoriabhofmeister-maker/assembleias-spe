@@ -62,7 +62,13 @@ export interface Solicitacao {
   status: SolicitacaoStatus;
 }
 
-export type QuorumStatus = "Atingido" | "Não atingido" | "A verificar";
+export type QuorumStatus =
+  | "Unanimidade"
+  | "Maioria absoluta"
+  | "Maioria simples"
+  | "Destituição administrador-sócio"
+  | "Exclusão extrajudicial"
+  | "A verificar";
 
 export interface RoteiroFormulario {
   linkApresentacao: string;
@@ -108,12 +114,6 @@ export interface Procuracao {
 
 export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
   {
-    titulo: "Receber solicitação via Pipe",
-    responsavel: "Jurídico",
-    prazo: "Ao receber o pipe",
-    status: "A fazer",
-  },
-  {
     titulo: "Comunicar o PMO da solicitação",
     responsavel: "Jurídico",
     prazo: "No mesmo dia do recebimento",
@@ -123,12 +123,6 @@ export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
     titulo: "Análise da pauta e verificação de deliberações críticas",
     responsavel: "Jurídico + KREMER",
     prazo: "Logo após receber a pauta",
-    status: "A fazer",
-  },
-  {
-    titulo: "Envio no canal ASSEMBLEIAS (Slack)",
-    responsavel: "Jurídico",
-    prazo: "Após análise da pauta",
     status: "A fazer",
   },
   {
@@ -150,6 +144,12 @@ export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
     status: "A fazer",
   },
 ];
+
+// Títulos legados (7 etapas) — usados pra detectar e migrar registros antigos
+export const CHECKLIST_LEGACY_TITLES = new Set<string>([
+  "Receber solicitação via Pipe",
+  "Envio no canal ASSEMBLEIAS (Slack)",
+]);
 
 export const SPES_DISPONIVEIS: string[] = [
   "Barra Grande Spot",

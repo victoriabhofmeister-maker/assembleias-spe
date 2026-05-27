@@ -1,9 +1,11 @@
 import { useMemo, useState } from "react";
 import {
   DEPARTAMENTOS,
+  AVISO_PAUTA_CRITICA,
   DOCUMENTOS_INDISPENSAVEIS,
   ORDEM_LABEL_COMPLETO,
   ORDENS_DO_DIA,
+  PAUTAS_CRITICAS,
   SPES_DISPONIVEIS,
   TIPOS,
   TIPO_DESCRICAO,
@@ -222,6 +224,26 @@ export function SolicitacaoForm() {
                 </div>
               )}
             </div>
+
+            {form.ordensDoDia.some((o) => PAUTAS_CRITICAS.has(o)) && (
+              <div className="md:col-span-2 space-y-2">
+                {form.ordensDoDia
+                  .filter((o) => PAUTAS_CRITICAS.has(o))
+                  .map((o) => (
+                    <div
+                      key={o}
+                      className="rounded-lg border-2 border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-900 dark:text-amber-200"
+                    >
+                      <strong className="block mb-1 text-amber-700 dark:text-amber-200">
+                        {labelOrdem(o)}
+                      </strong>
+                      <p className="text-xs leading-relaxed">
+                        {AVISO_PAUTA_CRITICA[o]}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            )}
 
             {docsIndispensaveis.length > 0 && (
               <div className="md:col-span-2 rounded-lg border border-[#0048D7]/30 bg-[#0048D7]/[0.06] p-4">

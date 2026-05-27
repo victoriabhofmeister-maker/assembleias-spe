@@ -27,7 +27,7 @@ DADOS DA ASSEMBLEIA:
 - Data: ${fmtData(a.data)}
 - Presidente da mesa: ${f.presidente || "_não informado_"}
 - Secretário(a): ${f.secretario || "_não informado_"}
-- Quórum mínimo atingido: ${f.quorum}
+- Quórum necessário: ${f.quorum}
 - Departamentos envolvidos: ${a.dptosEnvolvidos || "—"}
 - Responsável Seazone: ${a.responsavel || "_não informado_"}
 - Ordens do dia: ${ordens}

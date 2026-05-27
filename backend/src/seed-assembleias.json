@@ -15,12 +15,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -30,12 +24,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -74,12 +62,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -89,12 +71,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -133,12 +109,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -148,12 +118,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -192,12 +156,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -207,12 +165,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -251,12 +203,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -266,12 +212,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -310,12 +250,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -325,12 +259,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -369,12 +297,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -384,12 +306,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -428,12 +344,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -443,12 +353,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -487,12 +391,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -502,12 +400,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -546,12 +438,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -561,12 +447,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -605,12 +485,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -620,12 +494,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -664,12 +532,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -679,12 +541,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -723,12 +579,6 @@
     "responsavel": "",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "Concluído"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -738,12 +588,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -782,12 +626,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -797,12 +635,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -841,12 +673,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -856,12 +682,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -900,12 +720,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -915,12 +729,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -959,12 +767,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -974,12 +776,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1018,12 +814,6 @@
     "responsavel": "PMO",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1033,12 +823,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1077,12 +861,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1092,12 +870,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1136,12 +908,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1151,12 +917,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1195,12 +955,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1210,12 +964,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1254,12 +1002,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1269,12 +1011,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1313,12 +1049,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1328,12 +1058,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1372,12 +1096,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1387,12 +1105,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1431,12 +1143,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1446,12 +1152,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1490,12 +1190,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1505,12 +1199,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1549,12 +1237,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1564,12 +1246,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1608,12 +1284,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1623,12 +1293,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1667,12 +1331,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1682,12 +1340,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1726,12 +1378,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1741,12 +1387,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1785,12 +1425,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1800,12 +1434,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1844,12 +1472,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1859,12 +1481,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1903,12 +1519,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1918,12 +1528,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -1962,12 +1566,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -1977,12 +1575,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2021,12 +1613,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2036,12 +1622,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2080,12 +1660,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2095,12 +1669,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2139,12 +1707,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2154,12 +1716,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2198,12 +1754,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2213,12 +1763,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2257,12 +1801,6 @@
     "responsavel": "Sabrina",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2272,12 +1810,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2316,12 +1848,6 @@
     "responsavel": "Victória",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2331,12 +1857,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {
@@ -2375,12 +1895,6 @@
     "responsavel": "Mariele",
     "checklist": [
       {
-        "titulo": "Receber solicitação via Pipe",
-        "responsavel": "Jurídico",
-        "prazo": "Ao receber o pipe",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
@@ -2390,12 +1904,6 @@
         "titulo": "Análise da pauta e verificação de deliberações críticas",
         "responsavel": "Jurídico + KREMER",
         "prazo": "Logo após receber a pauta",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
-        "responsavel": "Jurídico",
-        "prazo": "Após análise da pauta",
         "status": "A fazer"
       },
       {

@@ -182,32 +182,28 @@ export function buildSlackPayloadEtapa(
     elements: [{ type: "mrkdwn", text }],
   });
 
+  // Checklist agora tem 5 etapas (índices 0-4):
+  // 0 = Comunicar o PMO da solicitação
+  // 1 = Análise da pauta e verificação de deliberações críticas
+  // 2 = Elaborar apresentação da assembleia
+  // 3 = Comunicar documentos faltantes
+  // 4 = Convocar a assembleia (prazo mínimo 10 dias) / Confirmar participação
   switch (etapaIndex) {
     case 0:
-      return {
-        text: `📥 Nova solicitação de assembleia — ${spe} (${data})`,
-        blocks: [
-          section("📥 *Nova solicitação de assembleia recebida*"),
-          section(
-            `> *SPE:* ${spe}\n> *Tipo:* ${tipo}\n> *Data prevista:* ${data}\n` +
-              `> *Pauta(s):* ${pauta}\n> *Dpto solicitante:* ${dptos}\n` +
-              `> *PMO ciente?* A verificar\n> *Deliberação crítica?* A verificar`,
-          ),
-          ctx(`Responsável Seazone: ${responsavel}`),
-        ],
-      };
-    case 1:
       return {
         text: `📢 PMO comunicado — ${dadosLinha(a)}`,
         blocks: [
           section("📢 *PMO comunicado sobre a assembleia*"),
           section(
             `> *SPE:* ${dadosLinha(a)}\n` +
+              `> *Pauta(s):* ${pauta}\n` +
+              `> *Dpto solicitante:* ${dptos}\n` +
               `> O PMO foi notificado no canal PMO-JURÍDICO e na daily.`,
           ),
+          ctx(`Responsável Seazone: ${responsavel}`),
         ],
       };
-    case 2:
+    case 1:
       return {
         text: `🔍 Análise de pauta concluída — ${dadosLinha(a)}`,
         blocks: [
@@ -218,34 +214,7 @@ export function buildSlackPayloadEtapa(
           ),
         ],
       };
-    case 3:
-      return {
-        text: `📋 Abertura de ticket — ${spe}`,
-        blocks: [
-          section(`📋 *Abertura de ticket — ${spe}*`),
-          { type: "divider" },
-          section("*SEÇÃO 1 — ABERTURA DO TICKET*"),
-          section(
-            `> *SPE / Empreendimento:* ${spe}\n> *Tipo de Assembleia:* ${tipo}\n` +
-              `> *Data Prevista:* ${data}\n> *Dpto Solicitante:* ${dptos}\n` +
-              `> *Pauta(s):* ${pauta}\n> *Responsável Seazone:* ${responsavel}`,
-          ),
-          { type: "divider" },
-          section("*SEÇÃO 2 — DOCUMENTOS NECESSÁRIOS*"),
-          section(
-            "> Os documentos obrigatórios foram verificados e comunicados ao departamento solicitante.",
-          ),
-          { type: "divider" },
-          section("*SEÇÃO 3 — EDITAL*"),
-          section(
-            `> Edital: a enviar\n> Data da Assembleia: ${data} — Prazo mínimo: 10 dias após envio do edital`,
-          ),
-          ctx(
-            "⚠️ *ATENÇÃO — DOCUMENTOS FALTANTES: SEM ESTES NÃO CONVOCAREMOS A ASSEMBLEIA*",
-          ),
-        ],
-      };
-    case 4:
+    case 2:
       return {
         text: `🖥️ Apresentação elaborada — ${dadosLinha(a)}`,
         blocks: [
@@ -256,7 +225,7 @@ export function buildSlackPayloadEtapa(
           ),
         ],
       };
-    case 5:
+    case 3:
       return {
         text: `📎 Documentos verificados — ${dadosLinha(a)}`,
         blocks: [
@@ -267,7 +236,7 @@ export function buildSlackPayloadEtapa(
           ),
         ],
       };
-    case 6: {
+    case 4: {
       const temEditalTipo = tipo === "AGE" || tipo === "AGO";
       if (temEditalTipo) {
         return {

@@ -3,10 +3,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import {
+  CHECKLIST_LEGACY_TITLES,
   CHECKLIST_TEMPLATE,
   PROCURACOES_INICIAIS,
   SPES_DISPONIVEIS,
   type Assembleia,
+  type ChecklistItem,
   type Procuracao,
   type Roteiro,
   type Solicitacao,
@@ -45,12 +47,40 @@ async function writeJson<T>(file: string, rows: T[]): Promise<void> {
   await fs.writeFile(file, JSON.stringify(rows, null, 2), "utf8");
 }
 
+function migrateChecklist(checklist: ChecklistItem[] | undefined): {
+  next: ChecklistItem[];
+  changed: boolean;
+} {
+  if (!Array.isArray(checklist) || checklist.length === 0) {
+    return { next: CHECKLIST_TEMPLATE.map((c) => ({ ...c })), changed: true };
+  }
+  // Remove etapas legadas (Pipe + canal Slack) preservando os demais status
+  const filtered = checklist.filter((c) => !CHECKLIST_LEGACY_TITLES.has(c.titulo));
+  if (filtered.length !== checklist.length) {
+    // Para cada item do template novo, tenta achar pelo título; senão, mantém "A fazer"
+    const byTitulo = new Map(filtered.map((c) => [c.titulo, c] as const));
+    const next = CHECKLIST_TEMPLATE.map((tpl) => {
+      const existing = byTitulo.get(tpl.titulo);
+      return existing
+        ? { ...tpl, status: existing.status }
+        : { ...tpl };
+    });
+    return { next, changed: true };
+  }
+  // Se já tem só as 5, garante que estão no template oficial (em caso de drift)
+  if (checklist.length === CHECKLIST_TEMPLATE.length) {
+    return { next: checklist, changed: false };
+  }
+  return { next: checklist, changed: false };
+}
+
 export async function readAssembleias(): Promise<Assembleia[]> {
   const rows = await readJson<Assembleia>(ASSEMBLEIAS_FILE);
   let mutated = false;
   for (const a of rows) {
-    if (!Array.isArray(a.checklist) || a.checklist.length === 0) {
-      a.checklist = CHECKLIST_TEMPLATE.map((c) => ({ ...c }));
+    const { next, changed } = migrateChecklist(a.checklist);
+    if (changed) {
+      a.checklist = next;
       mutated = true;
     }
   }

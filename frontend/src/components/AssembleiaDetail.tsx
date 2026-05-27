@@ -8,7 +8,8 @@ import { RoteiroPanel } from "./RoteiroPanel";
 type Tab = "checklist" | "roteiro";
 
 function etapaParaTipo(c: ChecklistItem, idx: number, tipo: TipoAssembleia): ChecklistItem {
-  if (idx !== 6) return c;
+  // Última etapa do checklist (índice 4 das 5) é condicional por tipo
+  if (idx !== 4) return c;
   if (temEdital(tipo)) return c;
   return {
     ...c,

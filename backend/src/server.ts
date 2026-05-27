@@ -358,7 +358,14 @@ app.patch("/api/procuracoes/:id", async (req: Request, res: Response) => {
   res.json(updated);
 });
 
-const QUORUM_VALS: QuorumStatus[] = ["Atingido", "Não atingido", "A verificar"];
+const QUORUM_VALS: QuorumStatus[] = [
+  "Unanimidade",
+  "Maioria absoluta",
+  "Maioria simples",
+  "Destituição administrador-sócio",
+  "Exclusão extrajudicial",
+  "A verificar",
+];
 
 function validateRoteiroForm(body: unknown): RoteiroFormulario | null {
   if (!body || typeof body !== "object") return null;
