@@ -3,6 +3,7 @@ import type {
   AssembleiaInput,
   ChecklistStatus,
   Procuracao,
+  Relatorio,
   Roteiro,
   RoteiroFormulario,
   Solicitacao,
@@ -45,6 +46,48 @@ export async function updateChecklist(
   const body = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(body?.error ?? `PATCH falhou: ${res.status}`);
   return body as Assembleia;
+}
+
+export async function updateChecklistPos(
+  id: string,
+  index: number,
+  status: ChecklistStatus,
+): Promise<Assembleia> {
+  const res = await fetch(`${BASE}/assembleias/${id}/checklist-pos/${index}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status }),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `PATCH falhou: ${res.status}`);
+  return body as Assembleia;
+}
+
+export async function getRelatorio(assembleiaId: string): Promise<Relatorio | null> {
+  const res = await fetch(`${BASE}/assembleias/${assembleiaId}/relatorio`);
+  if (!res.ok) throw new Error(`GET relatório falhou: ${res.status}`);
+  return res.json();
+}
+
+export async function gerarRelatorio(
+  assembleiaId: string,
+  transcricao: string,
+): Promise<Relatorio> {
+  const res = await fetch(`${BASE}/assembleias/${assembleiaId}/relatorio/gerar`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ transcricao }),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `Geração falhou: ${res.status}`);
+  return body as Relatorio;
+}
+
+export async function deleteRelatorio(assembleiaId: string): Promise<void> {
+  const res = await fetch(`${BASE}/assembleias/${assembleiaId}/relatorio`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error(`DELETE relatório falhou: ${res.status}`);
 }
 
 export async function listSolicitacoes(): Promise<Solicitacao[]> {

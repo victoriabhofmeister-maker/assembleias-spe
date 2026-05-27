@@ -24,9 +24,13 @@ export interface Assembleia {
   criticidade: Criticidade;
   responsavel: string;
   checklist: ChecklistItem[];
+  checklistPos: ChecklistItem[];
 }
 
-export type AssembleiaInput = Omit<Assembleia, "id" | "createdAt" | "checklist">;
+export type AssembleiaInput = Omit<
+  Assembleia,
+  "id" | "createdAt" | "checklist" | "checklistPos"
+>;
 
 export type DepartamentoSolicitante = "Engenharia" | "Financeiro" | "Jurídico" | "PMO" | "Outros";
 export type SolicitacaoStatus = "Pendente de análise" | "Em análise" | "Aprovada" | "Rejeitada";
@@ -159,6 +163,13 @@ export interface Roteiro {
   assembleiaId: string;
   formulario: RoteiroFormulario;
   roteiro: string;
+  geradoEm: string;
+}
+
+export interface Relatorio {
+  assembleiaId: string;
+  transcricao: string;
+  relatorio: string;
   geradoEm: string;
 }
 

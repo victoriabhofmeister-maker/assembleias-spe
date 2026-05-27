@@ -4,12 +4,14 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import {
   CHECKLIST_LEGACY_TITLES,
+  CHECKLIST_POS_TEMPLATE,
   CHECKLIST_TEMPLATE,
   PROCURACOES_INICIAIS,
   SPES_DISPONIVEIS,
   type Assembleia,
   type ChecklistItem,
   type Procuracao,
+  type Relatorio,
   type Roteiro,
   type Solicitacao,
 } from "./types.js";
@@ -20,6 +22,7 @@ const ASSEMBLEIAS_FILE = path.join(DATA_DIR, "assembleias.json");
 const SOLICITACOES_FILE = path.join(DATA_DIR, "solicitacoes.json");
 const PROCURACOES_FILE = path.join(DATA_DIR, "procuracoes.json");
 const ROTEIROS_FILE = path.join(DATA_DIR, "roteiros.json");
+const RELATORIOS_FILE = path.join(DATA_DIR, "relatorios.json");
 export const UPLOADS_DIR = path.join(DATA_DIR, "uploads");
 
 async function ensureFile(file: string, initial: string): Promise<void> {
@@ -54,23 +57,37 @@ function migrateChecklist(checklist: ChecklistItem[] | undefined): {
   if (!Array.isArray(checklist) || checklist.length === 0) {
     return { next: CHECKLIST_TEMPLATE.map((c) => ({ ...c })), changed: true };
   }
-  // Remove etapas legadas (Pipe + canal Slack) preservando os demais status
+  // Remove etapas legadas preservando os demais status
   const filtered = checklist.filter((c) => !CHECKLIST_LEGACY_TITLES.has(c.titulo));
-  if (filtered.length !== checklist.length) {
-    // Para cada item do template novo, tenta achar pelo título; senão, mantém "A fazer"
-    const byTitulo = new Map(filtered.map((c) => [c.titulo, c] as const));
-    const next = CHECKLIST_TEMPLATE.map((tpl) => {
-      const existing = byTitulo.get(tpl.titulo);
-      return existing
-        ? { ...tpl, status: existing.status }
-        : { ...tpl };
-    });
-    return { next, changed: true };
+  const byTitulo = new Map(filtered.map((c) => [c.titulo, c] as const));
+  // Sincroniza com o template atual (pode ter sido expandido)
+  let needsRewrite = filtered.length !== checklist.length;
+  const next = CHECKLIST_TEMPLATE.map((tpl) => {
+    const existing = byTitulo.get(tpl.titulo);
+    if (!existing) needsRewrite = true; // etapa nova adicionada ao template
+    return existing ? { ...tpl, status: existing.status } : { ...tpl };
+  });
+  if (filtered.length !== CHECKLIST_TEMPLATE.length) needsRewrite = true;
+  if (needsRewrite) return { next, changed: true };
+  return { next: checklist, changed: false };
+}
+
+function migrateChecklistPos(checklist: ChecklistItem[] | undefined): {
+  next: ChecklistItem[];
+  changed: boolean;
+} {
+  if (!Array.isArray(checklist) || checklist.length === 0) {
+    return { next: CHECKLIST_POS_TEMPLATE.map((c) => ({ ...c })), changed: true };
   }
-  // Se já tem só as 5, garante que estão no template oficial (em caso de drift)
-  if (checklist.length === CHECKLIST_TEMPLATE.length) {
-    return { next: checklist, changed: false };
-  }
+  const byTitulo = new Map(checklist.map((c) => [c.titulo, c] as const));
+  let needsRewrite = false;
+  const next = CHECKLIST_POS_TEMPLATE.map((tpl) => {
+    const existing = byTitulo.get(tpl.titulo);
+    if (!existing) needsRewrite = true;
+    return existing ? { ...tpl, status: existing.status } : { ...tpl };
+  });
+  if (checklist.length !== CHECKLIST_POS_TEMPLATE.length) needsRewrite = true;
+  if (needsRewrite) return { next, changed: true };
   return { next: checklist, changed: false };
 }
 
@@ -78,9 +95,14 @@ export async function readAssembleias(): Promise<Assembleia[]> {
   const rows = await readJson<Assembleia>(ASSEMBLEIAS_FILE);
   let mutated = false;
   for (const a of rows) {
-    const { next, changed } = migrateChecklist(a.checklist);
-    if (changed) {
-      a.checklist = next;
+    const pre = migrateChecklist(a.checklist);
+    if (pre.changed) {
+      a.checklist = pre.next;
+      mutated = true;
+    }
+    const pos = migrateChecklistPos(a.checklistPos);
+    if (pos.changed) {
+      a.checklistPos = pos.next;
       mutated = true;
     }
   }
@@ -299,6 +321,41 @@ export async function resetData(): Promise<void> {
   } catch {
     /* ignore */
   }
+}
+
+async function readRelatoriosMap(): Promise<Record<string, Relatorio>> {
+  await ensureFile(RELATORIOS_FILE, "{}");
+  const raw = await fs.readFile(RELATORIOS_FILE, "utf8");
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+async function writeRelatoriosMap(map: Record<string, Relatorio>): Promise<void> {
+  await ensureFile(RELATORIOS_FILE, "{}");
+  await fs.writeFile(RELATORIOS_FILE, JSON.stringify(map, null, 2), "utf8");
+}
+
+export async function readRelatorio(assembleiaId: string): Promise<Relatorio | null> {
+  const map = await readRelatoriosMap();
+  return map[assembleiaId] ?? null;
+}
+
+export async function saveRelatorio(relatorio: Relatorio): Promise<void> {
+  const map = await readRelatoriosMap();
+  map[relatorio.assembleiaId] = relatorio;
+  await writeRelatoriosMap(map);
+}
+
+export async function deleteRelatorio(assembleiaId: string): Promise<boolean> {
+  const map = await readRelatoriosMap();
+  if (!map[assembleiaId]) return false;
+  delete map[assembleiaId];
+  await writeRelatoriosMap(map);
+  return true;
 }
 
 export async function deleteRoteiro(assembleiaId: string): Promise<boolean> {

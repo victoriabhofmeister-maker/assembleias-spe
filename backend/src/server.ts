@@ -17,19 +17,27 @@ import {
 import {
   appendAssembleia,
   appendSolicitacao,
+  deleteRelatorio,
   deleteRoteiro,
   readAssembleias,
   readProcuracoes,
+  readRelatorio,
   readRoteiro,
   readSolicitacoes,
   resetData,
+  saveRelatorio,
   saveRoteiro,
   updateAssembleia,
   updateProcuracao,
   UPLOADS_DIR,
 } from "./storage.js";
-import { sendAssembleiaToSlack, sendEtapaToSlack, sendSolicitacaoToSlack } from "./slack.js";
-import { gerarRoteiroIA } from "./anthropic.js";
+import {
+  sendAssembleiaToSlack,
+  sendEtapaPosToSlack,
+  sendEtapaToSlack,
+  sendSolicitacaoToSlack,
+} from "./slack.js";
+import { gerarRelatorioAtaIA, gerarRoteiroIA } from "./anthropic.js";
 import {
   CHECKLIST_TEMPLATE,
   type Assembleia,
@@ -40,6 +48,7 @@ import {
   type DocumentoUpload,
   type Indicacao,
   type QuorumStatus,
+  type Relatorio,
   type Roteiro,
   type RoteiroFormulario,
   type Solicitacao,
@@ -204,6 +213,37 @@ app.patch("/api/assembleias/:id/checklist/:index", async (req: Request, res: Res
 
   res.json(updated);
 });
+
+app.patch(
+  "/api/assembleias/:id/checklist-pos/:index",
+  async (req: Request, res: Response) => {
+    const { id, index } = req.params;
+    const i = Number(index);
+    const status = (req.body?.status ?? "") as ChecklistStatus;
+    if (!STATUS_CHECKLIST.includes(status)) {
+      return res.status(400).json({ error: "Status inválido" });
+    }
+    let mudouParaConcluido = false;
+    const updated = await updateAssembleia(id, (a) => {
+      if (!Number.isInteger(i) || i < 0 || i >= a.checklistPos.length) return a;
+      const before = a.checklistPos[i].status;
+      a.checklistPos[i] = { ...a.checklistPos[i], status };
+      if (status === "Concluído" && before !== "Concluído") mudouParaConcluido = true;
+      return a;
+    });
+    if (!updated) return res.status(404).json({ error: "Assembleia não encontrada" });
+
+    if (mudouParaConcluido) {
+      sendEtapaPosToSlack(i, updated).then((r) => {
+        if (!r.ok) console.error(`[seazone] Slack etapa pós ${i + 1} falhou:`, r.error);
+      }).catch((err) => {
+        console.error(`[seazone] Slack etapa pós ${i + 1} erro:`, err);
+      });
+    }
+
+    res.json(updated);
+  },
+);
 
 app.get("/api/solicitacoes", async (_req: Request, res: Response) => {
   const rows = await readSolicitacoes();
@@ -409,6 +449,36 @@ app.post("/api/assembleias/:id/roteiro/gerar", async (req: Request, res: Respons
 
 app.delete("/api/assembleias/:id/roteiro", async (req: Request, res: Response) => {
   const ok = await deleteRoteiro(req.params.id);
+  res.json({ ok });
+});
+
+// === Relatório de ata pós-assembleia ===
+app.get("/api/assembleias/:id/relatorio", async (req: Request, res: Response) => {
+  const r = await readRelatorio(req.params.id);
+  res.json(r);
+});
+
+app.post("/api/assembleias/:id/relatorio/gerar", async (req: Request, res: Response) => {
+  const transcricao = String((req.body as { transcricao?: unknown })?.transcricao ?? "");
+  const rows = await readAssembleias();
+  const assembleia = rows.find((a) => a.id === req.params.id);
+  if (!assembleia) return res.status(404).json({ error: "Assembleia não encontrada" });
+
+  const result = await gerarRelatorioAtaIA(assembleia, transcricao);
+  if (!result.ok) return res.status(502).json({ error: result.error });
+
+  const relatorio: Relatorio = {
+    assembleiaId: assembleia.id,
+    transcricao,
+    relatorio: result.texto,
+    geradoEm: new Date().toISOString(),
+  };
+  await saveRelatorio(relatorio);
+  res.status(201).json(relatorio);
+});
+
+app.delete("/api/assembleias/:id/relatorio", async (req: Request, res: Response) => {
+  const ok = await deleteRelatorio(req.params.id);
   res.json({ ok });
 });
 

@@ -24,9 +24,10 @@ export interface Assembleia {
   criticidade: Criticidade;
   responsavel: string;
   checklist: ChecklistItem[];
+  checklistPos: ChecklistItem[];
 }
 
-export type AssembleiaInput = Omit<Assembleia, "id" | "createdAt" | "checklist">;
+export type AssembleiaInput = Omit<Assembleia, "id" | "createdAt" | "checklist" | "checklistPos">;
 
 export type DepartamentoSolicitante = "Engenharia" | "Financeiro" | "Jurídico" | "PMO" | "Outros";
 export type SolicitacaoStatus = "Pendente de análise" | "Em análise" | "Aprovada" | "Rejeitada";
@@ -82,6 +83,13 @@ export interface Roteiro {
   assembleiaId: string;
   formulario: RoteiroFormulario;
   roteiro: string;
+  geradoEm: string;
+}
+
+export interface Relatorio {
+  assembleiaId: string;
+  transcricao: string;
+  relatorio: string;
   geradoEm: string;
 }
 
@@ -143,9 +151,49 @@ export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
     prazo: "Mínimo 10 dias antes da assembleia",
     status: "A fazer",
   },
+  {
+    titulo: "Agendar reunião prévia de alinhamento",
+    responsavel: "Jurídico + PMO",
+    prazo: "48h antes da assembleia",
+    status: "A fazer",
+  },
+  {
+    titulo: "Realizar reunião prévia de alinhamento",
+    responsavel: "Jurídico + PMO",
+    prazo: "48h antes da assembleia",
+    status: "A fazer",
+  },
 ];
 
-// Títulos legados (7 etapas) — usados pra detectar e migrar registros antigos
+// Checklist pós-assembleia (executado após a realização)
+export const CHECKLIST_POS_TEMPLATE: ChecklistItem[] = [
+  {
+    titulo: "Enviar comunicado/resumo no Slack",
+    responsavel: "Jurídico",
+    prazo: "Até 24h após a assembleia",
+    status: "A fazer",
+  },
+  {
+    titulo: "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+    responsavel: "Jurídico",
+    prazo: "Até 72h após a assembleia",
+    status: "A fazer",
+  },
+  {
+    titulo: "Enviar ata para validação dos investidores",
+    responsavel: "Jurídico",
+    prazo: "3 dias úteis para validação",
+    status: "A fazer",
+  },
+  {
+    titulo: "Abrir suporte no CSI para assinatura da ata pelos investidores",
+    responsavel: "Jurídico + CSI",
+    prazo: "Até 48h após término da validação",
+    status: "A fazer",
+  },
+];
+
+// Títulos legados (etapas que foram removidas em refatorações anteriores)
 export const CHECKLIST_LEGACY_TITLES = new Set<string>([
   "Receber solicitação via Pipe",
   "Envio no canal ASSEMBLEIAS (Slack)",

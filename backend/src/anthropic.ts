@@ -5,6 +5,92 @@ import {
   type RoteiroFormulario,
 } from "./types.js";
 
+function buildPromptRelatorio(a: Assembleia, transcricao: string): string {
+  const tipoExtenso = TIPO_POR_EXTENSO[a.tipo] ?? a.tipo;
+  return `Você é um assistente jurídico especializado em assembleias de SPEs (Sociedades de Propósito Específico) do setor imobiliário brasileiro.
+
+Analise a transcrição abaixo de uma assembleia já realizada e produza um RELATÓRIO PÓS-ASSEMBLEIA estruturado, conciso e útil pro time Jurídico/PMO.
+
+DADOS DA ASSEMBLEIA:
+- SPE / Empreendimento: ${a.spe}
+- Tipo: ${a.tipo} (${tipoExtenso})
+- Data: ${fmtData(a.data)}
+- Responsável Seazone: ${a.responsavel || "_não informado_"}
+- Ordem do dia originalmente prevista: ${a.ordemDoDia || "_não informada_"}
+
+TRANSCRIÇÃO:
+"""
+${transcricao}
+"""
+
+Produza o relatório nas seguintes seções, na ordem:
+
+═══════════════════════════════
+SEÇÃO 1 — RESUMO EXECUTIVO
+═══════════════════════════════
+Em 2-3 parágrafos: o que aconteceu na assembleia, quem participou (se citado), tom geral da reunião.
+
+═══════════════════════════════
+SEÇÃO 2 — DELIBERAÇÕES TOMADAS
+═══════════════════════════════
+Lista enumerada de cada deliberação. Pra cada uma:
+- Pauta deliberada
+- Resultado da votação (a favor / contra / abstenção, se mencionado)
+- Quórum atingido (se mencionado)
+- Status: APROVADA / REJEITADA / ADIADA
+
+═══════════════════════════════
+SEÇÃO 3 — COMPROMISSOS E PRÓXIMOS PASSOS
+═══════════════════════════════
+Lista de tarefas que ficaram pendentes, com responsável (se identificado) e prazo (se mencionado).
+
+═══════════════════════════════
+SEÇÃO 4 — PONTOS DE ATENÇÃO PRO JURÍDICO
+═══════════════════════════════
+Riscos identificados, dúvidas técnicas, divergências entre sócios, qualquer coisa que peça ação do Jurídico.
+
+═══════════════════════════════
+SEÇÃO 5 — PAUTAS NÃO TRATADAS (se houver)
+═══════════════════════════════
+Comparar a "Ordem do dia originalmente prevista" com as pautas efetivamente deliberadas. Listar o que foi pulado ou adiado.
+
+Retorne APENAS o relatório, sem comentários adicionais. Use formatação clara com títulos das seções em MAIÚSCULAS e separadores visuais. Tom: profissional, direto, sem encheção.`;
+}
+
+export async function gerarRelatorioAtaIA(
+  a: Assembleia,
+  transcricao: string,
+): Promise<{ ok: true; texto: string } | { ok: false; error: string }> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return {
+      ok: false,
+      error:
+        "ANTHROPIC_API_KEY não configurada no .env do backend. Adicione a chave e reinicie o servidor.",
+    };
+  }
+  if (!transcricao || transcricao.trim().length < 50) {
+    return { ok: false, error: "Transcrição muito curta (mínimo 50 caracteres)." };
+  }
+  const client = new Anthropic({ apiKey });
+  try {
+    const response = await client.messages.create({
+      model: "claude-3-5-sonnet-20241022",
+      max_tokens: 4000,
+      messages: [{ role: "user", content: buildPromptRelatorio(a, transcricao) }],
+    });
+    const texto = response.content
+      .filter((b): b is Anthropic.TextBlock => b.type === "text")
+      .map((b) => b.text)
+      .join("\n");
+    if (!texto.trim()) return { ok: false, error: "Resposta vazia da API" };
+    return { ok: true, texto };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return { ok: false, error: `Falha na API Anthropic: ${msg}` };
+  }
+}
+
 function fmtData(iso: string): string {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");

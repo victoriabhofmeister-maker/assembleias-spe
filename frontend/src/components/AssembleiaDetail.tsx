@@ -1,14 +1,15 @@
 import { useRef, useState } from "react";
 import type { Assembleia, ChecklistItem, ChecklistStatus, TipoAssembleia } from "../types";
 import { PONTOS_FOCAIS, STATUS_CHECKLIST, TIPO_DESCRICAO, temEdital } from "../types";
-import { updateChecklist } from "../api";
+import { updateChecklist, updateChecklistPos } from "../api";
 import { fmtData, progressoChecklist } from "../utils";
 import { RoteiroPanel } from "./RoteiroPanel";
+import { AtaPanel } from "./AtaPanel";
 
-type Tab = "checklist" | "roteiro";
+type Tab = "checklist" | "roteiro" | "ata";
 
 function etapaParaTipo(c: ChecklistItem, idx: number, tipo: TipoAssembleia): ChecklistItem {
-  // Última etapa do checklist (índice 4 das 5) é condicional por tipo
+  // Etapa "Convocar a assembleia" (índice 4 das 7) é condicional por tipo
   if (idx !== 4) return c;
   if (temEdital(tipo)) return c;
   return {
@@ -104,21 +105,35 @@ export function AssembleiaDetail({ assembleia, onClose, onChange }: Props) {
           <TabButton active={tab === "roteiro"} onClick={() => setTab("roteiro")}>
             📋 Roteiro
           </TabButton>
+          <TabButton active={tab === "ata"} onClick={() => setTab("ata")}>
+            📝 Ata
+          </TabButton>
         </div>
 
         <div className="p-6">
-          {tab === "roteiro" ? (
-            <RoteiroPanel assembleia={a} />
-          ) : (
-            <>
-              <ChecklistSection
-                a={a}
-                changeStatus={changeStatus}
-                savingIdx={savingIdx}
-                error={error}
-                onPrint={() => window.print()}
-              />
-            </>
+          {tab === "roteiro" && <RoteiroPanel assembleia={a} />}
+          {tab === "ata" && <AtaPanel assembleia={a} />}
+          {tab === "checklist" && (
+            <ChecklistSection
+              a={a}
+              changeStatus={changeStatus}
+              changeStatusPos={async (idx, status) => {
+                setSavingIdx(idx + 100);
+                setError(null);
+                try {
+                  const updated = await updateChecklistPos(a.id, idx, status);
+                  setA(updated);
+                  onChange(updated);
+                } catch (err) {
+                  setError(err instanceof Error ? err.message : String(err));
+                } finally {
+                  setSavingIdx(null);
+                }
+              }}
+              savingIdx={savingIdx}
+              error={error}
+              onPrint={() => window.print()}
+            />
           )}
         </div>
       </div>
@@ -129,17 +144,21 @@ export function AssembleiaDetail({ assembleia, onClose, onChange }: Props) {
 function ChecklistSection({
   a,
   changeStatus,
+  changeStatusPos,
   savingIdx,
   error,
   onPrint,
 }: {
   a: Assembleia;
   changeStatus: (i: number, s: ChecklistStatus) => Promise<void>;
+  changeStatusPos: (i: number, s: ChecklistStatus) => Promise<void>;
   savingIdx: number | null;
   error: string | null;
   onPrint: () => void;
 }) {
   const prog = progressoChecklist(a);
+  const pos = a.checklistPos ?? [];
+  const posDone = pos.filter((c) => c.status === "Concluído").length;
 
   return (
     <div className="space-y-6 print-doc">
@@ -228,6 +247,82 @@ function ChecklistSection({
           );
         })}
       </ol>
+
+      {/* Checklist pós-assembleia */}
+      {pos.length > 0 && (
+        <div className="pt-2">
+          <div className="no-print mb-3 flex items-end justify-between">
+            <div>
+              <p className="text-eyebrow">Pós-assembleia</p>
+              <h3 className="text-display text-lg font-bold">
+                {posDone}/{pos.length} concluídas
+              </h3>
+              <p className="text-xs text-muted-fg mt-0.5">
+                Execução depois que a assembleia foi realizada.
+              </p>
+            </div>
+          </div>
+          <ol className="space-y-2.5 print-section">
+            {pos.map((c, i) => {
+              const done = c.status === "Concluído";
+              const inProgress = c.status === "Em andamento";
+              return (
+                <li
+                  key={i}
+                  className={`flex items-start gap-4 rounded-xl border p-4 transition ${
+                    done
+                      ? "border-emerald-500/30 bg-emerald-500/[0.04]"
+                      : inProgress
+                        ? "border-amber-500/30 bg-amber-500/[0.04]"
+                        : "border-line bg-card"
+                  }`}
+                >
+                  <span
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                      done
+                        ? "bg-emerald-500 text-white"
+                        : inProgress
+                          ? "bg-amber-500 text-white"
+                          : "bg-[#0048D7]/15 text-[#0048D7]"
+                    }`}
+                  >
+                    {done ? "✓" : `P${i + 1}`}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="text-sm font-medium text-fg">{c.titulo}</p>
+                      {done && (
+                        <span
+                          title="Notificação enviada ao Slack"
+                          aria-label="Notificação enviada ao Slack"
+                          className="text-sm cursor-help select-none"
+                        >
+                          💬
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-0.5 text-xs text-muted-fg">
+                      <span className="font-medium text-fg">{c.responsavel}</span> · {c.prazo}
+                    </p>
+                  </div>
+                  <select
+                    value={c.status}
+                    disabled={savingIdx === i + 100}
+                    onChange={(e) => changeStatusPos(i, e.target.value as ChecklistStatus)}
+                    className="no-print rounded-md border border-line bg-card px-2 py-1 text-xs focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  >
+                    {STATUS_CHECKLIST.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      )}
 
       <div className="rounded-xl border-2 border-rose-500/40 bg-rose-500/[0.06] px-4 py-3 text-sm text-rose-800 dark:text-rose-200">
         <strong>⚠️ REUNIÃO PRÉVIA DE ALINHAMENTO (48hrs antes)</strong>

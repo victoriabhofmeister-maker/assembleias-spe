@@ -275,3 +275,64 @@ export async function sendEtapaToSlack(index: number, a: Assembleia) {
   if (!payload) return { ok: false, error: `Etapa ${index} sem mapeamento` };
   return postSlack(payload);
 }
+
+// === Checklist pós-assembleia ===
+export function buildSlackPayloadEtapaPos(
+  etapaIndex: number,
+  a: Assembleia,
+): { text: string; blocks: unknown[] } | null {
+  const section = (text: string) => ({
+    type: "section",
+    text: { type: "mrkdwn", text },
+  });
+  const linha = dadosLinha(a);
+
+  switch (etapaIndex) {
+    case 0: // Comunicado/resumo no Slack
+      return {
+        text: `📣 Comunicado pós-assembleia — ${linha}`,
+        blocks: [
+          section("📣 *Comunicado pós-assembleia enviado*"),
+          section(`> *SPE:* ${linha}\n> Resumo da assembleia compartilhado no canal em até 24h.`),
+        ],
+      };
+    case 1: // Ata no WhatsApp
+      return {
+        text: `📄 Ata enviada no WhatsApp — ${linha}`,
+        blocks: [
+          section("📄 *Ata elaborada e enviada no WhatsApp*"),
+          section(
+            `> *SPE:* ${linha}\n> Ata enviada ao grupo com o conselho em até 72h após a assembleia.`,
+          ),
+        ],
+      };
+    case 2: // Ata para validação
+      return {
+        text: `🔎 Ata em validação — ${linha}`,
+        blocks: [
+          section("🔎 *Ata enviada para validação dos investidores*"),
+          section(
+            `> *SPE:* ${linha}\n> Prazo de validação: 3 dias úteis.`,
+          ),
+        ],
+      };
+    case 3: // CSI assinatura
+      return {
+        text: `✍️ Suporte CSI aberto pra assinatura — ${linha}`,
+        blocks: [
+          section("✍️ *Suporte CSI aberto para assinatura da ata*"),
+          section(
+            `> *SPE:* ${linha}\n> Ticket aberto em até 48h após o término da validação dos investidores.`,
+          ),
+        ],
+      };
+    default:
+      return null;
+  }
+}
+
+export async function sendEtapaPosToSlack(index: number, a: Assembleia) {
+  const payload = buildSlackPayloadEtapaPos(index, a);
+  if (!payload) return { ok: false, error: `Etapa pós ${index} sem mapeamento` };
+  return postSlack(payload);
+}
