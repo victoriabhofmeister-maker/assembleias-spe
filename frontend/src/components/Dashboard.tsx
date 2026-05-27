@@ -61,6 +61,7 @@ type ColunaKanban =
   | "sem_data"
   | "apresentacao"
   | "edital_enviado"
+  | "edital_nao_enviado"
   | "falta_documentos"
   | "realizadas";
 
@@ -72,8 +73,6 @@ function temApresentacao(a: Assembleia): boolean {
 }
 
 function temPendenciaDocumentos(a: Assembleia): boolean {
-  // pendência se etapa 6 (Comunicar documentos faltantes) não está concluída
-  // ou se o checklist tem alguma etapa "A fazer" + assembleia próxima
   const etapa6 = a.checklist[5];
   if (!etapa6) return true;
   return etapa6.status !== "Concluído";
@@ -84,11 +83,28 @@ function colunaKanbanFor(a: Assembleia): ColunaKanban {
   if (!a.data) return "sem_data";
   if (a.editalEnviado) return "edital_enviado";
   if (temApresentacao(a)) return "apresentacao";
-  if (temPendenciaDocumentos(a)) return "falta_documentos";
-  return "falta_documentos";
+  // tem data + sem edital + sem apresentação → edital ainda não foi enviado
+  return "edital_nao_enviado";
 }
 
-const COLUNAS_KANBAN: { key: ColunaKanban; titulo: string; emoji: string; dot: string; tone: string }[] = [
+// Ícone PowerPoint/slides inline (mais distinto que emoji)
+const SlideIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <rect x="3" y="4" width="18" height="13" rx="2" />
+    <line x1="8" y1="21" x2="16" y2="21" />
+    <line x1="12" y1="17" x2="12" y2="21" />
+    <polyline points="8 11 11 14 16 8" />
+  </svg>
+);
+
+const COLUNAS_KANBAN: {
+  key: ColunaKanban;
+  titulo: string;
+  emoji: string;
+  icon?: React.ReactNode;
+  dot: string;
+  tone: string;
+}[] = [
   {
     key: "sem_data",
     titulo: "Sem data",
@@ -99,23 +115,31 @@ const COLUNAS_KANBAN: { key: ColunaKanban; titulo: string; emoji: string; dot: s
   {
     key: "apresentacao",
     titulo: "Apresentação",
-    emoji: "🎤",
+    emoji: "",
+    icon: <SlideIcon />,
     dot: "bg-[#0048D7]",
     tone: "from-[#0048D7]/10 to-transparent border-[#0048D7]/30",
   },
   {
     key: "edital_enviado",
     titulo: "Edital enviado",
-    emoji: "✉️",
+    emoji: "✅",
     dot: "bg-[#2FB864]",
     tone: "from-[#2FB864]/10 to-transparent border-[#2FB864]/30",
+  },
+  {
+    key: "edital_nao_enviado",
+    titulo: "Edital não enviado",
+    emoji: "✉️",
+    dot: "bg-[#FA5F5B]",
+    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
   },
   {
     key: "falta_documentos",
     titulo: "Falta documentos",
     emoji: "📎",
-    dot: "bg-[#FA5F5B]",
-    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
+    dot: "bg-amber-500",
+    tone: "from-amber-500/10 to-transparent border-amber-500/30",
   },
   {
     key: "realizadas",
@@ -408,7 +432,7 @@ function KanbanView({
             <h3 className="flex items-center justify-between text-sm font-semibold text-fg">
               <span className="flex items-center gap-2">
                 <span className={`inline-block h-2.5 w-2.5 rounded-full ${c.dot}`} />
-                <span>{c.emoji}</span>
+                {c.icon ? c.icon : c.emoji && <span>{c.emoji}</span>}
                 <span>{c.titulo}</span>
               </span>
               <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
