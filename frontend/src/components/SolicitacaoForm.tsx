@@ -177,7 +177,7 @@ export function SolicitacaoForm() {
             </div>
 
             <div>
-              <label className="field-label">Tipo de assembleia *</label>
+              <label className="field-label">Tipo de reunião *</label>
               <select
                 className="field-input"
                 value={form.tipo}
@@ -192,7 +192,7 @@ export function SolicitacaoForm() {
             </div>
 
             <div className="md:col-span-2">
-              <label className="field-label">Ordens do dia (selecione uma ou mais) *</label>
+              <label className="field-label">Ordem do Dia (selecione uma ou mais) *</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 rounded-lg border border-line bg-muted/40 p-3">
                 {ORDENS_DO_DIA.map((o) => (
                   <label

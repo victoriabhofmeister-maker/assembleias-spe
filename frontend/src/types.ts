@@ -196,8 +196,8 @@ export const TIPO_DESCRICAO: Record<TipoAssembleia, string> = {
   AGE: "Assembleia Geral Extraordinária",
   AGO: "Assembleia Geral Ordinária",
   RCF: "Reunião do Conselho Fiscal",
-  STD: "Subscrição/Transferência de Direitos",
-  RII: "Reunião de Investidores/Incorporadores",
+  STD: "Sessão Tira Dúvidas",
+  RII: "Reunião Investidor",
   RTD: "Reunião Técnica/Deliberativa",
 };
 
@@ -241,7 +241,6 @@ export const ORDENS_DO_DIA: string[] = [
   "Acompanhamento do andamento do empreendimento",
   "AGE de Entrega",
   "Aprovação de Contas",
-  "Alteração contratual",
   "Exclusão extrajudicial de sócio (art. 1.085 CC)",
   "Outro (especificar)",
 ];
@@ -277,14 +276,17 @@ export interface PautaConfig {
 }
 
 // Documentos indispensáveis (só informativo — sem upload no form público)
+// Pautas sem entrada aqui não exibem a seção (ex.: Reeleição CF não precisa de docs)
 export const DOCUMENTOS_INDISPENSAVEIS: Record<string, string[]> = {
   "Chamada de capital": [
-    "Laudo de avaliação atualizado",
     "Demonstrativo financeiro",
+    "Justificativa assinada pela construtora com os motivos da chamada",
+    "Orçamento executivo",
   ],
   "Alteração de projeto": [
-    "Projeto atualizado aprovado",
+    "Justificativas da prefeitura",
     "Memorial descritivo",
+    "Projeto antes × depois dos ajustes",
   ],
   "Apresentação do orçamento executivo": [
     "Planilha de orçamento executivo",
@@ -292,8 +294,8 @@ export const DOCUMENTOS_INDISPENSAVEIS: Record<string, string[]> = {
   "Eleição do Conselho Fiscal": [
     "Lista de sócios com qualificação completa",
   ],
-  "Reeleição do Conselho Fiscal": [
-    "Lista de sócios com qualificação completa",
+  "Acompanhamento do andamento do empreendimento": [
+    "Resumo com todos os itens (situação financeira + situação das aprovações e projetos)",
   ],
   "AGE de Entrega": [
     "Habite-se",
@@ -304,9 +306,6 @@ export const DOCUMENTOS_INDISPENSAVEIS: Record<string, string[]> = {
     "Balanço patrimonial",
     "DRE",
     "Relatório do auditor",
-  ],
-  "Alteração contratual": [
-    "Minuta da alteração contratual",
   ],
   "Exclusão extrajudicial de sócio (art. 1.085 CC)": [
     "Cláusula contratual autorizando a exclusão extrajudicial",

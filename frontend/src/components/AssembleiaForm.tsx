@@ -104,7 +104,7 @@ export function AssembleiaForm({ onCreated }: Props) {
           </div>
 
           <div>
-            <label className="field-label">Tipo *</label>
+            <label className="field-label">Tipo de reunião *</label>
             <select
               className="field-input"
               value={form.tipo}
@@ -136,7 +136,7 @@ export function AssembleiaForm({ onCreated }: Props) {
           </div>
 
           <div className="md:col-span-2">
-            <label className="field-label">Ordem do dia *</label>
+            <label className="field-label">Ordem do Dia *</label>
             <textarea
               required
               className="field-input min-h-[90px]"
