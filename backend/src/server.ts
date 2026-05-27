@@ -1,9 +1,19 @@
 import express, { type Request, type Response } from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import multer from "multer";
 import { randomUUID } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+import {
+  clearSessionCookie,
+  isAuthConfigured,
+  issueSessionCookie,
+  readSession,
+  requireAuth,
+  verifyGoogleCredential,
+} from "./auth.js";
 import {
   appendAssembleia,
   appendSolicitacao,
@@ -12,6 +22,7 @@ import {
   readProcuracoes,
   readRoteiro,
   readSolicitacoes,
+  resetData,
   saveRoteiro,
   updateAssembleia,
   updateProcuracao,
@@ -36,8 +47,30 @@ import {
 } from "./types.js";
 
 const app = express();
-app.use(cors());
+
+const corsOrigins = (process.env.CORS_ORIGIN ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+app.use(
+  cors({
+    origin: corsOrigins.length > 0 ? corsOrigins : true,
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: "1mb" }));
+app.use(cookieParser());
+
+// Public routes: /api/health, /api/auth/*, POST /api/solicitacoes
+app.use("/api", (req: Request, res: Response, next) => {
+  if (!isAuthConfigured()) return next();
+  const isPublic =
+    req.path === "/health" ||
+    req.path.startsWith("/auth/") ||
+    (req.path === "/solicitacoes" && req.method === "POST");
+  if (isPublic) return next();
+  return requireAuth(req, res, next);
+});
 
 const TIPOS: TipoAssembleia[] = ["AGE", "AGO", "RCF", "STD", "RII", "RTD"];
 const CRITICIDADES: Criticidade[] = ["Alto", "Medio", "Baixo"];
@@ -366,13 +399,72 @@ app.delete("/api/assembleias/:id/roteiro", async (req: Request, res: Response) =
   res.json({ ok });
 });
 
+app.post("/api/admin/reset-seed", async (_req: Request, res: Response) => {
+  try {
+    await resetData();
+    const rows = await readAssembleias();
+    res.json({ ok: true, assembleias: rows.length });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ ok: false, error: err instanceof Error ? err.message : String(err) });
+  }
+});
+
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({
     ok: true,
     slackConfigured: Boolean(process.env.SLACK_WEBHOOK_URL),
     anthropicConfigured: Boolean(process.env.ANTHROPIC_API_KEY),
+    authConfigured: isAuthConfigured(),
   });
 });
+
+// === Auth ===
+app.get("/api/auth/me", (req: Request, res: Response) => {
+  if (!isAuthConfigured()) {
+    res.json({ user: null, authConfigured: false });
+    return;
+  }
+  const user = readSession(req);
+  res.json({ user, authConfigured: true });
+});
+
+app.post("/api/auth/google", async (req: Request, res: Response) => {
+  if (!isAuthConfigured()) {
+    res.status(503).json({ error: "Autenticação não configurada no servidor" });
+    return;
+  }
+  const credential = (req.body as { credential?: string })?.credential;
+  if (!credential || typeof credential !== "string") {
+    res.status(400).json({ error: "Credential ausente" });
+    return;
+  }
+  try {
+    const user = await verifyGoogleCredential(credential);
+    issueSessionCookie(res, user);
+    res.json({ user });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    res.status(401).json({ error: msg });
+  }
+});
+
+app.post("/api/auth/logout", (_req: Request, res: Response) => {
+  clearSessionCookie(res);
+  res.json({ ok: true });
+});
+
+// === Static frontend em produção ===
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const frontendDist = path.resolve(__dirname, "../../frontend/dist");
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(frontendDist));
+  app.get("*", (req: Request, res: Response, next) => {
+    if (req.path.startsWith("/api/")) return next();
+    res.sendFile(path.join(frontendDist, "index.html"));
+  });
+}
 
 const port = Number(process.env.PORT ?? 3001);
 app.listen(port, () => {

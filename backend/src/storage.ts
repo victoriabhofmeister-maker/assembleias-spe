@@ -189,6 +189,39 @@ export async function saveRoteiro(roteiro: Roteiro): Promise<void> {
   await writeRoteirosMap(map);
 }
 
+export async function resetData(): Promise<void> {
+  // Restaura assembleias a partir do snapshot embarcado em src/seed-assembleias.json
+  const seedFile = path.resolve(__dirname, "./seed-assembleias.json");
+  try {
+    const raw = await fs.readFile(seedFile, "utf8");
+    await ensureFile(ASSEMBLEIAS_FILE, "[]");
+    await fs.writeFile(ASSEMBLEIAS_FILE, raw, "utf8");
+  } catch {
+    // se o snapshot não estiver disponível, ao menos zera o arquivo
+    await ensureFile(ASSEMBLEIAS_FILE, "[]");
+    await fs.writeFile(ASSEMBLEIAS_FILE, "[]", "utf8");
+  }
+  // Apaga os demais (procuracoes recria do seed na próxima leitura)
+  for (const file of [SOLICITACOES_FILE, PROCURACOES_FILE, ROTEIROS_FILE]) {
+    try {
+      await fs.unlink(file);
+    } catch {
+      /* ignore */
+    }
+  }
+  // Limpa uploads
+  try {
+    const entries = await fs.readdir(UPLOADS_DIR);
+    await Promise.all(
+      entries.map((e) =>
+        fs.rm(path.join(UPLOADS_DIR, e), { recursive: true, force: true }),
+      ),
+    );
+  } catch {
+    /* ignore */
+  }
+}
+
 export async function deleteRoteiro(assembleiaId: string): Promise<boolean> {
   const map = await readRoteirosMap();
   if (!map[assembleiaId]) return false;

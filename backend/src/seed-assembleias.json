@@ -1,0 +1,2421 @@
+[
+  {
+    "id": "1",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-12",
+    "tipo": "AGE",
+    "ordemDoDia": "Deliberação ADM + chamada de capital",
+    "dataLimiteEdital": "02/05",
+    "suporteCsi": "",
+    "editalEnviado": true,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Financeiro/Engenharia/Jurídico",
+    "spe": "Japaratinga Spot",
+    "criticidade": "Alto",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-13",
+    "tipo": "RCF",
+    "ordemDoDia": "Reunião recorrente com os adms transitórios",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-13",
+    "tipo": "STD",
+    "ordemDoDia": "Alteração de projeto antes do envio dos aditivos",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Caraguá Spot",
+    "criticidade": "Baixo",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-14",
+    "tipo": "RII",
+    "ordemDoDia": "Sem definição",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "",
+    "spe": "Novo Campeche Spot",
+    "criticidade": "Baixo",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-14",
+    "tipo": "STD",
+    "ordemDoDia": "Esclarecimento sobre o envio do aditivo - Alteração da administração",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Jurídico",
+    "spe": "Jurerê Spot II",
+    "criticidade": "Baixo",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-15",
+    "tipo": "RCF",
+    "ordemDoDia": "Alteração projeto",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Sul da Ilha Spot",
+    "criticidade": "Medio",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-18",
+    "tipo": "RCF",
+    "ordemDoDia": "Atualização sobre o início de obra e apresentação do planejamento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Rosa Norte Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-19",
+    "tipo": "RII",
+    "ordemDoDia": "Sem definição",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "",
+    "spe": "Itacaré Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-19",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "46151",
+    "suporteCsi": "",
+    "editalEnviado": true,
+    "apresentacao": "https://docs.google.com/presentation",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Foz Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-20",
+    "tipo": "RCF",
+    "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-21",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "11/05",
+    "suporteCsi": "",
+    "editalEnviado": true,
+    "apresentacao": "https://docs.google.com/presentation",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Canas Beach Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-26",
+    "tipo": "AGE",
+    "ordemDoDia": "Retirada da Jay e apresentação de outras empresas administradoras",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "https://docs.google.com/presentation",
+    "dptosEnvolvidos": "Jurídico",
+    "spe": "Imbassaí",
+    "criticidade": "Medio",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-05-27",
+    "tipo": "RCF",
+    "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "Concluído"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-01",
+    "tipo": "RTD",
+    "ordemDoDia": "Tira dúvidas - Barra Spot",
+    "dataLimiteEdital": "25/05",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-02",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Rosa Sul Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-03",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Ingleses Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-04",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Canasvieiras Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-05",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar + Chamada de Capital",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Novo Campeche Spot",
+    "criticidade": "Baixo",
+    "responsavel": "PMO",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "",
+    "tipo": "AGE",
+    "ordemDoDia": "Apresentação do orçamento executivo",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Jurerê Beach Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-09",
+    "tipo": "AGE",
+    "ordemDoDia": "Apresentação dos valores e chamada e capital",
+    "dataLimiteEdital": "30/05",
+    "suporteCsi": "",
+    "editalEnviado": true,
+    "apresentacao": "https://docs.google.com/presentation",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Urubici Spot",
+    "criticidade": "Medio",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-11",
+    "tipo": "AGE",
+    "ordemDoDia": "AGE de Entrega",
+    "dataLimiteEdital": "30/05",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "https://docs.google.com/presentation",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Trancoso Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "",
+    "tipo": "AGE",
+    "ordemDoDia": "Apresentação do orçamento executivo",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Campeche Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "",
+    "tipo": "STD",
+    "ordemDoDia": "Alteração de Projeto",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO",
+    "spe": "Sul da Ilha Spot",
+    "criticidade": "Medio",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "",
+    "tipo": "RCF",
+    "ordemDoDia": "Apresentação do orçamento executivo x preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Jurerê Beach Spot",
+    "criticidade": "Alto",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "",
+    "tipo": "RCF",
+    "ordemDoDia": "Apresentação do orçamento executivo x preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Campeche Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-15",
+    "tipo": "AGE",
+    "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-15",
+    "tipo": "AGE",
+    "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
+    "spe": "Santo Antônio Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-16",
+    "tipo": "AGE",
+    "ordemDoDia": "Andamento do Projeto Executivo; Orçamento Executivo x Preliminar",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Urubici Spot II",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "29",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-17",
+    "tipo": "RCF",
+    "ordemDoDia": "Planejamento + Orçamento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Canasvieiras Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "30",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-18",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Caraguá Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "31",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-23",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Barra Grande Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-25",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Bonito Spot II",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "33",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-30",
+    "tipo": "RII",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Bonito Spot II",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "34",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-06-30",
+    "tipo": "AGE",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Itacaré Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "35",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-07-02",
+    "tipo": "AGE",
+    "ordemDoDia": "Apresentação do Orçamento executivo e atualização sobre o andamento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Rosa Norte Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "36",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-07-07",
+    "tipo": "AGE",
+    "ordemDoDia": "Planejamento + Orçamento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Canasvieiras Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "37",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-07-23",
+    "tipo": "AGE",
+    "ordemDoDia": "AGE de Entrega",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Rosa Sul Spot",
+    "criticidade": "Medio",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "38",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-07-30",
+    "tipo": "AGE",
+    "ordemDoDia": "Reeleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Ilha do Campeche Spot",
+    "criticidade": "Medio",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "39",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-08-27",
+    "tipo": "AGE",
+    "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
+    "spe": "Bonito Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "40",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-12-17",
+    "tipo": "AGE",
+    "ordemDoDia": "Alteração de Projeto + Aprovação de Contas + Reeleição Conselho Fiscal",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Jurerê Beach Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Victória",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  },
+  {
+    "id": "41",
+    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "data": "2026-12-22",
+    "tipo": "AGE",
+    "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
+    "dataLimiteEdital": "",
+    "suporteCsi": "",
+    "editalEnviado": false,
+    "apresentacao": "",
+    "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
+    "spe": "Japaratinga Spot",
+    "criticidade": "Alto",
+    "responsavel": "Mariele",
+    "checklist": [
+      {
+        "titulo": "Receber solicitação via Pipe",
+        "responsavel": "Jurídico",
+        "prazo": "Ao receber o pipe",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar o PMO da solicitação",
+        "responsavel": "Jurídico",
+        "prazo": "No mesmo dia do recebimento",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Análise da pauta e verificação de deliberações críticas",
+        "responsavel": "Jurídico + KREMER",
+        "prazo": "Logo após receber a pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Envio no canal ASSEMBLEIAS (Slack)",
+        "responsavel": "Jurídico",
+        "prazo": "Após análise da pauta",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Elaborar apresentação da assembleia",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Comunicar documentos faltantes",
+        "responsavel": "Jurídico",
+        "prazo": "Antes da convocação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
+        "responsavel": "Jurídico",
+        "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      }
+    ]
+  }
+]

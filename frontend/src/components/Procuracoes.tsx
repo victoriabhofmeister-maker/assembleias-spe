@@ -51,16 +51,16 @@ export function Procuracoes() {
     <div className="mx-auto max-w-[1400px] px-6 py-8">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-navy-800">Controle de procurações</h2>
-          <p className="mt-1 text-sm text-slate-600">
+          <h2 className="text-xl font-semibold text-fg">Controle de procurações</h2>
+          <p className="mt-1 text-sm text-muted-fg">
             {rows.length} empreendimentos ·
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">
+            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-900 dark:text-emerald-200 ring-1 ring-emerald-500/30">
               ✓ {totalComProc} com procuração
             </span>
             <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-900 ring-1 ring-red-200">
               ✗ {totalSemProc} sem
             </span>
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-xs font-semibold text-fg ring-1 ring-line">
               ? {totalSemDef} indefinido
             </span>
           </p>
@@ -71,14 +71,14 @@ export function Procuracoes() {
       </div>
 
       {error && (
-        <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <div className="mb-4 rounded-md border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
           {error}
         </div>
       )}
 
       <div className="card overflow-x-auto">
         <table className="min-w-full text-sm">
-          <thead className="bg-navy-800 text-white text-left text-xs uppercase tracking-wide">
+          <thead className="bg-muted/60 text-fg text-left text-xs uppercase tracking-wide">
             <tr>
               <Th>SPE / Empreendimento</Th>
               <Th>Código SPE</Th>
@@ -93,10 +93,10 @@ export function Procuracoes() {
               <Th>Observações</Th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-line">
             {rows.map((p) => (
-              <tr key={p.id} className="hover:bg-slate-50">
-                <td className="px-3 py-2 font-medium text-navy-800 whitespace-nowrap">
+              <tr key={p.id} className="hover:bg-muted">
+                <td className="px-3 py-2 font-medium text-fg whitespace-nowrap">
                   {p.spe}
                 </td>
                 <Cell
@@ -117,13 +117,13 @@ export function Procuracoes() {
                 <td className="px-3 py-2">
                   <input
                     type="date"
-                    className="w-36 rounded border border-slate-200 px-2 py-1 text-xs"
+                    className="w-36 rounded border border-line px-2 py-1 text-xs"
                     value={p.dataAssembleia}
                     onChange={(e) => setLocal(p.id, { dataAssembleia: e.target.value })}
                     onBlur={(e) => save(p.id, { dataAssembleia: e.target.value })}
                   />
                   {p.dataAssembleia && (
-                    <div className="text-[10px] text-slate-400">{fmtData(p.dataAssembleia)}</div>
+                    <div className="text-[10px] text-muted-fg/70">{fmtData(p.dataAssembleia)}</div>
                   )}
                 </td>
                 <Cell
@@ -152,7 +152,7 @@ export function Procuracoes() {
                     rows={1}
                     placeholder="Adicionar sócio(s)..."
                     className={`w-48 resize-y min-h-[28px] rounded border border-transparent px-2 py-1 text-xs
-                                hover:border-slate-200 focus:border-navy-400 focus:outline-none focus:bg-white focus:min-h-[64px]
+                                hover:border-line focus:border-accent focus:outline-none focus:bg-card focus:min-h-[64px]
                                 ${savingId === p.id ? "opacity-60" : ""}`}
                     value={p.socios}
                     onChange={(e) => setLocal(p.id, { socios: e.target.value })}
@@ -165,8 +165,8 @@ export function Procuracoes() {
                       type="url"
                       autoFocus
                       placeholder="https://..."
-                      className="w-44 rounded border border-slate-300 px-2 py-1 text-xs
-                                 focus:border-navy-500 focus:outline-none focus:ring-2 focus:ring-navy-200"
+                      className="w-44 rounded border border-line px-2 py-1 text-xs
+                                 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                       value={p.linkAcs}
                       onChange={(e) => setLocal(p.id, { linkAcs: e.target.value })}
                       onBlur={(e) => {
@@ -183,13 +183,13 @@ export function Procuracoes() {
                         href={p.linkAcs}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-navy-700 hover:underline"
+                        className="text-xs text-fg hover:underline"
                       >
                         📄 Ver ACS
                       </a>
                       <button
                         type="button"
-                        className="text-[10px] text-slate-400 hover:text-navy-700"
+                        className="text-[10px] text-muted-fg/70 hover:text-fg"
                         onClick={() => setEditingAcs(p.id)}
                         title="Editar link"
                       >
@@ -199,7 +199,7 @@ export function Procuracoes() {
                   ) : (
                     <button
                       type="button"
-                      className="text-xs text-slate-400 hover:text-navy-700 hover:underline"
+                      className="text-xs text-muted-fg/70 hover:text-fg hover:underline"
                       onClick={() => setEditingAcs(p.id)}
                     >
                       —
@@ -217,10 +217,10 @@ export function Procuracoes() {
                     }}
                     className={`rounded border px-2 py-1 text-xs font-semibold ${
                       p.possuiProcuracao === true
-                        ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+                        ? "border-emerald-300 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 dark:text-emerald-300"
                         : p.possuiProcuracao === false
-                          ? "border-red-300 bg-red-50 text-red-800"
-                          : "border-slate-200 bg-white text-slate-600"
+                          ? "border-red-300 bg-rose-500/10 text-rose-700 dark:text-rose-300"
+                          : "border-line bg-card text-muted-fg"
                     }`}
                   >
                     <option value="">—</option>
@@ -241,7 +241,7 @@ export function Procuracoes() {
         </table>
       </div>
 
-      <p className="mt-3 text-xs text-slate-500">
+      <p className="mt-3 text-xs text-muted-fg">
         Os campos são salvos automaticamente ao sair de cada célula.
       </p>
     </div>
@@ -271,7 +271,7 @@ function Cell({
     <td className="px-2 py-1">
       <input
         className={`${width} rounded border border-transparent px-2 py-1 text-xs
-                    hover:border-slate-200 focus:border-navy-400 focus:outline-none focus:bg-white
+                    hover:border-line focus:border-accent focus:outline-none focus:bg-card
                     ${saving ? "opacity-60" : ""}`}
         value={value}
         placeholder={placeholder}

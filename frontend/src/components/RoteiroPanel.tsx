@@ -68,13 +68,13 @@ export function RoteiroPanel({ assembleia }: Props) {
   }
 
   if (loading) {
-    return <p className="text-sm text-slate-500 py-8 text-center">Carregando...</p>;
+    return <p className="text-sm text-muted-fg py-8 text-center">Carregando...</p>;
   }
 
   return (
     <div className="space-y-5">
-      <div className="no-print rounded-md border border-slate-200 bg-white p-4 space-y-4">
-        <h4 className="text-sm font-semibold text-navy-800 uppercase tracking-wide">
+      <div className="no-print rounded-md border border-line bg-card p-4 space-y-4">
+        <h4 className="text-sm font-semibold text-fg uppercase tracking-wide">
           Dados para o roteiro
         </h4>
 
@@ -130,7 +130,7 @@ export function RoteiroPanel({ assembleia }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-100">
+        <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-line">
           {!roteiro && (
             <button
               type="button"
@@ -161,7 +161,7 @@ export function RoteiroPanel({ assembleia }: Props) {
               </button>
               <button
                 type="button"
-                className="btn-ghost text-red-700 border-red-200 hover:bg-red-50"
+                className="btn-ghost text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/10"
                 onClick={handleApagar}
                 disabled={generating}
               >
@@ -172,17 +172,17 @@ export function RoteiroPanel({ assembleia }: Props) {
         </div>
 
         {error && (
-          <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+          <div className="rounded-md border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-300">
             {error}
           </div>
         )}
       </div>
 
       {generating && (
-        <div className="no-print rounded-md border border-navy-200 bg-navy-50/40 p-6 text-center">
-          <div className="inline-flex items-center gap-3 text-navy-800">
+        <div className="no-print rounded-md border border-line bg-muted/40/40 p-6 text-center">
+          <div className="inline-flex items-center gap-3 text-fg">
             <svg
-              className="animate-spin h-5 w-5 text-navy-700"
+              className="animate-spin h-5 w-5 text-fg"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -196,7 +196,7 @@ export function RoteiroPanel({ assembleia }: Props) {
             </svg>
             <span className="font-medium">Gerando roteiro com IA...</span>
           </div>
-          <p className="text-xs text-slate-500 mt-2">
+          <p className="text-xs text-muted-fg mt-2">
             Pode levar alguns segundos. O Claude está montando o texto seção por seção.
           </p>
         </div>
@@ -215,17 +215,17 @@ function RoteiroView({ roteiro, assembleia }: { roteiro: Roteiro; assembleia: As
   const blocks = splitSections(roteiro.roteiro);
 
   return (
-    <article className="roteiro-doc rounded-md border border-slate-200 bg-white p-6 md:p-10 shadow-sm">
-      <header className="mb-6 border-b border-slate-200 pb-4">
+    <article className="roteiro-doc rounded-md border border-line bg-card p-6 md:p-10 shadow-sm">
+      <header className="mb-6 border-b border-line pb-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <h2 className="text-lg font-bold text-navy-800">
+          <h2 className="text-lg font-bold text-fg">
             Roteiro — {assembleia.spe}
           </h2>
-          <span className="no-print badge bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200">
+          <span className="no-print badge bg-emerald-100 text-emerald-700 dark:text-emerald-300 dark:text-emerald-300 ring-1 ring-emerald-500/30">
             ✨ Gerado em {dt}
           </span>
         </div>
-        <p className="text-sm text-slate-600 mt-1">
+        <p className="text-sm text-muted-fg mt-1">
           {assembleia.tipo} · {fmtData(assembleia.data)}
           {roteiro.formulario.presidente && ` · Presidente: ${roteiro.formulario.presidente}`}
         </p>
@@ -236,18 +236,18 @@ function RoteiroView({ roteiro, assembleia }: { roteiro: Roteiro; assembleia: As
           blocks.map((b, i) => (
             <section key={i} className="roteiro-section">
               {b.title && (
-                <h3 className="text-base font-bold text-navy-800 mb-2 uppercase tracking-wide">
+                <h3 className="text-base font-bold text-fg mb-2 uppercase tracking-wide">
                   {b.title}
                 </h3>
               )}
-              <div className="text-[15px] leading-relaxed text-slate-800 whitespace-pre-wrap">
+              <div className="text-[15px] leading-relaxed text-fg whitespace-pre-wrap">
                 {b.body}
               </div>
-              {i < blocks.length - 1 && <hr className="my-6 border-slate-200" />}
+              {i < blocks.length - 1 && <hr className="my-6 border-line" />}
             </section>
           ))
         ) : (
-          <pre className="text-[15px] leading-relaxed text-slate-800 whitespace-pre-wrap font-sans">
+          <pre className="text-[15px] leading-relaxed text-fg whitespace-pre-wrap font-sans">
             {roteiro.roteiro}
           </pre>
         )}

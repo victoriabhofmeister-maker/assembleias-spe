@@ -6,14 +6,39 @@ import { AssembleiaDetail } from "./components/AssembleiaDetail";
 import { Procuracoes } from "./components/Procuracoes";
 import { Solicitacoes } from "./components/Solicitacoes";
 import { SolicitacaoForm } from "./components/SolicitacaoForm";
+import { Estatisticas } from "./components/Estatisticas";
 import { listAssembleias, listSolicitacoes } from "./api";
 import type { Assembleia } from "./types";
 import { isProximaComPendencias } from "./utils";
+import { AuthProvider, LoginScreen, useAuth } from "./auth";
 
 export default function App() {
   const isPublic = window.location.pathname.startsWith("/solicitar");
   if (isPublic) return <SolicitacaoForm />;
 
+  return (
+    <AuthProvider>
+      <Gate />
+    </AuthProvider>
+  );
+}
+
+function Gate() {
+  const { user, loading, authConfigured } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-bg text-muted-fg text-sm">
+        Carregando…
+      </div>
+    );
+  }
+
+  // Se auth não está configurada no backend (ambiente local de demo),
+  // libera direto — útil pra desenvolvimento.
+  if (!authConfigured) return <InternalApp />;
+
+  if (!user) return <LoginScreen />;
   return <InternalApp />;
 }
 
@@ -59,21 +84,25 @@ function InternalApp() {
   const alertas = useMemo(() => rows.filter(isProximaComPendencias).length, [rows]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-bg text-fg">
       <Header
         view={view}
         onChange={setView}
         total={rows.length}
         alertas={alertas}
         solicitacoesCount={solicitacoesCount}
+        onAfterReset={() => {
+          refresh();
+          refreshSolicitacoesCount();
+        }}
       />
 
       <main className="flex-1">
         {loadError && view === "dashboard" && (
           <div className="mx-auto max-w-7xl px-6 pt-6">
-            <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-              <strong>Falha ao carregar dados:</strong> {loadError}. Verifique se o backend está
-              rodando em <code>http://localhost:3001</code>.
+            <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
+              <strong>Falha ao carregar dados:</strong> {loadError}. Verifique se o backend
+              está rodando em <code>http://localhost:3001</code>.
             </div>
           </div>
         )}
@@ -86,6 +115,7 @@ function InternalApp() {
             onOpen={(a) => setOpenAssembleia(a)}
           />
         )}
+        {view === "estatisticas" && <Estatisticas rows={rows} />}
         {view === "form" && (
           <AssembleiaForm
             onCreated={() => {
@@ -109,8 +139,8 @@ function InternalApp() {
         />
       )}
 
-      <footer className="border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-500">
-        Seazone — Gestão de Assembleias · backend Express + dados locais em JSON
+      <footer className="border-t border-line bg-muted/40 py-5 text-center text-xs text-muted-fg">
+        Seazone · Gestão operacional de assembleias de SPEs · backend Express + JSON local
       </footer>
     </div>
   );

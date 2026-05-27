@@ -64,10 +64,10 @@ function statusKanban(a: Assembleia): "nao_iniciado" | "em_andamento" | "conclui
   return "em_andamento";
 }
 
-const COLUNAS_KANBAN: { key: ReturnType<typeof statusKanban>; titulo: string; ring: string }[] = [
-  { key: "nao_iniciado", titulo: "🔴 Não iniciado", ring: "bg-red-50 border-red-200" },
-  { key: "em_andamento", titulo: "🟡 Em andamento", ring: "bg-amber-50 border-amber-200" },
-  { key: "concluido", titulo: "🟢 Concluído", ring: "bg-emerald-50 border-emerald-200" },
+const COLUNAS_KANBAN: { key: ReturnType<typeof statusKanban>; titulo: string; tone: string }[] = [
+  { key: "nao_iniciado", titulo: "Não iniciado", tone: "from-rose-500/10 to-transparent border-rose-500/20" },
+  { key: "em_andamento", titulo: "Em andamento", tone: "from-amber-500/10 to-transparent border-amber-500/20" },
+  { key: "concluido", titulo: "Concluído", tone: "from-emerald-500/10 to-transparent border-emerald-500/20" },
 ];
 
 export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
@@ -136,76 +136,70 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
   }, [filtradas]);
 
   const alertas = rows.filter(isProximaComPendencias).length;
+  const proximaData = useMemo(() => {
+    return filtradas.find((a) => a.data && !isRealizada(a))?.data ?? "";
+  }, [filtradas]);
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-8">
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-semibold text-navy-800">Assembleias registradas</h2>
-          <p className="mt-1 text-sm text-slate-600">
-            {rows.length} {rows.length === 1 ? "registro" : "registros"}
-            {alertas > 0 && (
-              <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-200">
-                ⚠ {alertas} próxima{alertas > 1 ? "s" : ""} com pendência
-              </span>
-            )}
-          </p>
-        </div>
+    <div className="mx-auto max-w-7xl px-6 py-10">
+      <div className="mb-8 animate-fade-in">
+        <p className="text-eyebrow">Operações · Jurídico Seazone</p>
+        <h2 className="text-display mt-1 text-3xl font-semibold text-balance">
+          Assembleias <span className="text-muted-fg">·</span> {rows.length}
+        </h2>
+        <p className="mt-2 text-sm text-muted-fg">
+          {alertas > 0 ? (
+            <>
+              <span className="font-medium text-fg">{alertas}</span> próxima
+              {alertas > 1 ? "s" : ""} com pendência
+              {proximaData && (
+                <>
+                  {" · "}primeira em <span className="font-medium text-fg">{fmtData(proximaData)}</span>
+                </>
+              )}
+            </>
+          ) : (
+            "Tudo em dia. Nenhuma pendência identificada nos próximos 7 dias."
+          )}
+        </p>
+      </div>
 
-        <div className="flex flex-wrap items-end gap-3">
-          <div>
-            <label className="field-label">Responsável</label>
-            <select
-              className="field-input min-w-[170px]"
-              value={filtroResp}
-              onChange={(e) => setFiltroResp(e.target.value)}
-            >
-              <option value="">Todos</option>
-              {responsaveis.map((r) => (
-                <option key={r} value={r}>
-                  {r}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="field-label">Criticidade</label>
-            <select
-              className="field-input min-w-[140px]"
-              value={filtroCrit}
-              onChange={(e) => setFiltroCrit(e.target.value as typeof filtroCrit)}
-            >
-              <option value="todos">Todas</option>
-              {CRITICIDADES.map((c) => (
-                <option key={c} value={c}>
-                  {CRITICIDADE_EMOJI[c]} {c}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="field-label">Status</label>
-            <select
-              className="field-input min-w-[150px]"
-              value={filtroStatus}
-              onChange={(e) => setFiltroStatus(e.target.value as FiltroStatus)}
-            >
-              <option value="todas">Todas</option>
-              <option value="proximas">Próximas</option>
-              <option value="realizadas">Realizadas</option>
-            </select>
-          </div>
-          <ViewToggle view={view} onChange={setView} />
-          <button onClick={onRefresh} className="btn-ghost" disabled={loading}>
-            {loading ? "Atualizando..." : "↻ Atualizar"}
-          </button>
-        </div>
+      <div className="mb-8 flex flex-wrap items-end gap-3 animate-fade-in">
+        <Filter
+          label="Responsável"
+          value={filtroResp}
+          onChange={setFiltroResp}
+          options={[{ value: "", label: "Todos" }, ...responsaveis.map((r) => ({ value: r, label: r }))]}
+        />
+        <Filter
+          label="Criticidade"
+          value={filtroCrit}
+          onChange={(v) => setFiltroCrit(v as "todos" | Criticidade)}
+          options={[
+            { value: "todos", label: "Todas" },
+            ...CRITICIDADES.map((c) => ({ value: c, label: `${CRITICIDADE_EMOJI[c]} ${c}` })),
+          ]}
+        />
+        <Filter
+          label="Status"
+          value={filtroStatus}
+          onChange={(v) => setFiltroStatus(v as FiltroStatus)}
+          options={[
+            { value: "todas", label: "Todas" },
+            { value: "proximas", label: "Próximas" },
+            { value: "realizadas", label: "Realizadas" },
+          ]}
+        />
+        <ViewToggle view={view} onChange={setView} />
+        <button onClick={onRefresh} className="btn-ghost" disabled={loading}>
+          {loading ? "Atualizando…" : "Atualizar"}
+        </button>
       </div>
 
       {filtradas.length === 0 ? (
-        <div className="card p-12 text-center text-sm text-slate-500">
+        <div className="surface p-16 text-center text-sm text-muted-fg animate-fade-in">
           {rows.length === 0
-            ? "Nenhuma assembleia cadastrada ainda. Use o botão “+ Nova assembleia” para começar."
+            ? "Nenhuma assembleia cadastrada ainda. Use “+ Nova” para começar."
             : "Nenhuma assembleia bate com os filtros selecionados."}
         </div>
       ) : view === "lista" ? (
@@ -227,33 +221,54 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
   );
 }
 
+function Filter({
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: { value: string; label: string }[];
+}) {
+  return (
+    <div>
+      <label className="field-label">{label}</label>
+      <select
+        className="field-input min-w-[160px]"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 function ViewToggle({ view, onChange }: { view: View; onChange: (v: View) => void }) {
   return (
     <div>
       <label className="field-label">Visualização</label>
-      <div className="inline-flex rounded-md border border-slate-300 bg-white p-0.5">
-        <button
-          type="button"
-          onClick={() => onChange("lista")}
-          className={`rounded px-3 py-1 text-sm font-medium transition ${
-            view === "lista"
-              ? "bg-navy-700 text-white"
-              : "text-slate-600 hover:bg-slate-50"
-          }`}
-        >
-          ☰ Lista
-        </button>
-        <button
-          type="button"
-          onClick={() => onChange("kanban")}
-          className={`rounded px-3 py-1 text-sm font-medium transition ${
-            view === "kanban"
-              ? "bg-navy-700 text-white"
-              : "text-slate-600 hover:bg-slate-50"
-          }`}
-        >
-          🗂 Kanban
-        </button>
+      <div className="inline-flex rounded-lg border border-line bg-card p-0.5">
+        {(["lista", "kanban"] as View[]).map((v) => (
+          <button
+            key={v}
+            type="button"
+            onClick={() => onChange(v)}
+            className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${
+              view === v
+                ? "bg-fg text-bg shadow-soft"
+                : "text-muted-fg hover:text-fg"
+            }`}
+          >
+            {v === "lista" ? "☰ Lista" : "🗂 Kanban"}
+          </button>
+        ))}
       </div>
     </div>
   );
@@ -271,12 +286,14 @@ function ListaView({
   const mostrarDivisor = gruposFuturas.length > 0 && gruposRealizadas.length > 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10 animate-fade-in">
       {gruposFuturas.map((g) => (
         <MonthGroup key={`f-${g.label}`} group={g} dimmed={false} onOpen={onOpen} />
       ))}
 
-      {mostrarDivisor && <DivisorRealizadas total={gruposRealizadas.reduce((n, g) => n + g.rows.length, 0)} />}
+      {mostrarDivisor && (
+        <DivisorRealizadas total={gruposRealizadas.reduce((n, g) => n + g.rows.length, 0)} />
+      )}
 
       {gruposRealizadas.map((g) => (
         <MonthGroup key={`r-${g.label}`} group={g} dimmed={true} onOpen={onOpen} />
@@ -296,20 +313,11 @@ function MonthGroup({
 }) {
   return (
     <section>
-      <div className="mb-3 flex items-center gap-3">
-        <span
-          className={`text-xs font-semibold uppercase tracking-wider ${
-            dimmed ? "text-slate-400" : "text-slate-500"
-          }`}
-        >
-          ── {group.label} ──
-        </span>
-        <span className={`text-xs ${dimmed ? "text-slate-300" : "text-slate-400"}`}>
+      <div className={`divider-eyebrow mb-4 ${dimmed ? "opacity-60" : ""}`}>
+        <span>{group.label}</span>
+        <span className="font-normal normal-case tracking-wide text-muted-fg">
           {group.rows.length} {group.rows.length === 1 ? "assembleia" : "assembleias"}
         </span>
-        <div
-          className={`flex-1 border-t ${dimmed ? "border-slate-100" : "border-slate-200"}`}
-        />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {group.rows.map((a) => (
@@ -322,19 +330,19 @@ function MonthGroup({
 
 function DivisorRealizadas({ total }: { total: number }) {
   return (
-    <div className="my-8 -mx-2 rounded-md bg-[repeating-linear-gradient(135deg,theme(colors.slate.100)_0_8px,theme(colors.slate.50)_8px_16px)] px-4 py-5">
-      <div className="flex items-center gap-3">
-        <div className="flex-1 border-t-2 border-dashed border-slate-300" />
-        <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-slate-500 ring-1 ring-slate-300 shadow-sm">
-          <span aria-hidden>✓</span>
+    <div className="relative my-12 overflow-hidden rounded-xl border border-dashed border-line bg-muted/40 py-6 bg-grain">
+      <div className="relative flex items-center gap-4 px-6">
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-fg shadow-soft">
+          <CheckIcon />
           <span>Assembleias realizadas</span>
-          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
+          <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold tabular-nums text-muted-fg">
             {total}
           </span>
-        </span>
-        <div className="flex-1 border-t-2 border-dashed border-slate-300" />
+        </div>
+        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
       </div>
-      <p className="mt-2 text-center text-[11px] uppercase tracking-wider text-slate-400">
+      <p className="relative mt-3 text-center text-eyebrow">
         as assembleias abaixo já aconteceram
       </p>
     </div>
@@ -348,30 +356,35 @@ function KanbanView({
   onToggleMostrar,
   onOpen,
 }: {
-  colunas: { key: string; titulo: string; ring: string; rows: Assembleia[] }[];
+  colunas: { key: string; titulo: string; tone: string; rows: Assembleia[] }[];
   realizadas: Assembleia[];
   mostrar: boolean;
   onToggleMostrar: () => void;
   onOpen: (a: Assembleia) => void;
 }) {
   return (
-    <div className="flex gap-4 overflow-x-auto pb-3">
+    <div className="flex gap-4 overflow-x-auto pb-4 animate-fade-in">
       {colunas.map((c) => (
         <div
           key={c.key}
-          className="flex-shrink-0 w-80 flex flex-col rounded-lg border border-slate-200 bg-white"
+          className="flex-shrink-0 w-[320px] flex flex-col surface overflow-hidden"
         >
-          <header className={`rounded-t-lg px-3 py-2 border-b ${c.ring}`}>
-            <h3 className="text-sm font-semibold text-slate-800 flex items-center justify-between">
-              <span>{c.titulo}</span>
-              <span className="rounded-full bg-white px-2 py-0.5 text-xs text-slate-700 ring-1 ring-slate-200">
+          <header
+            className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}
+          >
+            <h3 className="flex items-center justify-between text-sm font-semibold text-fg">
+              <span className="flex items-center gap-2">
+                <ColumnDot status={c.key as "nao_iniciado" | "em_andamento" | "concluido"} />
+                {c.titulo}
+              </span>
+              <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
                 {c.rows.length}
               </span>
             </h3>
           </header>
-          <div className="p-2 space-y-2 max-h-[68vh] overflow-y-auto bg-slate-50/40">
+          <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh]">
             {c.rows.length === 0 ? (
-              <p className="text-xs text-slate-400 text-center py-6">Vazio</p>
+              <p className="py-6 text-center text-xs text-muted-fg">Vazio</p>
             ) : (
               c.rows.map((a) => <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />)
             )}
@@ -380,24 +393,27 @@ function KanbanView({
       ))}
 
       <div
-        className={`flex-shrink-0 flex flex-col rounded-lg border border-slate-200 bg-white transition-all ${
-          mostrar ? "w-80" : "w-64"
+        className={`flex-shrink-0 surface overflow-hidden flex flex-col transition-all ${
+          mostrar ? "w-[320px]" : "w-[240px]"
         }`}
       >
-        <header className="rounded-t-lg px-3 py-2 border-b bg-slate-100 border-slate-300">
-          <h3 className="text-sm font-semibold text-slate-700 flex items-center justify-between">
-            <span>✓ Realizadas</span>
-            <span className="rounded-full bg-white px-2 py-0.5 text-xs text-slate-700 ring-1 ring-slate-200">
+        <header className="border-b border-line bg-muted/60 px-4 py-3">
+          <h3 className="flex items-center justify-between text-sm font-semibold text-muted-fg">
+            <span className="flex items-center gap-2">
+              <CheckIcon />
+              Realizadas
+            </span>
+            <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums ring-1 ring-line">
               {realizadas.length}
             </span>
           </h3>
         </header>
-        <div className="p-2 space-y-2 max-h-[68vh] overflow-y-auto bg-slate-50/40">
+        <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh]">
           {!mostrar ? (
             <button
               type="button"
               onClick={onToggleMostrar}
-              className="w-full rounded-md border border-dashed border-slate-300 bg-white px-3 py-3 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-navy-700"
+              className="w-full rounded-lg border border-dashed border-line bg-card/50 px-3 py-3 text-xs font-medium text-muted-fg transition hover:border-fg/30 hover:text-fg"
             >
               Mostrar realizadas ({realizadas.length})
             </button>
@@ -406,14 +422,16 @@ function KanbanView({
               <button
                 type="button"
                 onClick={onToggleMostrar}
-                className="w-full rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500 hover:bg-slate-50"
+                className="w-full rounded-lg border border-line bg-card px-3 py-1.5 text-xs font-medium text-muted-fg transition hover:bg-muted hover:text-fg"
               >
                 Ocultar realizadas
               </button>
               {realizadas.length === 0 ? (
-                <p className="text-xs text-slate-400 text-center py-6">Vazio</p>
+                <p className="py-6 text-center text-xs text-muted-fg">Vazio</p>
               ) : (
-                realizadas.map((a) => <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />)
+                realizadas.map((a) => (
+                  <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />
+                ))
               )}
             </>
           )}
@@ -441,80 +459,74 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
           onOpen();
         }
       }}
-      className={`card p-5 cursor-pointer transition hover:shadow-md hover:border-navy-300 ${
-        destaque ? "ring-2 ring-amber-400 border-amber-300 bg-amber-50/30" : ""
-      } ${realizada ? "opacity-[0.55] grayscale-[0.2]" : ""}`}
+      className={`group card-hover relative overflow-hidden p-5 cursor-pointer ${
+        destaque ? "ring-1 ring-amber-500/40 border-amber-500/40" : ""
+      } ${realizada ? "opacity-[0.6]" : ""}`}
     >
-      <header className="flex items-start justify-between gap-3 border-b border-slate-100 pb-3 mb-3">
-        <div>
-          <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <span className={`badge ${CRITICIDADE_BADGE[a.criticidade]}`}>
-              {CRITICIDADE_EMOJI[a.criticidade]} {a.criticidade}
-            </span>
-            <span className="badge bg-navy-100 text-navy-800 ring-1 ring-navy-200">
-              {a.tipo}
-            </span>
-            {realizada ? (
-              <span className="badge bg-slate-200 text-slate-700 ring-1 ring-slate-300">
-                ✓ Realizada
+      {realizada && (
+        <span className="absolute right-4 top-4 text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-fg">
+          Realizada
+        </span>
+      )}
+
+      <div className="flex items-start gap-3">
+        <CriticidadeBlock c={a.criticidade} />
+        <div className="min-w-0 flex-1">
+          <div className="mb-1 flex flex-wrap items-center gap-1.5">
+            <span className="chip">{a.tipo}</span>
+            {!realizada && dias !== null && dias >= 0 && dias <= 7 && (
+              <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
+                {dias === 0 ? "Hoje" : `em ${dias}d`}
               </span>
-            ) : (
-              dias !== null &&
-              dias >= 0 &&
-              dias <= 7 && (
-                <span className="badge bg-amber-100 text-amber-900 ring-1 ring-amber-200">
-                  {dias === 0 ? "Hoje" : `em ${dias}d`}
-                </span>
-              )
+            )}
+            {realizada && (
+              <span className="chip">✓ Realizada</span>
             )}
           </div>
-          <h3 className="text-base font-semibold text-navy-800">{a.spe}</h3>
-          <p className={`text-xs ${a.data ? "text-slate-500" : "text-amber-700 italic"}`}>
+          <h3 className="text-display text-lg font-semibold leading-snug">{a.spe}</h3>
+          <p
+            className={`text-xs tabular-nums ${
+              a.data ? "text-muted-fg" : "italic text-amber-600 dark:text-amber-400"
+            }`}
+          >
             {a.data ? fmtData(a.data) : "Data a definir"}
           </p>
         </div>
-        {realizada && (
-          <span className="text-[10px] uppercase tracking-wider font-medium text-slate-400">
-            Realizada
-          </span>
-        )}
-      </header>
+      </div>
 
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+      <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 border-t border-line pt-4 text-sm">
         <Field label="Responsável" value={a.responsavel || "—"} />
         <Field label="Suporte CSI" value={a.suporteCsi || "—"} />
         {temEdital(a.tipo) ? (
-          <Field label="Edital" value={a.editalEnviado ? "✅ Enviado" : "❌ Pendente"} />
+          <Field label="Edital" value={a.editalEnviado ? "✓ Enviado" : "○ Pendente"} />
         ) : (
           <Field
             label="Confirmação"
-            value={a.editalEnviado ? "✅ Confirmado" : "❌ Pendente"}
+            value={a.editalEnviado ? "✓ Confirmado" : "○ Pendente"}
           />
         )}
         <Field label="Apresentação" value={a.apresentacao || "—"} />
-      </dl>
+      </div>
 
-      <div className="mt-3 border-t border-slate-100 pt-3">
-        <div className="flex items-center justify-between text-xs mb-1">
-          <span className="font-semibold uppercase tracking-wide text-slate-500">
-            Checklist
-          </span>
-          <span className="font-semibold text-slate-700">
-            {prog.done}/{prog.total} etapas concluídas
+      <div className="mt-4 border-t border-line pt-3">
+        <div className="mb-1.5 flex items-center justify-between text-eyebrow">
+          <span>Checklist</span>
+          <span className="font-semibold normal-case tracking-wide text-fg tabular-nums">
+            {prog.done}/{prog.total}
           </span>
         </div>
-        <div className="h-1.5 w-full rounded-full bg-slate-200 overflow-hidden">
-          <div className="h-full bg-navy-700 transition-all" style={{ width: `${prog.pct}%` }} />
-        </div>
+        <ProgressBar value={prog.pct} />
       </div>
 
       {destaque && (
-        <div className="mt-3 rounded-md bg-amber-100 border border-amber-300 px-3 py-2 text-xs text-amber-900">
-          <strong>⚠ Pendências antes da data:</strong> {pend.join(", ")}.
+        <div className="mt-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-300">
+          <strong>Pendências:</strong> {pend.join(" · ")}
         </div>
       )}
 
-      <p className="mt-3 text-xs text-navy-700 font-medium">→ Abrir checklist completo</p>
+      <p className="mt-4 text-xs font-medium text-muted-fg transition group-hover:text-accent">
+        Abrir checklist →
+      </p>
     </article>
   );
 }
@@ -534,40 +546,28 @@ function KanbanCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
           onOpen();
         }
       }}
-      className={`relative rounded-md border border-slate-200 bg-white p-3 shadow-sm cursor-pointer hover:shadow-md hover:border-navy-300 transition ${
-        realizada ? "opacity-[0.55] grayscale-[0.2]" : ""
+      className={`relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20 ${
+        realizada ? "opacity-60" : ""
       }`}
     >
-      {realizada && (
-        <span className="absolute right-2 top-2 text-[9px] uppercase tracking-wider font-medium text-slate-400">
-          Realizada
-        </span>
-      )}
-      <div className="flex items-center gap-1.5 flex-wrap mb-1.5">
-        <span className={`badge ${CRITICIDADE_BADGE[a.criticidade]}`}>
-          {CRITICIDADE_EMOJI[a.criticidade]} {a.criticidade}
-        </span>
-        <span className="badge bg-navy-100 text-navy-800 ring-1 ring-navy-200">{a.tipo}</span>
-        {realizada && (
-          <span className="badge bg-slate-200 text-slate-700 ring-1 ring-slate-300">
-            ✓ Realizada
-          </span>
-        )}
-        <span className="ml-auto text-[11px] font-semibold text-slate-700">
+      <div className="mb-1.5 flex items-center gap-1.5">
+        <CriticidadeDot c={a.criticidade} />
+        <span className="chip py-0.5 px-1.5 text-[10px]">{a.tipo}</span>
+        <span className="ml-auto text-[11px] font-semibold tabular-nums text-muted-fg">
           {prog.done}/{prog.total}
         </span>
       </div>
-      <h4 className="text-sm font-semibold text-navy-800 leading-tight">{a.spe}</h4>
-      <div className="mt-2 flex items-center justify-between gap-2 text-[11px] text-slate-500">
-        <span className={a.data ? "" : "italic text-amber-700"}>
+      <h4 className="text-display text-sm font-semibold leading-tight">{a.spe}</h4>
+      <div className="mt-2 flex items-center justify-between gap-2 text-[11px] text-muted-fg">
+        <span className={a.data ? "tabular-nums" : "italic text-amber-600 dark:text-amber-400"}>
           {a.data ? fmtData(a.data) : "Data a definir"}
         </span>
-        <span className="truncate font-medium text-slate-600" title={a.responsavel}>
+        <span className="truncate font-medium" title={a.responsavel}>
           {a.responsavel || "—"}
         </span>
       </div>
-      <div className="mt-2 h-1 w-full rounded-full bg-slate-200 overflow-hidden">
-        <div className="h-full bg-navy-700 transition-all" style={{ width: `${prog.pct}%` }} />
+      <div className="mt-2">
+        <ProgressBar value={prog.pct} thin />
       </div>
     </article>
   );
@@ -576,10 +576,67 @@ function KanbanCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
-        {label}
-      </dt>
-      <dd className="text-slate-800">{value}</dd>
+      <dt className="text-eyebrow">{label}</dt>
+      <dd className="font-medium text-fg">{value}</dd>
     </div>
   );
 }
+
+function ProgressBar({ value, thin = false }: { value: number; thin?: boolean }) {
+  return (
+    <div
+      className={`relative w-full overflow-hidden rounded-full bg-muted ${thin ? "h-1" : "h-1.5"}`}
+    >
+      <div
+        className="h-full rounded-full bg-gradient-to-r from-fg/80 to-fg transition-all"
+        style={{ width: `${value}%` }}
+      />
+    </div>
+  );
+}
+
+function CriticidadeBlock({ c }: { c: Criticidade }) {
+  const tone =
+    c === "Alto"
+      ? "bg-rose-500"
+      : c === "Medio"
+        ? "bg-amber-500"
+        : "bg-emerald-500";
+  return (
+    <span
+      className={`block h-12 w-1 rounded-full ${tone}`}
+      title={c}
+    />
+  );
+}
+
+function CriticidadeDot({ c }: { c: Criticidade }) {
+  const tone =
+    c === "Alto"
+      ? "bg-rose-500"
+      : c === "Medio"
+        ? "bg-amber-500"
+        : "bg-emerald-500";
+  return <span className={`inline-block h-2 w-2 rounded-full ${tone}`} aria-label={c} />;
+}
+
+function ColumnDot({ status }: { status: "nao_iniciado" | "em_andamento" | "concluido" }) {
+  const tone =
+    status === "nao_iniciado"
+      ? "bg-rose-500"
+      : status === "em_andamento"
+        ? "bg-amber-500"
+        : "bg-emerald-500";
+  return <span className={`inline-block h-2 w-2 rounded-full ${tone}`} />;
+}
+
+function CheckIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+// Re-export para evitar warnings de unused imports
+export const _CRIT_BADGE = CRITICIDADE_BADGE;

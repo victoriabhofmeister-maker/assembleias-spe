@@ -164,11 +164,11 @@ export function SolicitacaoForm() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <header className="bg-navy-800 text-white">
+    <div className="min-h-screen bg-muted/40">
+      <header className="bg-muted/60 text-fg">
         <div className="mx-auto max-w-4xl px-6 py-6">
           <h1 className="text-lg font-semibold">Seazone — Solicitar nova assembleia</h1>
-          <p className="text-sm text-navy-200">
+          <p className="text-sm text-muted-fg">
             Preencha os campos abaixo para enviar uma solicitação ao Jurídico.
           </p>
         </div>
@@ -177,20 +177,20 @@ export function SolicitacaoForm() {
       <main className="mx-auto max-w-4xl px-6 py-8">
         <div className="card p-8">
           {error && (
-            <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            <div className="mb-4 rounded-md border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
               <strong>Erro:</strong> {error}
             </div>
           )}
 
           {result && (
-            <div className="mb-4 rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+            <div className="mb-4 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300 dark:text-emerald-300">
               <strong>✅ Solicitação registrada.</strong> Status:{" "}
               <strong>{result.solicitacao.status}</strong>.{" "}
               {result.slack.ok
                 ? "Notificação enviada ao Slack."
                 : `Slack: ${result.slack.error ?? "falhou"}.`}
               <br />
-              <span className="text-xs text-emerald-700">
+              <span className="text-xs text-emerald-700 dark:text-emerald-300">
                 {result.solicitacao.documentos.length} documento(s) anexado(s)
                 {result.solicitacao.indicacoes.length > 0 &&
                   ` · ${result.solicitacao.indicacoes.length} indicação(ões)`}
@@ -275,7 +275,7 @@ export function SolicitacaoForm() {
 
             <div className="md:col-span-2">
               <label className="field-label">Ordens do dia (selecione uma ou mais) *</label>
-              <div className="space-y-2 rounded-md border border-slate-200 bg-slate-50 p-3">
+              <div className="space-y-2 rounded-md border border-line bg-muted/40 p-3">
                 {ORDENS_DO_DIA.map((o) => (
                   <PautaBlock
                     key={o}
@@ -302,7 +302,7 @@ export function SolicitacaoForm() {
               />
             </div>
 
-            <div className="md:col-span-2 flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+            <div className="md:col-span-2 flex items-center justify-end gap-3 pt-4 border-t border-line">
               <button type="submit" className="btn-primary" disabled={submitting}>
                 {submitting ? "Enviando..." : "Enviar solicitação"}
               </button>
@@ -310,7 +310,7 @@ export function SolicitacaoForm() {
           </form>
         </div>
 
-        <p className="text-xs text-slate-500 text-center mt-6">
+        <p className="text-xs text-muted-fg text-center mt-6">
           Esta página é pública e pode ser compartilhada com qualquer pessoa da empresa.
           <br />
           Tipos aceitos: PDF, DOC, DOCX, XLS, XLSX, JPG, PNG · Até 10MB por arquivo.
@@ -345,18 +345,18 @@ function PautaBlock({
 
   return (
     <div
-      className={`rounded-md border bg-white transition-colors ${
-        checked ? "border-navy-300" : "border-slate-200"
+      className={`rounded-md border bg-card transition-colors ${
+        checked ? "border-fg/30" : "border-line"
       }`}
     >
       <label className="flex items-start gap-2 px-3 py-2 cursor-pointer">
         <input
           type="checkbox"
-          className="mt-0.5 h-4 w-4 rounded border-slate-300 text-navy-700 focus:ring-navy-300"
+          className="mt-0.5 h-4 w-4 rounded border-line text-fg focus:ring-accent/30"
           checked={checked}
           onChange={onToggle}
         />
-        <span className="text-sm text-slate-800">{labelOrdem(ordem)}</span>
+        <span className="text-sm text-fg">{labelOrdem(ordem)}</span>
       </label>
 
       <div
@@ -365,7 +365,7 @@ function PautaBlock({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-3 pb-3 pt-1 space-y-3 border-t border-slate-100">
+          <div className="px-3 pb-3 pt-1 space-y-3 border-t border-line">
             {ordem === "Outro (especificar)" && (
               <div>
                 <label className="field-label">Descreva a pauta</label>
@@ -383,11 +383,11 @@ function PautaBlock({
               if (campo.tipo === "texto") {
                 return (
                   <div key={k}>
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-600 mb-1">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-fg mb-1">
                       <span aria-hidden>📎</span>
                       <span>{campo.label ?? campo.nome}</span>
                       {!campo.obrigatorio && (
-                        <span className="text-[10px] font-normal normal-case text-slate-400">
+                        <span className="text-[10px] font-normal normal-case text-muted-fg/70">
                           (opcional)
                         </span>
                       )}
@@ -398,7 +398,7 @@ function PautaBlock({
                       onChange={(e) => setText(k, e.target.value)}
                     />
                     {campo.ajuda && (
-                      <p className="mt-1 text-xs text-slate-500">{campo.ajuda}</p>
+                      <p className="mt-1 text-xs text-muted-fg">{campo.ajuda}</p>
                     )}
                   </div>
                 );
@@ -415,17 +415,17 @@ function PautaBlock({
                 ? preenchido
                   ? "text-emerald-600"
                   : "text-red-600"
-                : "text-slate-400";
+                : "text-muted-fg/70";
               return (
-                <div key={k} className="rounded-md bg-slate-50 border border-slate-200 p-3">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-600 mb-2">
+                <div key={k} className="rounded-md bg-muted/40 border border-line p-3">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-fg mb-2">
                     <span className={iconColor} aria-hidden>
                       {icon}
                     </span>
                     <span>{campo.label ?? campo.nome}</span>
                     <span
                       className={`text-[10px] font-normal normal-case ${
-                        campo.obrigatorio ? "text-red-600" : "text-slate-400"
+                        campo.obrigatorio ? "text-red-600" : "text-muted-fg/70"
                       }`}
                     >
                       {campo.obrigatorio ? "(obrigatório)" : "(opcional)"}
@@ -436,11 +436,11 @@ function PautaBlock({
                     accept={UPLOAD_ACCEPT}
                     onChange={(e) => setFile(k, e.target.files?.[0] ?? null)}
                     className="block w-full text-xs file:mr-3 file:rounded-md file:border-0
-                               file:bg-navy-700 file:px-3 file:py-1.5 file:text-white
-                               file:hover:bg-navy-800 file:cursor-pointer"
+                               file:bg-fg file:px-3 file:py-1.5 file:text-white
+                               file:hover:bg-fg file:cursor-pointer"
                   />
                   {file && (
-                    <p className="mt-1 text-xs text-emerald-700">
+                    <p className="mt-1 text-xs text-emerald-700 dark:text-emerald-300">
                       ✓ {file.name} · {(file.size / 1024).toFixed(0)} KB
                     </p>
                   )}

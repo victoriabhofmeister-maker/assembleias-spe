@@ -1,0 +1,39 @@
+# Render Blueprint — sobe um único Web Service Node que serve frontend buildado + API
+# Como usar:
+#   1. Faça push do repositório pra https://github.com/seazone-tech/assembleias-spe
+#   2. No Render: New > Blueprint > selecione este repo
+#   3. Configure as env vars marcadas com `sync: false` no painel do serviço
+#   4. (Opcional) anexe o disk pra persistir backend/data entre deploys
+
+services:
+  - type: web
+    name: seazone-assembleias
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    buildCommand: npm install && cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    disk:
+      name: seazone-data
+      mountPath: /opt/render/project/src/backend/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ALLOWED_DOMAINS
+        sync: false
+      - key: ALLOWED_EMAILS
+        sync: false
+      - key: SLACK_WEBHOOK_URL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

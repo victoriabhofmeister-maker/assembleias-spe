@@ -111,3 +111,9 @@ export async function deleteRoteiro(assembleiaId: string): Promise<void> {
   });
   if (!res.ok) throw new Error(`DELETE roteiro falhou: ${res.status}`);
 }
+
+export async function resetSeed(): Promise<void> {
+  const res = await fetch(`${BASE}/admin/reset-seed`, { method: "POST" });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `Reset falhou: ${res.status}`);
+}

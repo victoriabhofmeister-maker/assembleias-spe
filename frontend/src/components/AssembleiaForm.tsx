@@ -56,21 +56,21 @@ export function AssembleiaForm({ onCreated }: Props) {
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
       <div className="card p-8">
-        <div className="mb-6 border-b border-slate-200 pb-4">
-          <h2 className="text-xl font-semibold text-navy-800">Registrar nova assembleia</h2>
-          <p className="mt-1 text-sm text-slate-600">
+        <div className="mb-6 border-b border-line pb-4">
+          <h2 className="text-xl font-semibold text-fg">Registrar nova assembleia</h2>
+          <p className="mt-1 text-sm text-muted-fg">
             Os dados são gravados localmente e disparam notificação ao Slack.
           </p>
         </div>
 
         {error && (
-          <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          <div className="mb-4 rounded-md border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
             <strong>Erro:</strong> {error}
           </div>
         )}
 
         {result && (
-          <div className="mb-4 rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          <div className="mb-4 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300 dark:text-emerald-300">
             <strong>Assembleia registrada.</strong>{" "}
             {result.slack.ok ? (
               <>Notificação enviada ao Slack ✅</>
@@ -170,11 +170,11 @@ export function AssembleiaForm({ onCreated }: Props) {
             <label className="inline-flex items-center gap-2 text-sm">
               <input
                 type="checkbox"
-                className="h-4 w-4 rounded border-slate-300 text-navy-700 focus:ring-navy-300"
+                className="h-4 w-4 rounded border-line text-fg focus:ring-accent/30"
                 checked={form.editalEnviado}
                 onChange={(e) => set("editalEnviado", e.target.checked)}
               />
-              <span className="font-medium text-slate-700">
+              <span className="font-medium text-fg">
                 {temEdital(form.tipo) ? "Edital enviado" : "Participação confirmada"}
               </span>
             </label>
@@ -210,7 +210,7 @@ export function AssembleiaForm({ onCreated }: Props) {
             />
           </div>
 
-          <div className="md:col-span-2 flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+          <div className="md:col-span-2 flex items-center justify-end gap-3 pt-4 border-t border-line">
             <button
               type="button"
               className="btn-ghost"
