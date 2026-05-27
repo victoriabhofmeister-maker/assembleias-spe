@@ -331,21 +331,27 @@ app.get("/api/procuracoes", async (_req: Request, res: Response) => {
 app.patch("/api/procuracoes/:id", async (req: Request, res: Response) => {
   const b = req.body as Record<string, unknown>;
   const patch: Record<string, unknown> = {};
-  for (const k of [
-    "codigoSpe",
-    "responsavel",
-    "dataAssembleia",
-    "pautas",
-    "socio",
-    "socios",
-    "contato",
-    "linkAcs",
-    "observacoes",
-  ]) {
+  for (const k of ["codigoSpe", "responsavel", "contato", "linkAcs", "observacoes"]) {
     if (typeof b[k] === "string") patch[k] = b[k];
   }
   if (b.possuiProcuracao === true || b.possuiProcuracao === false || b.possuiProcuracao === null) {
     patch.possuiProcuracao = b.possuiProcuracao;
+  }
+  if (Array.isArray(b.socios)) {
+    patch.socios = b.socios
+      .filter(
+        (x): x is { nome?: unknown; percentualCapital?: unknown; temProcuracaoValida?: unknown; outorgado?: unknown } =>
+          x !== null && typeof x === "object",
+      )
+      .map((x) => ({
+        nome: typeof x.nome === "string" ? x.nome : "",
+        percentualCapital:
+          typeof x.percentualCapital === "number"
+            ? x.percentualCapital
+            : Number(x.percentualCapital) || 0,
+        temProcuracaoValida: Boolean(x.temProcuracaoValida),
+        outorgado: typeof x.outorgado === "string" ? x.outorgado : "",
+      }));
   }
   const updated = await updateProcuracao(req.params.id, patch);
   if (!updated) return res.status(404).json({ error: "Procuração não encontrada" });

@@ -57,17 +57,73 @@ function groupByMonth(rows: Assembleia[]): { label: string; rows: Assembleia[] }
   return groups;
 }
 
-function statusKanban(a: Assembleia): "nao_iniciado" | "em_andamento" | "concluido" {
-  const { done, total } = progressoChecklist(a);
-  if (total === 0 || done === 0) return "nao_iniciado";
-  if (done >= total) return "concluido";
-  return "em_andamento";
+type ColunaKanban =
+  | "sem_data"
+  | "apresentacao"
+  | "edital_enviado"
+  | "falta_documentos"
+  | "realizadas";
+
+function temApresentacao(a: Assembleia): boolean {
+  const v = a.apresentacao.trim().toLowerCase();
+  if (!v) return false;
+  if (v === "—" || v === "-" || v === "pendente" || v === "não") return false;
+  return true;
 }
 
-const COLUNAS_KANBAN: { key: ReturnType<typeof statusKanban>; titulo: string; tone: string }[] = [
-  { key: "nao_iniciado", titulo: "Não iniciado", tone: "from-rose-500/10 to-transparent border-rose-500/20" },
-  { key: "em_andamento", titulo: "Em andamento", tone: "from-amber-500/10 to-transparent border-amber-500/20" },
-  { key: "concluido", titulo: "Concluído", tone: "from-emerald-500/10 to-transparent border-emerald-500/20" },
+function temPendenciaDocumentos(a: Assembleia): boolean {
+  // pendência se etapa 6 (Comunicar documentos faltantes) não está concluída
+  // ou se o checklist tem alguma etapa "A fazer" + assembleia próxima
+  const etapa6 = a.checklist[5];
+  if (!etapa6) return true;
+  return etapa6.status !== "Concluído";
+}
+
+function colunaKanbanFor(a: Assembleia): ColunaKanban {
+  if (isRealizada(a)) return "realizadas";
+  if (!a.data) return "sem_data";
+  if (a.editalEnviado) return "edital_enviado";
+  if (temApresentacao(a)) return "apresentacao";
+  if (temPendenciaDocumentos(a)) return "falta_documentos";
+  return "falta_documentos";
+}
+
+const COLUNAS_KANBAN: { key: ColunaKanban; titulo: string; emoji: string; dot: string; tone: string }[] = [
+  {
+    key: "sem_data",
+    titulo: "Sem data",
+    emoji: "📅",
+    dot: "bg-muted-fg",
+    tone: "from-muted/60 to-transparent border-line",
+  },
+  {
+    key: "apresentacao",
+    titulo: "Apresentação",
+    emoji: "🎤",
+    dot: "bg-[#0048D7]",
+    tone: "from-[#0048D7]/10 to-transparent border-[#0048D7]/30",
+  },
+  {
+    key: "edital_enviado",
+    titulo: "Edital enviado",
+    emoji: "✉️",
+    dot: "bg-[#2FB864]",
+    tone: "from-[#2FB864]/10 to-transparent border-[#2FB864]/30",
+  },
+  {
+    key: "falta_documentos",
+    titulo: "Falta documentos",
+    emoji: "📎",
+    dot: "bg-[#FA5F5B]",
+    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
+  },
+  {
+    key: "realizadas",
+    titulo: "Realizadas",
+    emoji: "✓",
+    dot: "bg-fg/40",
+    tone: "from-muted/40 to-transparent border-line",
+  },
 ];
 
 export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
@@ -78,7 +134,6 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
     if (typeof window === "undefined") return "lista";
     return localStorage.getItem(VIEW_KEY) === "kanban" ? "kanban" : "lista";
   });
-  const [mostrarRealizadasKanban, setMostrarRealizadasKanban] = useState(false);
 
   useEffect(() => {
     try {
@@ -88,9 +143,6 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
     }
   }, [view]);
 
-  useEffect(() => {
-    if (filtroStatus === "realizadas") setMostrarRealizadasKanban(true);
-  }, [filtroStatus]);
 
   const responsaveis = useMemo(() => {
     const s = new Set<string>();
@@ -124,15 +176,10 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
   }, [filtradas]);
 
   const colunasKanban = useMemo(() => {
-    const naoRealizadas = filtradas.filter((a) => !isRealizada(a));
-    const realizadas = filtradas.filter(isRealizada);
-    return {
-      ativas: COLUNAS_KANBAN.map((c) => ({
-        ...c,
-        rows: naoRealizadas.filter((a) => statusKanban(a) === c.key),
-      })),
-      realizadas,
-    };
+    return COLUNAS_KANBAN.map((c) => ({
+      ...c,
+      rows: filtradas.filter((a) => colunaKanbanFor(a) === c.key),
+    }));
   }, [filtradas]);
 
   const alertas = rows.filter(isProximaComPendencias).length;
@@ -209,13 +256,7 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
           onOpen={onOpen}
         />
       ) : (
-        <KanbanView
-          colunas={colunasKanban.ativas}
-          realizadas={colunasKanban.realizadas}
-          mostrar={mostrarRealizadasKanban}
-          onToggleMostrar={() => setMostrarRealizadasKanban((v) => !v)}
-          onOpen={onOpen}
-        />
+        <KanbanView colunas={colunasKanban} onOpen={onOpen} />
       )}
     </div>
   );
@@ -351,15 +392,9 @@ function DivisorRealizadas({ total }: { total: number }) {
 
 function KanbanView({
   colunas,
-  realizadas,
-  mostrar,
-  onToggleMostrar,
   onOpen,
 }: {
-  colunas: { key: string; titulo: string; tone: string; rows: Assembleia[] }[];
-  realizadas: Assembleia[];
-  mostrar: boolean;
-  onToggleMostrar: () => void;
+  colunas: { key: ColunaKanban; titulo: string; emoji: string; dot: string; tone: string; rows: Assembleia[] }[];
   onOpen: (a: Assembleia) => void;
 }) {
   return (
@@ -367,76 +402,29 @@ function KanbanView({
       {colunas.map((c) => (
         <div
           key={c.key}
-          className="flex-shrink-0 w-[320px] flex flex-col surface overflow-hidden"
+          className="flex-shrink-0 w-[300px] flex flex-col surface overflow-hidden"
         >
-          <header
-            className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}
-          >
+          <header className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}>
             <h3 className="flex items-center justify-between text-sm font-semibold text-fg">
               <span className="flex items-center gap-2">
-                <ColumnDot status={c.key as "nao_iniciado" | "em_andamento" | "concluido"} />
-                {c.titulo}
+                <span className={`inline-block h-2.5 w-2.5 rounded-full ${c.dot}`} />
+                <span>{c.emoji}</span>
+                <span>{c.titulo}</span>
               </span>
               <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
                 {c.rows.length}
               </span>
             </h3>
           </header>
-          <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh]">
+          <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh] bg-bg/30">
             {c.rows.length === 0 ? (
-              <p className="py-6 text-center text-xs text-muted-fg">Vazio</p>
+              <p className="py-8 text-center text-xs text-muted-fg italic">Vazio</p>
             ) : (
               c.rows.map((a) => <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />)
             )}
           </div>
         </div>
       ))}
-
-      <div
-        className={`flex-shrink-0 surface overflow-hidden flex flex-col transition-all ${
-          mostrar ? "w-[320px]" : "w-[240px]"
-        }`}
-      >
-        <header className="border-b border-line bg-muted/60 px-4 py-3">
-          <h3 className="flex items-center justify-between text-sm font-semibold text-muted-fg">
-            <span className="flex items-center gap-2">
-              <CheckIcon />
-              Realizadas
-            </span>
-            <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums ring-1 ring-line">
-              {realizadas.length}
-            </span>
-          </h3>
-        </header>
-        <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh]">
-          {!mostrar ? (
-            <button
-              type="button"
-              onClick={onToggleMostrar}
-              className="w-full rounded-lg border border-dashed border-line bg-card/50 px-3 py-3 text-xs font-medium text-muted-fg transition hover:border-fg/30 hover:text-fg"
-            >
-              Mostrar realizadas ({realizadas.length})
-            </button>
-          ) : (
-            <>
-              <button
-                type="button"
-                onClick={onToggleMostrar}
-                className="w-full rounded-lg border border-line bg-card px-3 py-1.5 text-xs font-medium text-muted-fg transition hover:bg-muted hover:text-fg"
-              >
-                Ocultar realizadas
-              </button>
-              {realizadas.length === 0 ? (
-                <p className="py-6 text-center text-xs text-muted-fg">Vazio</p>
-              ) : (
-                realizadas.map((a) => (
-                  <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />
-                ))
-              )}
-            </>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
@@ -618,16 +606,6 @@ function CriticidadeDot({ c }: { c: Criticidade }) {
         ? "bg-amber-500"
         : "bg-emerald-500";
   return <span className={`inline-block h-2 w-2 rounded-full ${tone}`} aria-label={c} />;
-}
-
-function ColumnDot({ status }: { status: "nao_iniciado" | "em_andamento" | "concluido" }) {
-  const tone =
-    status === "nao_iniciado"
-      ? "bg-rose-500"
-      : status === "em_andamento"
-        ? "bg-amber-500"
-        : "bg-emerald-500";
-  return <span className={`inline-block h-2 w-2 rounded-full ${tone}`} />;
 }
 
 function CheckIcon() {

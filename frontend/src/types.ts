@@ -80,17 +80,21 @@ export interface Roteiro {
   geradoEm: string;
 }
 
+export interface SocioProcuracao {
+  nome: string;
+  percentualCapital: number;
+  temProcuracaoValida: boolean;
+  outorgado: string;
+}
+
 export interface Procuracao {
   id: string;
   spe: string;
   codigoSpe: string;
   responsavel: string;
-  dataAssembleia: string;
-  pautas: string;
-  socio: string;
-  socios: string;
   contato: string;
   linkAcs: string;
+  socios: SocioProcuracao[];
   possuiProcuracao: boolean | null;
   observacoes: string;
 }

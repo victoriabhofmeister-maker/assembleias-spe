@@ -99,24 +99,61 @@ export async function appendSolicitacao(row: Solicitacao): Promise<void> {
   await writeJson(SOLICITACOES_FILE, rows);
 }
 
+type LegacyProcuracao = Partial<Procuracao> & {
+  dataAssembleia?: string;
+  pautas?: string;
+  socio?: string;
+  socios?: unknown;
+};
+
+function normalizeSocios(raw: unknown): Procuracao["socios"] {
+  if (Array.isArray(raw)) {
+    return raw
+      .filter(
+        (x): x is { nome?: unknown; percentualCapital?: unknown; temProcuracaoValida?: unknown; outorgado?: unknown } =>
+          x !== null && typeof x === "object",
+      )
+      .map((x) => ({
+        nome: typeof x.nome === "string" ? x.nome : "",
+        percentualCapital:
+          typeof x.percentualCapital === "number"
+            ? x.percentualCapital
+            : Number(x.percentualCapital) || 0,
+        temProcuracaoValida: Boolean(x.temProcuracaoValida),
+        outorgado: typeof x.outorgado === "string" ? x.outorgado : "",
+      }));
+  }
+  if (typeof raw === "string" && raw.trim()) {
+    // legado: campo socios era textarea livre → quebra por linha/separador
+    const parts = raw
+      .split(/[\n;]/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    return parts.map((nome) => ({
+      nome,
+      percentualCapital: 0,
+      temProcuracaoValida: false,
+      outorgado: "",
+    }));
+  }
+  return [];
+}
+
 export async function readProcuracoes(): Promise<Procuracao[]> {
   await ensureFile(PROCURACOES_FILE, "[]");
-  let rows = await readJson<Procuracao>(PROCURACOES_FILE);
+  const legacy = await readJson<LegacyProcuracao>(PROCURACOES_FILE);
 
-  if (rows.length === 0) {
-    rows = SPES_DISPONIVEIS.map((spe): Procuracao => {
+  if (legacy.length === 0) {
+    const rows: Procuracao[] = SPES_DISPONIVEIS.map((spe) => {
       const seed = PROCURACOES_INICIAIS.find((p) => p.spe === spe);
       return {
         id: randomUUID(),
         spe,
         codigoSpe: seed?.codigoSpe ?? "",
         responsavel: seed?.responsavel ?? "",
-        dataAssembleia: "",
-        pautas: "",
-        socio: "",
-        socios: "",
         contato: "",
         linkAcs: "",
+        socios: [],
         possuiProcuracao: null,
         observacoes: "",
       };
@@ -126,26 +163,38 @@ export async function readProcuracoes(): Promise<Procuracao[]> {
   }
 
   let mutated = false;
-  for (const row of rows) {
-    if (typeof (row as Partial<Procuracao>).socios !== "string") {
-      row.socios = "";
-      mutated = true;
+  const rows: Procuracao[] = legacy.map((row) => {
+    const before = JSON.stringify(row);
+    const normalized: Procuracao = {
+      id: typeof row.id === "string" ? row.id : randomUUID(),
+      spe: typeof row.spe === "string" ? row.spe : "",
+      codigoSpe: typeof row.codigoSpe === "string" ? row.codigoSpe : "",
+      responsavel: typeof row.responsavel === "string" ? row.responsavel : "",
+      contato: typeof row.contato === "string" ? row.contato : "",
+      linkAcs: typeof row.linkAcs === "string" ? row.linkAcs : "",
+      socios: normalizeSocios(row.socios),
+      possuiProcuracao:
+        row.possuiProcuracao === true || row.possuiProcuracao === false
+          ? row.possuiProcuracao
+          : null,
+      observacoes: typeof row.observacoes === "string" ? row.observacoes : "",
+    };
+
+    // backfill via seed
+    const seed = PROCURACOES_INICIAIS.find((p) => p.spe === normalized.spe);
+    if (seed) {
+      if (!normalized.codigoSpe.trim() && seed.codigoSpe) {
+        normalized.codigoSpe = seed.codigoSpe;
+      }
+      if (!normalized.responsavel.trim() && seed.responsavel) {
+        normalized.responsavel = seed.responsavel;
+      }
     }
-    if (typeof (row as Partial<Procuracao>).linkAcs !== "string") {
-      row.linkAcs = "";
-      mutated = true;
-    }
-    const seed = PROCURACOES_INICIAIS.find((p) => p.spe === row.spe);
-    if (!seed) continue;
-    if (!row.codigoSpe?.trim() && seed.codigoSpe) {
-      row.codigoSpe = seed.codigoSpe;
-      mutated = true;
-    }
-    if (!row.responsavel?.trim() && seed.responsavel) {
-      row.responsavel = seed.responsavel;
-      mutated = true;
-    }
-  }
+
+    if (JSON.stringify(normalized) !== before) mutated = true;
+    return normalized;
+  });
+
   if (mutated) await writeJson(PROCURACOES_FILE, rows);
   return rows;
 }

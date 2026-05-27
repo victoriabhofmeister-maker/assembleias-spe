@@ -54,21 +54,13 @@ export function Header({
   }
 
   return (
-    <header className="app-header sticky top-0 z-30 border-b border-line bg-bg/80 backdrop-blur-xl">
+    <header className="app-header sticky top-0 z-30 border-b border-white/10 bg-[#00143D] text-white shadow-soft">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-3.5">
         <button
           onClick={() => onChange("dashboard")}
           className="group flex items-center gap-3 outline-none"
         >
-          <Logo />
-          <div className="hidden sm:block text-left">
-            <h1 className="text-display text-base font-semibold leading-tight text-fg">
-              Seazone
-            </h1>
-            <p className="text-[11px] tracking-wide text-muted-fg">
-              Gestão de Assembleias · SPEs
-            </p>
-          </div>
+          <SeazoneLogo />
         </button>
 
         <nav className="flex flex-wrap items-center gap-1">
@@ -86,16 +78,16 @@ export function Header({
                 onClick={() => onChange(t.key)}
                 className={`relative rounded-lg px-3 py-1.5 text-sm font-medium transition ${
                   active
-                    ? "bg-fg/[0.06] text-fg"
-                    : "text-muted-fg hover:bg-fg/[0.04] hover:text-fg"
+                    ? "bg-white/15 text-white"
+                    : "text-white/70 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {t.label}
                 {count !== null && (
-                  <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-fg/10 px-1.5 py-0.5 text-[10px] font-semibold tabular-nums">
+                  <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-white/15 px-1.5 py-0.5 text-[10px] font-semibold tabular-nums">
                     {count}
                     {t.key === "dashboard" && alertas > 0 && (
-                      <span className="text-accent" title="Alertas">
+                      <span className="text-[#FA5F5B]" title="Alertas">
                         ⚠ {alertas}
                       </span>
                     )}
@@ -105,23 +97,23 @@ export function Header({
             );
           })}
 
-          <span className="mx-1 h-5 w-px bg-border" aria-hidden />
+          <span className="mx-1 h-5 w-px bg-white/20" aria-hidden />
 
           <button
             onClick={() => onChange("form")}
-            className={`rounded-lg px-3 py-1.5 text-sm font-medium transition ${
+            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
               view === "form"
-                ? "bg-accent text-accent-fg shadow-soft"
-                : "bg-fg text-bg hover:opacity-95"
+                ? "bg-white text-[#00143D] shadow-soft"
+                : "bg-[#0048D7] text-white hover:brightness-110 shadow-soft"
             }`}
           >
-            + Nova
+            <span className="text-base leading-none">＋</span> Nova
           </button>
 
           <button
             onClick={toggle}
             title={theme === "dark" ? "Modo claro" : "Modo escuro"}
-            className="rounded-lg p-2 text-muted-fg transition hover:bg-fg/[0.06] hover:text-fg"
+            className="rounded-lg p-2 text-white/70 transition hover:bg-white/10 hover:text-white"
             aria-label="Alternar tema"
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
@@ -131,13 +123,13 @@ export function Header({
             <button
               onClick={() => setMenuOpen((v) => !v)}
               onBlur={() => setTimeout(() => setMenuOpen(false), 150)}
-              className="rounded-lg p-2 text-muted-fg transition hover:bg-fg/[0.06] hover:text-fg"
+              className="rounded-lg p-2 text-white/70 transition hover:bg-white/10 hover:text-white"
               aria-label="Mais"
             >
               <DotsIcon />
             </button>
             {menuOpen && (
-              <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-line bg-card p-1 shadow-lift animate-fade-in">
+              <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-line bg-card p-1 text-fg shadow-lift animate-fade-in">
                 {user && (
                   <>
                     <div className="flex items-center gap-2 px-3 py-2">
@@ -183,7 +175,7 @@ export function Header({
                     <button
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => logout()}
-                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-700 dark:text-rose-300 transition hover:bg-rose-500/10"
+                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-[#FA5F5B] transition hover:bg-[#FA5F5B]/10"
                     >
                       ⎋ Sair
                     </button>
@@ -198,11 +190,40 @@ export function Header({
   );
 }
 
-function Logo() {
+function SeazoneLogo() {
   return (
-    <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-ink-900 via-ink-700 to-ink-800 text-bg shadow-soft ring-1 ring-fg/10">
-      <span className="text-display text-base font-bold leading-none">S</span>
-      <span className="absolute -bottom-1 -right-1 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-bg" />
+    <span className="flex items-center gap-2.5">
+      {/* Ícone casa coral */}
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        className="drop-shadow"
+        aria-hidden
+      >
+        <rect x="0" y="0" width="32" height="32" rx="8" fill="white" fillOpacity="0.08" />
+        <path
+          d="M6 16.5 L16 7.5 L26 16.5 L26 25 C26 25.5523 25.5523 26 25 26 L19.5 26 L19.5 19 L12.5 19 L12.5 26 L7 26 C6.44772 26 6 25.5523 6 25 Z"
+          fill="#FA5F5B"
+        />
+        <path
+          d="M4 17 L16 6 L28 17"
+          stroke="#FA5F5B"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+      <span className="flex flex-col items-start text-left">
+        <span className="font-display text-lg font-extrabold leading-none tracking-tight text-white">
+          Seazone
+        </span>
+        <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">
+          Gestão de Assembleias
+        </span>
+      </span>
     </span>
   );
 }
