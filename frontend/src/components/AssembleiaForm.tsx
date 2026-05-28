@@ -73,9 +73,9 @@ export function AssembleiaForm({ onCreated }: Props) {
                     <div className="mb-4 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300 dark:text-emerald-300">
                                 <strong>Assembleia registrada.</strong>{" "}
                       {result.slack.ok ? (
-                                    <>Notificação enviada ao Slack ✅</>>
+                                    <>Notificação enviada ao Slack ✅</>
                                   ) : (
-                                    <>Envio ao Slack falhou: {result.slack.error}</>>
+                                    <>Envio ao Slack falhou: {result.slack.error}</>
                                   )}
                     </div>
                       )}
@@ -227,4 +227,4 @@ export function AssembleiaForm({ onCreated }: Props) {
               </div>
         </div>
       );
-}</></></div>
+}</></div>
