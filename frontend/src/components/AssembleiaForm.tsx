@@ -57,32 +57,32 @@ export function AssembleiaForm({ onCreated }: Props) {
         <div className="mx-auto max-w-4xl px-6 py-8">
               <div className="card p-8">
                       <div className="mb-6 border-b border-line pb-4">
-                                <h2 className="text-xl font-semibold text-fg">Registrar nova assembleia</h2>h2>
+                                <h2 className="text-xl font-semibold text-fg">Registrar nova assembleia</h2>
                                 <p className="mt-1 text-sm text-muted-fg">
                                             Os dados são gravados localmente e disparam notificação ao Slack.
-                                </p>p>
-                      </div>div>
+                                </p>
+                      </div>
               
                 {error && (
                     <div className="mb-4 rounded-md border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
                                 <strong>Erro:</strong> {error}
-                    </div>div>
+                    </div>
                       )}
               
                 {result && (
                     <div className="mb-4 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300 dark:text-emerald-300">
-                                <strong>Assembleia registrada.</strong>strong>{" "}
+                                <strong>Assembleia registrada.</strong>{" "}
                       {result.slack.ok ? (
                                     <>Notificação enviada ao Slack ✅</>>
                                   ) : (
                                     <>Envio ao Slack falhou: {result.slack.error}</>>
                                   )}
-                    </div>div>
+                    </div>
                       )}
               
                       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5 md:grid-cols-2">
                                 <div>
-                                            <label className="field-label">SPE *</label>label>
+                                            <label className="field-label">SPE *</label>
                                             <input
                                                             required
                                                             className="field-input"
@@ -90,10 +90,10 @@ export function AssembleiaForm({ onCreated }: Props) {
                                                             placeholder="Ex.: Barra Spot"
                                                             onChange={(e) => set("spe", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Data *</label>label>
+                                            <label className="field-label">Data *</label>
                                             <input
                                                             required
                                                             type="date"
@@ -101,10 +101,10 @@ export function AssembleiaForm({ onCreated }: Props) {
                                                             value={form.data}
                                                             onChange={(e) => set("data", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Tipo de reunião *</label>label>
+                                            <label className="field-label">Tipo de reunião *</label>
                                             <select
                                                             className="field-input"
                                                             value={form.tipo}
@@ -113,13 +113,13 @@ export function AssembleiaForm({ onCreated }: Props) {
                                               {TIPOS.map((t) => (
                                                                             <option key={t} value={t}>
                                                                               {t} — {TIPO_DESCRICAO[t]}
-                                                                            </option>option>
+                                                                            </option>
                                                                           ))}
-                                            </select>select>
-                                </div>div>
+                                            </select>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Nível de criticidade *</label>label>
+                                            <label className="field-label">Nível de criticidade *</label>
                                             <select
                                                             className="field-input"
                                                             value={form.criticidade}
@@ -130,13 +130,13 @@ export function AssembleiaForm({ onCreated }: Props) {
                                               {CRITICIDADES.map((c) => (
                                                                             <option key={c} value={c}>
                                                                               {c === "Alto" ? "🔴 Alto" : c === "Medio" ? "🟡 Médio" : "🟢 Baixo"}
-                                                                            </option>option>
+                                                                            </option>
                                                                           ))}
-                                            </select>select>
-                                </div>div>
+                                            </select>
+                                </div>
                       
                                 <div className="md:col-span-2">
-                                            <label className="field-label">Ordem do dia *</label>label>
+                                            <label className="field-label">Ordem do dia *</label>
                                             <textarea
                                                             required
                                                             className="field-input min-h-[90px]"
@@ -144,27 +144,27 @@ export function AssembleiaForm({ onCreated }: Props) {
                                                             placeholder="Aprovação de contas, deliberação sobre permuta, eleição de administrador..."
                                                             onChange={(e) => set("ordemDoDia", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Data limite do edital</label>label>
+                                            <label className="field-label">Data limite do edital</label>
                                             <input
                                                             type="date"
                                                             className="field-input"
                                                             value={form.dataLimiteEdital}
                                                             onChange={(e) => set("dataLimiteEdital", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Suporte CSI</label>label>
+                                            <label className="field-label">Suporte CSI</label>
                                             <input
                                                             className="field-input"
                                                             value={form.suporteCsi}
                                                             placeholder="Ex.: Mariana / equipe contábil"
                                                             onChange={(e) => set("suporteCsi", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div className="flex items-end">
                                             <label className="inline-flex items-center gap-2 text-sm">
@@ -176,39 +176,39 @@ export function AssembleiaForm({ onCreated }: Props) {
                                                                           />
                                                           <span className="font-medium text-fg">
                                                             {temEdital(form.tipo) ? "Edital enviado" : "Participação confirmada"}
-                                                          </span>span>
-                                            </label>label>
-                                </div>div>
+                                                          </span>
+                                            </label>
+                                </div>
                       
                                 <div>
-                                            <label className="field-label">Apresentação</label>label>
+                                            <label className="field-label">Apresentação</label>
                                             <input
                                                             className="field-input"
                                                             value={form.apresentacao}
                                                             placeholder="Confirmada / Pendente / Não se aplica"
                                                             onChange={(e) => set("apresentacao", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div className="md:col-span-2">
-                                            <label className="field-label">Departamentos envolvidos</label>label>
+                                            <label className="field-label">Departamentos envolvidos</label>
                                             <input
                                                             className="field-input"
                                                             value={form.dptosEnvolvidos}
                                                             placeholder="Jurídico, Financeiro, Operações"
                                                             onChange={(e) => set("dptosEnvolvidos", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div className="md:col-span-2">
-                                            <label className="field-label">Responsável</label>label>
+                                            <label className="field-label">Responsável</label>
                                             <input
                                                             className="field-input"
                                                             value={form.responsavel}
                                                             placeholder="Nome do responsável pela assembleia"
                                                             onChange={(e) => set("responsavel", e.target.value)}
                                                           />
-                                </div>div>
+                                </div>
                       
                                 <div className="md:col-span-2 flex items-center justify-end gap-3 pt-4 border-t border-line">
                                             <button
@@ -218,13 +218,13 @@ export function AssembleiaForm({ onCreated }: Props) {
                                                             disabled={submitting}
                                                           >
                                                           Limpar
-                                            </button>button>
+                                            </button>
                                             <button type="submit" className="btn-primary" disabled={submitting}>
                                               {submitting ? "Enviando..." : "Registrar e notificar Slack"}
-                                            </button>button>
-                                </div>div>
-                      </form>form>
-              </div>div>
-        </div>div>
+                                            </button>
+                                </div>
+                      </form>
+              </div>
+        </div>
       );
 }</></></div>
