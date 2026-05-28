@@ -227,4 +227,4 @@ export function AssembleiaForm({ onCreated }: Props) {
               </div>
         </div>
       );
-}</></div>
+}
