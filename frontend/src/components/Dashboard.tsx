@@ -694,7 +694,7 @@ function KanbanCard({
       className={`relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20 ${
         realizada ? "opacity-60" : ""
       } ${draggable ? "active:cursor-grabbing" : ""}`}
-      title={draggable ? "Arraste para 'Edital enviado' ou 'Edital não enviado' para alternar status" : undefined}
+      title={draggable ? "Arraste para 'Edital enviado' ou 'Aprazado' para alternar status do edital" : undefined}
     >
       <div className="mb-1.5 flex items-center gap-1.5">
         <CriticidadeDot c={a.criticidade} />
