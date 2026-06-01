@@ -182,14 +182,13 @@ export function buildSlackPayloadEtapa(
     elements: [{ type: "mrkdwn", text }],
   });
 
-  // Checklist agora tem 5 etapas (índices 0-4):
-  // 0 = Comunicar o PMO da solicitação
-  // 1 = Análise da pauta e verificação de deliberações críticas
-  // 2 = Elaborar apresentação da assembleia
-  // 3 = Comunicar documentos faltantes
-  // 4 = Convocar a assembleia (prazo mínimo 10 dias) / Confirmar participação
-  switch (etapaIndex) {
-    case 0:
+  // Dispatch por TÍTULO do item (não por índice) — mais robusto a reordenamento
+  // do template. Itens sem mapeamento explícito não disparam mensagem (return null).
+  const titulo = a.checklist[etapaIndex]?.titulo;
+  if (!titulo) return null;
+
+  switch (titulo) {
+    case "Comunicar o PMO da solicitação":
       return {
         text: `📢 PMO comunicado — ${dadosLinha(a)}`,
         blocks: [
@@ -203,18 +202,7 @@ export function buildSlackPayloadEtapa(
           ctx(`Responsável Seazone: ${responsavel}`),
         ],
       };
-    case 1:
-      return {
-        text: `🔍 Análise de pauta concluída — ${dadosLinha(a)}`,
-        blocks: [
-          section("🔍 *Análise de pauta concluída*"),
-          section(
-            `> *SPE:* ${dadosLinha(a)}\n> *Pauta(s) analisada(s):* ${pauta}\n` +
-              `> Verificação de deliberações críticas e controle de procurações realizada.`,
-          ),
-        ],
-      };
-    case 2:
+    case "Elaborar apresentação da assembleia":
       return {
         text: `🖥️ Apresentação elaborada — ${dadosLinha(a)}`,
         blocks: [
@@ -225,7 +213,7 @@ export function buildSlackPayloadEtapa(
           ),
         ],
       };
-    case 3:
+    case "Comunicar documentos faltantes":
       return {
         text: `📎 Documentos verificados — ${dadosLinha(a)}`,
         blocks: [
@@ -236,7 +224,7 @@ export function buildSlackPayloadEtapa(
           ),
         ],
       };
-    case 4: {
+    case "Convocar a assembleia (prazo mínimo 10 dias)": {
       const temEditalTipo = tipo === "AGE" || tipo === "AGO";
       if (temEditalTipo) {
         return {

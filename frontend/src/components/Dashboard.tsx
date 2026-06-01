@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Assembleia, Criticidade } from "../types";
 import { CRITICIDADES, temEdital } from "../types";
+import { patchAssembleia } from "../api";
 import {
   CRITICIDADE_BADGE,
   CRITICIDADE_EMOJI,
@@ -11,6 +12,15 @@ import {
   pendencias,
   progressoChecklist,
 } from "../utils";
+
+// MIME type usado para identificar drags de KanbanCard.
+const KANBAN_DRAG_MIME = "application/x-seazone-assembleia-id";
+
+// Colunas onde "soltar" um card tem semântica definida (toggle do editalEnviado).
+const DROP_TARGETS_EDITAL: Record<string, boolean> = {
+  edital_enviado: true,
+  edital_nao_enviado: true,
+};
 
 type View = "lista" | "kanban";
 type FiltroStatus = "todas" | "proximas" | "realizadas";
@@ -73,9 +83,10 @@ function temApresentacao(a: Assembleia): boolean {
 }
 
 function temPendenciaDocumentos(a: Assembleia): boolean {
-  const etapa6 = a.checklist[5];
-  if (!etapa6) return true;
-  return etapa6.status !== "Concluído";
+  // Lookup por título (robusto a reordenamento do template).
+  const item = a.checklist.find((c) => c.titulo === "Comunicar documentos faltantes");
+  if (!item) return true;
+  return item.status !== "Concluído";
 }
 
 function colunaKanbanFor(a: Assembleia): ColunaKanban {
@@ -211,6 +222,28 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
     return filtradas.find((a) => a.data && !isRealizada(a))?.data ?? "";
   }, [filtradas]);
 
+  // Handler do drag-and-drop do kanban: arrastar entre as colunas
+  // "edital_enviado" ⇄ "edital_nao_enviado" alterna o campo `editalEnviado`.
+  // Outras colunas (sem_data, apresentacao, realizadas) não aceitam drop
+  // porque a transição exige preencher outros campos manualmente.
+  async function handleMoveEdital(assembleiaId: string, target: ColunaKanban) {
+    const alvo = target === "edital_enviado";
+    const atual = rows.find((r) => r.id === assembleiaId);
+    if (!atual) return;
+    // Só faz sentido em assembleias com data e não realizadas.
+    if (!atual.data || isRealizada(atual)) return;
+    if (atual.editalEnviado === alvo) return; // no-op
+    try {
+      await patchAssembleia(assembleiaId, { editalEnviado: alvo });
+      await onRefresh();
+    } catch (err) {
+      console.error("[kanban] falha ao mover edital:", err);
+      alert(
+        "Não foi possível atualizar o status do edital. Tente novamente em alguns segundos.",
+      );
+    }
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
       <div className="mb-8 animate-fade-in">
@@ -280,7 +313,7 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
           onOpen={onOpen}
         />
       ) : (
-        <KanbanView colunas={colunasKanban} onOpen={onOpen} />
+        <KanbanView colunas={colunasKanban} onOpen={onOpen} onMoveEdital={handleMoveEdital} />
       )}
     </div>
   );
@@ -417,38 +450,81 @@ function DivisorRealizadas({ total }: { total: number }) {
 function KanbanView({
   colunas,
   onOpen,
+  onMoveEdital,
 }: {
   colunas: { key: ColunaKanban; titulo: string; emoji: string; dot: string; tone: string; rows: Assembleia[] }[];
   onOpen: (a: Assembleia) => void;
+  onMoveEdital: (assembleiaId: string, target: ColunaKanban) => void;
 }) {
+  // Coluna sob hover do drag — usado pra dar feedback visual (highlight).
+  const [dragOverKey, setDragOverKey] = useState<ColunaKanban | null>(null);
+
   return (
     <div className="flex gap-4 overflow-x-auto pb-4 animate-fade-in">
-      {colunas.map((c) => (
-        <div
-          key={c.key}
-          className="flex-shrink-0 w-[300px] flex flex-col surface overflow-hidden"
-        >
-          <header className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}>
-            <h3 className="flex items-center justify-between text-sm font-semibold text-fg">
-              <span className="flex items-center gap-2">
-                <span className={`inline-block h-2.5 w-2.5 rounded-full ${c.dot}`} />
-                {c.icon ? c.icon : c.emoji && <span>{c.emoji}</span>}
-                <span>{c.titulo}</span>
-              </span>
-              <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
-                {c.rows.length}
-              </span>
-            </h3>
-          </header>
-          <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh] bg-bg/30">
-            {c.rows.length === 0 ? (
-              <p className="py-8 text-center text-xs text-muted-fg italic">Vazio</p>
-            ) : (
-              c.rows.map((a) => <KanbanCard key={a.id} a={a} onOpen={() => onOpen(a)} />)
-            )}
+      {colunas.map((c) => {
+        const aceitaDrop = !!DROP_TARGETS_EDITAL[c.key];
+        const sobHover = dragOverKey === c.key && aceitaDrop;
+        return (
+          <div
+            key={c.key}
+            className={`flex-shrink-0 w-[300px] flex flex-col surface overflow-hidden transition ${
+              sobHover ? "ring-2 ring-fg/40 ring-offset-2 ring-offset-bg" : ""
+            }`}
+            onDragOver={(e) => {
+              // Aceitar drop só se a coluna for "edital_enviado" / "edital_nao_enviado"
+              // e o payload arrastado for um card do kanban.
+              if (!aceitaDrop) return;
+              if (!e.dataTransfer.types.includes(KANBAN_DRAG_MIME)) return;
+              e.preventDefault(); // <-- ESSENCIAL: sem isso o drop é rejeitado.
+              e.dataTransfer.dropEffect = "move";
+              if (dragOverKey !== c.key) setDragOverKey(c.key);
+            }}
+            onDragLeave={(e) => {
+              // O dragleave dispara também ao entrar em filho — usar relatedTarget
+              // pra confirmar que saímos da coluna.
+              const next = e.relatedTarget as Node | null;
+              if (next && (e.currentTarget as Node).contains(next)) return;
+              if (dragOverKey === c.key) setDragOverKey(null);
+            }}
+            onDrop={(e) => {
+              if (!aceitaDrop) return;
+              e.preventDefault();
+              setDragOverKey(null);
+              const id = e.dataTransfer.getData(KANBAN_DRAG_MIME);
+              if (id) onMoveEdital(id, c.key);
+            }}
+          >
+            <header className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}>
+              <h3 className="flex items-center justify-between text-sm font-semibold text-fg">
+                <span className="flex items-center gap-2">
+                  <span className={`inline-block h-2.5 w-2.5 rounded-full ${c.dot}`} />
+                  {c.icon ? c.icon : c.emoji && <span>{c.emoji}</span>}
+                  <span>{c.titulo}</span>
+                </span>
+                <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
+                  {c.rows.length}
+                </span>
+              </h3>
+            </header>
+            <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh] bg-bg/30">
+              {c.rows.length === 0 ? (
+                <p className="py-8 text-center text-xs text-muted-fg italic">
+                  {sobHover ? "Solte aqui" : "Vazio"}
+                </p>
+              ) : (
+                c.rows.map((a) => (
+                  <KanbanCard
+                    key={a.id}
+                    a={a}
+                    onOpen={() => onOpen(a)}
+                    draggable={a.data ? !isRealizada(a) : false}
+                  />
+                ))
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -543,7 +619,15 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
   );
 }
 
-function KanbanCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
+function KanbanCard({
+  a,
+  onOpen,
+  draggable = false,
+}: {
+  a: Assembleia;
+  onOpen: () => void;
+  draggable?: boolean;
+}) {
   const prog = progressoChecklist(a);
   const realizada = isRealizada(a);
 
@@ -552,6 +636,12 @@ function KanbanCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
       onClick={onOpen}
       role="button"
       tabIndex={0}
+      draggable={draggable}
+      onDragStart={(e) => {
+        if (!draggable) return;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData(KANBAN_DRAG_MIME, a.id);
+      }}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -560,7 +650,8 @@ function KanbanCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
       }}
       className={`relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20 ${
         realizada ? "opacity-60" : ""
-      }`}
+      } ${draggable ? "active:cursor-grabbing" : ""}`}
+      title={draggable ? "Arraste para 'Edital enviado' ou 'Edital não enviado' para alternar status" : undefined}
     >
       <div className="mb-1.5 flex items-center gap-1.5">
         <CriticidadeDot c={a.criticidade} />

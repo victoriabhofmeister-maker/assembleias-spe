@@ -33,6 +33,20 @@ export async function createAssembleia(input: AssembleiaInput): Promise<CreateAs
   return body as CreateAssembleiaResult;
 }
 
+export async function patchAssembleia(
+  id: string,
+  patch: Partial<Pick<Assembleia, "editalEnviado">>,
+): Promise<Assembleia> {
+  const res = await fetch(`${BASE}/assembleias/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patch),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `PATCH falhou: ${res.status}`);
+  return body as Assembleia;
+}
+
 export async function updateChecklist(
   id: string,
   index: number,

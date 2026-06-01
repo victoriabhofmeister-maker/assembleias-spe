@@ -40,6 +40,7 @@ import {
 import { gerarRelatorioAtaIA, gerarRoteiroIA } from "./anthropic.js";
 import {
   CHECKLIST_TEMPLATE,
+  CHECKLIST_POS_TEMPLATE,
   type Assembleia,
   type AssembleiaInput,
   type ChecklistStatus,
@@ -179,11 +180,33 @@ app.post("/api/assembleias", async (req: Request, res: Response) => {
     createdAt: new Date().toISOString(),
     ...parsed.value,
     checklist: CHECKLIST_TEMPLATE.map((c) => ({ ...c })),
+    checklistPos: CHECKLIST_POS_TEMPLATE.map((c) => ({ ...c })),
   };
   await appendAssembleia(row);
 
   const slack = await sendAssembleiaToSlack(row);
   res.status(201).json({ assembleia: row, slack });
+});
+
+// PATCH /api/assembleias/:id — updates parciais de campos top-level da assembleia.
+// Whitelist: só os campos abaixo podem ser atualizados via essa rota.
+// Usado pelo drag-and-drop do kanban para alternar `editalEnviado`.
+app.patch("/api/assembleias/:id", async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const body = req.body ?? {};
+  const patch: Partial<Pick<Assembleia, "editalEnviado">> = {};
+
+  if (typeof body.editalEnviado === "boolean") {
+    patch.editalEnviado = body.editalEnviado;
+  }
+
+  if (Object.keys(patch).length === 0) {
+    return res.status(400).json({ error: "Nenhum campo válido para atualizar" });
+  }
+
+  const updated = await updateAssembleia(id, (a) => ({ ...a, ...patch }));
+  if (!updated) return res.status(404).json({ error: "Assembleia não encontrada" });
+  res.json(updated);
 });
 
 app.patch("/api/assembleias/:id/checklist/:index", async (req: Request, res: Response) => {

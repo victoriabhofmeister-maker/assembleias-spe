@@ -128,12 +128,6 @@ export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
     status: "A fazer",
   },
   {
-    titulo: "Análise da pauta e verificação de deliberações críticas",
-    responsavel: "Jurídico + KREMER",
-    prazo: "Logo após receber a pauta",
-    status: "A fazer",
-  },
-  {
     titulo: "Elaborar apresentação da assembleia",
     responsavel: "Jurídico",
     prazo: "Antes da convocação",
@@ -193,10 +187,13 @@ export const CHECKLIST_POS_TEMPLATE: ChecklistItem[] = [
   },
 ];
 
-// Títulos legados (etapas que foram removidas em refatorações anteriores)
+// Títulos legados (etapas que foram removidas em refatorações anteriores).
+// O filtro em storage.ts/migrateChecklist remove silenciosamente esses títulos
+// dos checklists carregados — mantendo compatibilidade com assembleias antigas.
 export const CHECKLIST_LEGACY_TITLES = new Set<string>([
   "Receber solicitação via Pipe",
   "Envio no canal ASSEMBLEIAS (Slack)",
+  "Análise da pauta e verificação de deliberações críticas",
 ]);
 
 export const SPES_DISPONIVEIS: string[] = [
