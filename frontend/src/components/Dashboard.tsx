@@ -251,8 +251,8 @@ export function Dashboard({
     const alvo = target === "edital_enviado";
     const atual = rows.find((r) => r.id === assembleiaId);
     if (!atual) return;
-    // Só faz sentido em assembleias com data e não realizadas.
-    if (!atual.data || isRealizada(atual)) return;
+    // Assembleias já realizadas não permitem alteração do status do edital.
+    if (isRealizada(atual)) return;
     if (atual.editalEnviado === alvo) return; // no-op
     try {
       await patchAssembleia(assembleiaId, { editalEnviado: alvo });
