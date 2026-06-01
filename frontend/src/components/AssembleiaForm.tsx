@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   TIPOS,
   CRITICIDADES,
   TIPO_DESCRICAO,
   temEdital,
+  ORDENS_DO_DIA,
+  PAUTAS_CRITICAS,
+  AVISO_PAUTA_CRITICA,
+  ORDEM_LABEL_COMPLETO,
+  DOCUMENTOS_INDISPENSAVEIS,
   type AssembleiaInput,
 } from "../types";
-import { createAssembleia, type CreateResult } from "../api";
+import { createAssembleia, type CreateAssembleiaResult } from "../api";
 
 const EMPTY: AssembleiaInput = {
   data: "",
@@ -22,29 +27,75 @@ const EMPTY: AssembleiaInput = {
   responsavel: "",
 };
 
+function labelOrdem(ordem: string): string {
+  return ORDEM_LABEL_COMPLETO[ordem] ?? ordem;
+}
+
 interface Props {
   onCreated: () => void;
 }
 
 export function AssembleiaForm({ onCreated }: Props) {
   const [form, setForm] = useState<AssembleiaInput>(EMPTY);
+  // Estado paralelo: usuário seleciona pautas via checkbox; no submit,
+  // fundimos em form.ordemDoDia (string) para manter o tipo Assembleia atual.
+  const [ordensDoDia, setOrdensDoDia] = useState<string[]>([]);
+  const [outraOrdemDescricao, setOutraOrdemDescricao] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<CreateResult | null>(null);
+  const [result, setResult] = useState<CreateAssembleiaResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   function set<K extends keyof AssembleiaInput>(key: K, value: AssembleiaInput[K]) {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
+  function toggleOrdem(ordem: string) {
+    setOrdensDoDia((arr) =>
+      arr.includes(ordem) ? arr.filter((o) => o !== ordem) : [...arr, ordem],
+    );
+  }
+
+  function limpar() {
+    setForm(EMPTY);
+    setOrdensDoDia([]);
+    setOutraOrdemDescricao("");
+    setError(null);
+  }
+
+  const docsIndispensaveis = useMemo(() => {
+    const out: { ordem: string; docs: string[] }[] = [];
+    for (const o of ordensDoDia) {
+      const docs = DOCUMENTOS_INDISPENSAVEIS[o];
+      if (docs && docs.length > 0) out.push({ ordem: o, docs });
+    }
+    return out;
+  }, [ordensDoDia]);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
     setResult(null);
+
+    if (ordensDoDia.length === 0) {
+      setSubmitting(false);
+      setError("Selecione ao menos uma ordem do dia.");
+      return;
+    }
+
+    // Funde as pautas selecionadas em uma string (mesmo formato usado pelo
+    // backend hoje). Se "Outro" estiver selecionado, substitui pelo texto livre.
+    const partes = ordensDoDia.map((o) =>
+      o === "Outro (especificar)" && outraOrdemDescricao.trim()
+        ? outraOrdemDescricao.trim()
+        : labelOrdem(o),
+    );
+    const ordemDoDiaCombinada = partes.join(" · ");
+
     try {
-      const r = await createAssembleia(form);
+      const r = await createAssembleia({ ...form, ordemDoDia: ordemDoDiaCombinada });
       setResult(r);
-      setForm(EMPTY);
+      limpar();
       onCreated();
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
@@ -136,14 +187,75 @@ export function AssembleiaForm({ onCreated }: Props) {
           </div>
 
           <div className="md:col-span-2">
-            <label className="field-label">Ordem do Dia *</label>
-            <textarea
-              required
-              className="field-input min-h-[90px]"
-              value={form.ordemDoDia}
-              placeholder="Aprovação de contas, deliberação sobre permuta, eleição de administrador..."
-              onChange={(e) => set("ordemDoDia", e.target.value)}
-            />
+            <label className="field-label">Ordem do Dia (selecione uma ou mais) *</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 rounded-lg border border-line bg-muted/40 p-3">
+              {ORDENS_DO_DIA.map((o) => (
+                <label
+                  key={o}
+                  className="flex items-start gap-2 rounded-md border border-line bg-card px-3 py-2 hover:border-[#0048D7]/40 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    className="mt-0.5 h-4 w-4 rounded border-line text-[#0048D7] focus:ring-[#0048D7]/30"
+                    checked={ordensDoDia.includes(o)}
+                    onChange={() => toggleOrdem(o)}
+                  />
+                  <span className="text-sm text-fg">{labelOrdem(o)}</span>
+                </label>
+              ))}
+            </div>
+
+            {ordensDoDia.includes("Outro (especificar)") && (
+              <div className="mt-3">
+                <label className="field-label">Descreva a pauta</label>
+                <input
+                  className="field-input"
+                  placeholder="Qual o tema da deliberação?"
+                  value={outraOrdemDescricao}
+                  onChange={(e) => setOutraOrdemDescricao(e.target.value)}
+                />
+              </div>
+            )}
+
+            {ordensDoDia.some((o) => PAUTAS_CRITICAS.has(o)) && (
+              <div className="mt-3 space-y-2">
+                {ordensDoDia
+                  .filter((o) => PAUTAS_CRITICAS.has(o))
+                  .map((o) => (
+                    <div
+                      key={o}
+                      className="rounded-lg border-2 border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-900 dark:text-amber-200"
+                    >
+                      <strong className="block mb-1 text-amber-700 dark:text-amber-200">
+                        ⚠️ {labelOrdem(o)}
+                      </strong>
+                      <p className="text-xs leading-relaxed">{AVISO_PAUTA_CRITICA[o]}</p>
+                    </div>
+                  ))}
+              </div>
+            )}
+
+            {docsIndispensaveis.length > 0 && (
+              <div className="mt-3 rounded-lg border border-[#0048D7]/30 bg-[#0048D7]/[0.06] p-4">
+                <h3 className="text-sm font-bold text-[#0048D7] mb-2 flex items-center gap-2">
+                  📋 Documentos indispensáveis
+                </h3>
+                <div className="space-y-3">
+                  {docsIndispensaveis.map((g) => (
+                    <div key={g.ordem}>
+                      <p className="text-xs font-semibold text-fg mb-1">
+                        {labelOrdem(g.ordem)}
+                      </p>
+                      <ul className="ml-4 list-disc text-xs text-fg/80 space-y-0.5">
+                        {g.docs.map((d) => (
+                          <li key={d}>{d}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>
@@ -214,7 +326,7 @@ export function AssembleiaForm({ onCreated }: Props) {
             <button
               type="button"
               className="btn-ghost"
-              onClick={() => setForm(EMPTY)}
+              onClick={limpar}
               disabled={submitting}
             >
               Limpar

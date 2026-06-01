@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Assembleia, Criticidade } from "../types";
+import type { Assembleia, Criticidade, Solicitacao } from "../types";
 import { CRITICIDADES, temEdital } from "../types";
 import { patchAssembleia } from "../api";
 import {
@@ -16,10 +16,11 @@ import {
 // MIME type usado para identificar drags de KanbanCard.
 const KANBAN_DRAG_MIME = "application/x-seazone-assembleia-id";
 
-// Colunas onde "soltar" um card tem semântica definida (toggle do editalEnviado).
+// Colunas onde "soltar" um card de Assembleia tem semântica definida
+// (toggle do editalEnviado). Cards de Stage 1 (Solicitacoes) não são draggable.
 const DROP_TARGETS_EDITAL: Record<string, boolean> = {
   edital_enviado: true,
-  edital_nao_enviado: true,
+  aprazado: true,
 };
 
 type View = "lista" | "kanban";
@@ -29,9 +30,11 @@ const VIEW_KEY = "seazone.dashboard.view";
 
 interface Props {
   rows: Assembleia[];
+  solicitacoes: Solicitacao[];
   loading: boolean;
   onRefresh: () => void;
   onOpen: (a: Assembleia) => void;
+  onOpenSolicitacoes: () => void;
 }
 
 function compareDataAsc(a: Assembleia, b: Assembleia): number {
@@ -67,13 +70,14 @@ function groupByMonth(rows: Assembleia[]): { label: string; rows: Assembleia[] }
   return groups;
 }
 
+// Colunas do funil (5 estágios). Stage 1 (solicitacoes) é especial: mostra
+// Solicitacoes pendentes, não Assembleias. Stages 2-5 mostram Assembleias.
 type ColunaKanban =
-  | "sem_data"
+  | "solicitacoes"
+  | "aprazado"
   | "apresentacao"
   | "edital_enviado"
-  | "edital_nao_enviado"
-  | "falta_documentos"
-  | "realizadas";
+  | "realizada";
 
 function temApresentacao(a: Assembleia): boolean {
   const v = a.apresentacao.trim().toLowerCase();
@@ -89,13 +93,14 @@ function temPendenciaDocumentos(a: Assembleia): boolean {
   return item.status !== "Concluído";
 }
 
-function colunaKanbanFor(a: Assembleia): ColunaKanban {
-  if (isRealizada(a)) return "realizadas";
-  if (!a.data) return "sem_data";
+// Mapeia uma Assembleia para sua coluna no kanban (Stages 2-5).
+// Stage 1 (solicitacoes) é populado a partir de Solicitacoes, não Assembleias.
+function colunaKanbanFor(a: Assembleia): Exclude<ColunaKanban, "solicitacoes"> {
+  if (isRealizada(a)) return "realizada";
   if (a.editalEnviado) return "edital_enviado";
   if (temApresentacao(a)) return "apresentacao";
-  // tem data + sem edital + sem apresentação → edital ainda não foi enviado
-  return "edital_nao_enviado";
+  // Tem data ou não tem — cai em "aprazado" (data meta para realizar a assembleia).
+  return "aprazado";
 }
 
 // Ícone PowerPoint/slides inline (mais distinto que emoji)
@@ -108,6 +113,7 @@ const SlideIcon = () => (
   </svg>
 );
 
+// Ordem das colunas no kanban segue o funil pré-assembleia → realizada.
 const COLUNAS_KANBAN: {
   key: ColunaKanban;
   titulo: string;
@@ -117,11 +123,18 @@ const COLUNAS_KANBAN: {
   tone: string;
 }[] = [
   {
-    key: "sem_data",
-    titulo: "Sem data",
-    emoji: "📅",
-    dot: "bg-muted-fg",
-    tone: "from-muted/60 to-transparent border-line",
+    key: "solicitacoes",
+    titulo: "Solicitações",
+    emoji: "📥",
+    dot: "bg-[#A855F7]",
+    tone: "from-[#A855F7]/10 to-transparent border-[#A855F7]/30",
+  },
+  {
+    key: "aprazado",
+    titulo: "Aprazado",
+    emoji: "🗓️",
+    dot: "bg-[#FA5F5B]",
+    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
   },
   {
     key: "apresentacao",
@@ -139,29 +152,22 @@ const COLUNAS_KANBAN: {
     tone: "from-[#2FB864]/10 to-transparent border-[#2FB864]/30",
   },
   {
-    key: "edital_nao_enviado",
-    titulo: "Edital não enviado",
-    emoji: "✉️",
-    dot: "bg-[#FA5F5B]",
-    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
-  },
-  {
-    key: "falta_documentos",
-    titulo: "Falta documentos",
-    emoji: "📎",
-    dot: "bg-amber-500",
-    tone: "from-amber-500/10 to-transparent border-amber-500/30",
-  },
-  {
-    key: "realizadas",
-    titulo: "Realizadas",
+    key: "realizada",
+    titulo: "Assembleia realizada",
     emoji: "✓",
     dot: "bg-fg/40",
     tone: "from-muted/40 to-transparent border-line",
   },
 ];
 
-export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
+export function Dashboard({
+  rows,
+  solicitacoes,
+  loading,
+  onRefresh,
+  onOpen,
+  onOpenSolicitacoes,
+}: Props) {
   const [filtroResp, setFiltroResp] = useState<string>("");
   const [filtroCrit, setFiltroCrit] = useState<"todos" | Criticidade>("todos");
   const [filtroStatus, setFiltroStatus] = useState<FiltroStatus>("todas");
@@ -210,12 +216,27 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
     };
   }, [filtradas]);
 
+  // Solicitações que aparecem no Stage 1: ainda não viraram Assembleia
+  // (status Pendente ou Em análise). Aprovada/Rejeitada saem do kanban.
+  const solicitacoesAbertas = useMemo(() => {
+    return solicitacoes.filter(
+      (s) => s.status === "Pendente de análise" || s.status === "Em análise",
+    );
+  }, [solicitacoes]);
+
   const colunasKanban = useMemo(() => {
-    return COLUNAS_KANBAN.map((c) => ({
-      ...c,
-      rows: filtradas.filter((a) => colunaKanbanFor(a) === c.key),
-    }));
-  }, [filtradas]);
+    return COLUNAS_KANBAN.map((c) => {
+      if (c.key === "solicitacoes") {
+        // Stage 1 é populado por Solicitacoes, não Assembleias.
+        return { ...c, rows: [] as Assembleia[], solicitacoes: solicitacoesAbertas };
+      }
+      return {
+        ...c,
+        rows: filtradas.filter((a) => colunaKanbanFor(a) === c.key),
+        solicitacoes: [] as Solicitacao[],
+      };
+    });
+  }, [filtradas, solicitacoesAbertas]);
 
   const alertas = rows.filter(isProximaComPendencias).length;
   const proximaData = useMemo(() => {
@@ -313,7 +334,12 @@ export function Dashboard({ rows, loading, onRefresh, onOpen }: Props) {
           onOpen={onOpen}
         />
       ) : (
-        <KanbanView colunas={colunasKanban} onOpen={onOpen} onMoveEdital={handleMoveEdital} />
+        <KanbanView
+          colunas={colunasKanban}
+          onOpen={onOpen}
+          onMoveEdital={handleMoveEdital}
+          onOpenSolicitacoes={onOpenSolicitacoes}
+        />
       )}
     </div>
   );
@@ -451,10 +477,21 @@ function KanbanView({
   colunas,
   onOpen,
   onMoveEdital,
+  onOpenSolicitacoes,
 }: {
-  colunas: { key: ColunaKanban; titulo: string; emoji: string; dot: string; tone: string; rows: Assembleia[] }[];
+  colunas: {
+    key: ColunaKanban;
+    titulo: string;
+    emoji: string;
+    icon?: React.ReactNode;
+    dot: string;
+    tone: string;
+    rows: Assembleia[];
+    solicitacoes: Solicitacao[];
+  }[];
   onOpen: (a: Assembleia) => void;
   onMoveEdital: (assembleiaId: string, target: ColunaKanban) => void;
+  onOpenSolicitacoes: () => void;
 }) {
   // Coluna sob hover do drag — usado pra dar feedback visual (highlight).
   const [dragOverKey, setDragOverKey] = useState<ColunaKanban | null>(null);
@@ -464,6 +501,8 @@ function KanbanView({
       {colunas.map((c) => {
         const aceitaDrop = !!DROP_TARGETS_EDITAL[c.key];
         const sobHover = dragOverKey === c.key && aceitaDrop;
+        const isStageSolicitacoes = c.key === "solicitacoes";
+        const total = isStageSolicitacoes ? c.solicitacoes.length : c.rows.length;
         return (
           <div
             key={c.key}
@@ -471,17 +510,13 @@ function KanbanView({
               sobHover ? "ring-2 ring-fg/40 ring-offset-2 ring-offset-bg" : ""
             }`}
             onDragOver={(e) => {
-              // Aceitar drop só se a coluna for "edital_enviado" / "edital_nao_enviado"
-              // e o payload arrastado for um card do kanban.
               if (!aceitaDrop) return;
               if (!e.dataTransfer.types.includes(KANBAN_DRAG_MIME)) return;
-              e.preventDefault(); // <-- ESSENCIAL: sem isso o drop é rejeitado.
+              e.preventDefault();
               e.dataTransfer.dropEffect = "move";
               if (dragOverKey !== c.key) setDragOverKey(c.key);
             }}
             onDragLeave={(e) => {
-              // O dragleave dispara também ao entrar em filho — usar relatedTarget
-              // pra confirmar que saímos da coluna.
               const next = e.relatedTarget as Node | null;
               if (next && (e.currentTarget as Node).contains(next)) return;
               if (dragOverKey === c.key) setDragOverKey(null);
@@ -502,22 +537,30 @@ function KanbanView({
                   <span>{c.titulo}</span>
                 </span>
                 <span className="rounded-full bg-card px-2 py-0.5 text-[11px] tabular-nums text-muted-fg ring-1 ring-line">
-                  {c.rows.length}
+                  {total}
                 </span>
               </h3>
             </header>
             <div className="space-y-2 overflow-y-auto p-2 max-h-[68vh] bg-bg/30">
-              {c.rows.length === 0 ? (
+              {total === 0 ? (
                 <p className="py-8 text-center text-xs text-muted-fg italic">
                   {sobHover ? "Solte aqui" : "Vazio"}
                 </p>
+              ) : isStageSolicitacoes ? (
+                c.solicitacoes.map((s) => (
+                  <SolicitacaoKanbanCard
+                    key={s.id}
+                    s={s}
+                    onOpen={onOpenSolicitacoes}
+                  />
+                ))
               ) : (
                 c.rows.map((a) => (
                   <KanbanCard
                     key={a.id}
                     a={a}
                     onOpen={() => onOpen(a)}
-                    draggable={a.data ? !isRealizada(a) : false}
+                    draggable={!isRealizada(a)}
                   />
                 ))
               )}
@@ -671,6 +714,53 @@ function KanbanCard({
       </div>
       <div className="mt-2">
         <ProgressBar value={prog.pct} thin />
+      </div>
+    </article>
+  );
+}
+
+// Card do Stage 1 do kanban — representa uma Solicitacao ainda não convertida
+// em Assembleia. Não é arrastável (a transição requer ação no formulário,
+// não drag). Click leva pra view de Solicitações.
+function SolicitacaoKanbanCard({
+  s,
+  onOpen,
+}: {
+  s: Solicitacao;
+  onOpen: () => void;
+}) {
+  const pautas = s.ordensDoDia.slice(0, 2).join(" · ");
+  const sobra = s.ordensDoDia.length > 2 ? ` +${s.ordensDoDia.length - 2}` : "";
+  return (
+    <article
+      onClick={onOpen}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
+      className="relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20"
+      title="Abrir lista de solicitações para analisar e criar a assembleia"
+    >
+      <div className="mb-1.5 flex items-center gap-1.5">
+        <span className="chip py-0.5 px-1.5 text-[10px]">{s.tipo}</span>
+        <span className="ml-auto text-[10px] uppercase tracking-wide text-muted-fg">
+          {s.status === "Em análise" ? "Em análise" : "Pendente"}
+        </span>
+      </div>
+      <h4 className="text-display text-sm font-semibold leading-tight">{s.spe || "(SPE não informada)"}</h4>
+      <p className="mt-1 text-[11px] text-muted-fg line-clamp-2">
+        {pautas || "Sem pauta informada"}
+        {sobra}
+      </p>
+      <div className="mt-2 flex items-center justify-between gap-2 text-[11px] text-muted-fg">
+        <span className="truncate" title={s.nomeSolicitante}>
+          {s.nomeSolicitante || "—"}
+        </span>
+        <span className="italic">{s.departamentoSolicitante}</span>
       </div>
     </article>
   );

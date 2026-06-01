@@ -8,7 +8,7 @@ import { Solicitacoes } from "./components/Solicitacoes";
 import { SolicitacaoForm } from "./components/SolicitacaoForm";
 import { Estatisticas } from "./components/Estatisticas";
 import { listAssembleias, listSolicitacoes } from "./api";
-import type { Assembleia } from "./types";
+import type { Assembleia, Solicitacao } from "./types";
 import { isProximaComPendencias } from "./utils";
 import { AuthProvider, LoginScreen, useAuth } from "./auth";
 
@@ -47,7 +47,8 @@ function InternalApp() {
   const [rows, setRows] = useState<Assembleia[]>([]);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [solicitacoesCount, setSolicitacoesCount] = useState(0);
+  const [solicitacoes, setSolicitacoes] = useState<Solicitacao[]>([]);
+  const solicitacoesCount = solicitacoes.length;
   const [openAssembleia, setOpenAssembleia] = useState<Assembleia | null>(null);
 
   const refresh = useCallback(async () => {
@@ -66,7 +67,7 @@ function InternalApp() {
   const refreshSolicitacoesCount = useCallback(async () => {
     try {
       const list = await listSolicitacoes();
-      setSolicitacoesCount(list.length);
+      setSolicitacoes(list);
     } catch {
       /* ignore */
     }
@@ -110,9 +111,11 @@ function InternalApp() {
         {view === "dashboard" && (
           <Dashboard
             rows={rows}
+            solicitacoes={solicitacoes}
             loading={loading}
             onRefresh={refresh}
             onOpen={(a) => setOpenAssembleia(a)}
+            onOpenSolicitacoes={() => setView("solicitacoes")}
           />
         )}
         {view === "estatisticas" && <Estatisticas rows={rows} />}
