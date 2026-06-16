@@ -71,17 +71,17 @@ type ColunaKanban =
   | "solicitacoes"
   | "documentos_faltantes"
   | "em_elaboracao"
-  | "aprazado"
   | "apresentacao"
   | "edital_enviado"
   | "realizada";
 
 // Coluna ⇄ etapa salva. A coluna "solicitacoes" é o estágio "A elaborar".
+// "aprazado" foi removido como coluna; etapa legada cai em "A elaborar".
 const ETAPA_TO_COLUNA: Record<EtapaKanban, ColunaKanban> = {
   a_elaborar: "solicitacoes",
   documentos_faltantes: "documentos_faltantes",
   em_elaboracao: "em_elaboracao",
-  aprazado: "aprazado",
+  aprazado: "solicitacoes",
   apresentacao: "apresentacao",
   edital_enviado: "edital_enviado",
   realizada: "realizada",
@@ -90,7 +90,6 @@ const COLUNA_TO_ETAPA: Record<ColunaKanban, EtapaKanban> = {
   solicitacoes: "a_elaborar",
   documentos_faltantes: "documentos_faltantes",
   em_elaboracao: "em_elaboracao",
-  aprazado: "aprazado",
   apresentacao: "apresentacao",
   edital_enviado: "edital_enviado",
   realizada: "realizada",
@@ -129,8 +128,8 @@ function colunaKanbanFor(a: Assembleia): ColunaKanban {
   if (isRealizada(a)) return "realizada";
   if (a.editalEnviado) return "edital_enviado";
   if (temApresentacao(a)) return "apresentacao";
-  // Tem data ou não tem — cai em "aprazado" (data meta para realizar a assembleia).
-  return "aprazado";
+  // Sem estado especial → começa em "A elaborar".
+  return "solicitacoes";
 }
 
 // Ícone PowerPoint/slides inline (mais distinto que emoji)
@@ -172,13 +171,6 @@ const COLUNAS_KANBAN: {
     emoji: "✏️",
     dot: "bg-[#0EA5E9]",
     tone: "from-[#0EA5E9]/10 to-transparent border-[#0EA5E9]/30",
-  },
-  {
-    key: "aprazado",
-    titulo: "Aprazado",
-    emoji: "🗓️",
-    dot: "bg-[#FA5F5B]",
-    tone: "from-[#FA5F5B]/10 to-transparent border-[#FA5F5B]/30",
   },
   {
     key: "apresentacao",
@@ -651,7 +643,6 @@ function AssembleiaCard({
   onOpen: () => void;
   onDelete: () => void;
 }) {
-  const dias = diasAte(a.data);
   const pend = pendencias(a);
   const destaque = isProximaComPendencias(a);
   const realizada = isRealizada(a);
@@ -693,24 +684,16 @@ function AssembleiaCard({
                 ⏰ SLA vencido
               </span>
             )}
-            {!realizada && dias !== null && dias >= 0 && dias <= 7 && (
-              <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
-                {dias === 0 ? "Hoje" : `em ${dias}d`}
-              </span>
-            )}
             {realizada && (
               <span className="chip">✓ Realizada</span>
             )}
           </div>
           <h3 className="text-display text-lg font-semibold leading-snug">{a.spe}</h3>
-          <p
-            className={`text-xs tabular-nums ${
-              a.data ? "text-muted-fg" : "italic text-amber-600 dark:text-amber-400"
-            }`}
-          >
-            {a.data ? fmtData(a.data) : "Data a definir"}
-          </p>
         </div>
+      </div>
+
+      <div className="mt-3">
+        <PrazoBadge a={a} />
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 border-t border-line pt-4 text-sm">
@@ -805,10 +788,10 @@ function KanbanCard({
         </span>
       </div>
       <h4 className="text-display text-sm font-semibold leading-tight">{a.spe}</h4>
-      <div className="mt-2 flex items-center justify-between gap-2 text-[11px] text-muted-fg">
-        <span className={a.data ? "tabular-nums" : "italic text-amber-600 dark:text-amber-400"}>
-          {a.data ? fmtData(a.data) : "Data a definir"}
-        </span>
+      <div className="mt-2">
+        <PrazoBadge a={a} compact />
+      </div>
+      <div className="mt-2 flex items-center justify-end text-[11px] text-muted-fg">
         <span className="truncate font-medium" title={a.responsavel}>
           {a.responsavel || "—"}
         </span>
@@ -893,6 +876,61 @@ function SolicitacaoKanbanCard({
         <span className="italic">{s.departamentoSolicitante}</span>
       </div>
     </article>
+  );
+}
+
+// Badge visual de prazo (data prevista da assembleia), visível no card fechado.
+function PrazoBadge({ a, compact = false }: { a: Assembleia; compact?: boolean }) {
+  const dias = diasAte(a.data);
+  const semData = !a.data;
+
+  let tone = "border-line bg-muted/60 text-muted-fg";
+  let extra = "";
+  if (!semData && dias !== null) {
+    if (dias < 0) {
+      tone = "border-rose-500/40 bg-rose-500/12 text-rose-700 dark:text-rose-300";
+      extra = `${Math.abs(dias)}d atrás`;
+    } else if (dias === 0) {
+      tone = "border-amber-500/50 bg-amber-500/20 text-amber-800 dark:text-amber-200";
+      extra = "hoje";
+    } else if (dias <= 7) {
+      tone = "border-amber-500/40 bg-amber-500/12 text-amber-700 dark:text-amber-300";
+      extra = `em ${dias}d`;
+    } else {
+      tone = "border-[#0048D7]/35 bg-[#0048D7]/10 text-[#0048D7] dark:text-sky-300";
+      extra = `em ${dias}d`;
+    }
+  } else if (semData) {
+    tone = "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300";
+  }
+
+  return (
+    <div
+      className={`flex items-center gap-1.5 rounded-lg border px-2.5 font-semibold ${tone} ${
+        compact ? "py-1 text-[11px]" : "py-1.5 text-xs"
+      }`}
+    >
+      <CalendarIcon />
+      <span className="tabular-nums">
+        {semData ? "Prazo a definir" : `Prazo: ${fmtData(a.data)}`}
+      </span>
+      {extra && (
+        <span className="ml-auto rounded-full bg-black/[0.06] px-1.5 py-0.5 text-[10px] dark:bg-white/10">
+          {extra}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0">
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+    </svg>
   );
 }
 
