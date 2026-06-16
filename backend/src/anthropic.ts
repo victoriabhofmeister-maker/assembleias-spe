@@ -5,6 +5,17 @@ import {
   type RoteiroFormulario,
 } from "./types.js";
 
+function friendlyAnthropicError(err: unknown): string {
+  const msg = err instanceof Error ? err.message : String(err);
+  if (/401|invalid x-api-key|authentication_error/i.test(msg)) {
+    return "Chave da API Anthropic inválida ou ausente. Atualize a variável ANTHROPIC_API_KEY nas configurações do servidor (Render) com uma chave válida.";
+  }
+  if (/404|not_found|model/i.test(msg)) {
+    return `Modelo indisponível na API Anthropic (${msg}).`;
+  }
+  return `Falha na API Anthropic: ${msg}`;
+}
+
 function buildPromptRelatorio(a: Assembleia, transcricao: string): string {
   const tipoExtenso = TIPO_POR_EXTENSO[a.tipo] ?? a.tipo;
   return `Você é um assistente jurídico especializado em assembleias de SPEs (Sociedades de Propósito Específico) do setor imobiliário brasileiro.
@@ -75,7 +86,7 @@ export async function gerarRelatorioAtaIA(
   const client = new Anthropic({ apiKey });
   try {
     const response = await client.messages.create({
-      model: "claude-3-5-sonnet-20241022",
+      model: "claude-sonnet-4-6",
       max_tokens: 4000,
       messages: [{ role: "user", content: buildPromptRelatorio(a, transcricao) }],
     });
@@ -86,8 +97,7 @@ export async function gerarRelatorioAtaIA(
     if (!texto.trim()) return { ok: false, error: "Resposta vazia da API" };
     return { ok: true, texto };
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return { ok: false, error: `Falha na API Anthropic: ${msg}` };
+    return { ok: false, error: friendlyAnthropicError(err) };
   }
 }
 
@@ -178,7 +188,7 @@ export async function gerarRoteiroIA(
 
   try {
     const response = await client.messages.create({
-      model: "claude-3-5-sonnet-20241022",
+      model: "claude-sonnet-4-6",
       max_tokens: 4000,
       messages: [{ role: "user", content: prompt }],
     });
@@ -191,7 +201,6 @@ export async function gerarRoteiroIA(
     if (!texto.trim()) return { ok: false, error: "Resposta vazia da API" };
     return { ok: true, texto };
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return { ok: false, error: `Falha na API Anthropic: ${msg}` };
+    return { ok: false, error: friendlyAnthropicError(err) };
   }
 }
