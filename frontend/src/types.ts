@@ -4,6 +4,8 @@ export type ChecklistStatus = "A fazer" | "Em andamento" | "Concluído";
 
 export type EtapaKanban =
   | "a_elaborar"
+  | "documentos_faltantes"
+  | "em_elaboracao"
   | "aprazado"
   | "apresentacao"
   | "edital_enviado"

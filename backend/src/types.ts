@@ -5,6 +5,8 @@ export type ChecklistStatus = "A fazer" | "Em andamento" | "Concluído";
 // Estágios do kanban (campo salvo). Quando ausente, o front deriva pelo estado.
 export type EtapaKanban =
   | "a_elaborar"
+  | "documentos_faltantes"
+  | "em_elaboracao"
   | "aprazado"
   | "apresentacao"
   | "edital_enviado"
@@ -12,6 +14,8 @@ export type EtapaKanban =
 
 export const ETAPAS_KANBAN: EtapaKanban[] = [
   "a_elaborar",
+  "documentos_faltantes",
+  "em_elaboracao",
   "aprazado",
   "apresentacao",
   "edital_enviado",

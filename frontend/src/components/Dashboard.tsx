@@ -69,6 +69,8 @@ function groupByMonth(rows: Assembleia[]): { label: string; rows: Assembleia[] }
 // Solicitacoes pendentes, não Assembleias. Stages 2-5 mostram Assembleias.
 type ColunaKanban =
   | "solicitacoes"
+  | "documentos_faltantes"
+  | "em_elaboracao"
   | "aprazado"
   | "apresentacao"
   | "edital_enviado"
@@ -77,6 +79,8 @@ type ColunaKanban =
 // Coluna ⇄ etapa salva. A coluna "solicitacoes" é o estágio "A elaborar".
 const ETAPA_TO_COLUNA: Record<EtapaKanban, ColunaKanban> = {
   a_elaborar: "solicitacoes",
+  documentos_faltantes: "documentos_faltantes",
+  em_elaboracao: "em_elaboracao",
   aprazado: "aprazado",
   apresentacao: "apresentacao",
   edital_enviado: "edital_enviado",
@@ -84,6 +88,8 @@ const ETAPA_TO_COLUNA: Record<EtapaKanban, ColunaKanban> = {
 };
 const COLUNA_TO_ETAPA: Record<ColunaKanban, EtapaKanban> = {
   solicitacoes: "a_elaborar",
+  documentos_faltantes: "documentos_faltantes",
+  em_elaboracao: "em_elaboracao",
   aprazado: "aprazado",
   apresentacao: "apresentacao",
   edital_enviado: "edital_enviado",
@@ -152,6 +158,20 @@ const COLUNAS_KANBAN: {
     emoji: "📝",
     dot: "bg-[#A855F7]",
     tone: "from-[#A855F7]/10 to-transparent border-[#A855F7]/30",
+  },
+  {
+    key: "documentos_faltantes",
+    titulo: "Documentos faltantes",
+    emoji: "📄",
+    dot: "bg-[#F59E0B]",
+    tone: "from-[#F59E0B]/10 to-transparent border-[#F59E0B]/30",
+  },
+  {
+    key: "em_elaboracao",
+    titulo: "Em elaboração",
+    emoji: "✏️",
+    dot: "bg-[#0EA5E9]",
+    tone: "from-[#0EA5E9]/10 to-transparent border-[#0EA5E9]/30",
   },
   {
     key: "aprazado",
