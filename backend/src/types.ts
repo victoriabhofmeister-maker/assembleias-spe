@@ -2,11 +2,29 @@ export type TipoAssembleia = "AGE" | "AGO" | "RCF" | "STD" | "RII" | "RTD";
 export type Criticidade = "Alto" | "Medio" | "Baixo";
 export type ChecklistStatus = "A fazer" | "Em andamento" | "Concluído";
 
+// Estágios do kanban (campo salvo). Quando ausente, o front deriva pelo estado.
+export type EtapaKanban =
+  | "a_elaborar"
+  | "aprazado"
+  | "apresentacao"
+  | "edital_enviado"
+  | "realizada";
+
+export const ETAPAS_KANBAN: EtapaKanban[] = [
+  "a_elaborar",
+  "aprazado",
+  "apresentacao",
+  "edital_enviado",
+  "realizada",
+];
+
 export interface ChecklistItem {
   titulo: string;
   responsavel: string;
   prazo: string;
   status: ChecklistStatus;
+  // SLA em dias corridos a partir da entrada do card (createdAt). Opcional.
+  slaDays?: number;
 }
 
 export interface Assembleia {
@@ -29,6 +47,13 @@ export interface Assembleia {
   situacao: string;
   // Observações livres (coluna "Observações" do cronograma).
   observacoes: string;
+  // Comentários internos livres (editável no detalhe do card).
+  comentarios?: string;
+  // Estágio do kanban (arrastável). Ausente = derivado pelo front.
+  etapa?: EtapaKanban;
+  // Quando a assembleia nasceu de uma solicitação do formulário, guarda o id dela
+  // (para acessar os anexos/dados de origem).
+  solicitacaoOrigemId?: string;
   checklist: ChecklistItem[];
   checklistPos: ChecklistItem[];
 }
@@ -128,39 +153,24 @@ export interface Procuracao {
 
 export const CHECKLIST_TEMPLATE: ChecklistItem[] = [
   {
-    titulo: "Comunicar o PMO da solicitação",
-    responsavel: "Jurídico",
-    prazo: "No mesmo dia do recebimento",
-    status: "A fazer",
-  },
-  {
     titulo: "Elaborar apresentação da assembleia",
     responsavel: "Jurídico",
-    prazo: "Antes da convocação",
+    prazo: "D+2",
+    slaDays: 2,
     status: "A fazer",
   },
   {
     titulo: "Comunicar documentos faltantes",
     responsavel: "Jurídico",
-    prazo: "Antes da convocação",
+    prazo: "D+3",
+    slaDays: 3,
     status: "A fazer",
   },
   {
     titulo: "Convocar a assembleia (prazo mínimo 10 dias)",
     responsavel: "Jurídico",
-    prazo: "Mínimo 10 dias antes da assembleia",
-    status: "A fazer",
-  },
-  {
-    titulo: "Agendar reunião prévia de alinhamento",
-    responsavel: "Jurídico + PMO",
-    prazo: "48h antes da assembleia",
-    status: "A fazer",
-  },
-  {
-    titulo: "Realizar reunião prévia de alinhamento",
-    responsavel: "Jurídico + PMO",
-    prazo: "48h antes da assembleia",
+    prazo: "D+4 (1 dia após comunicar documentos)",
+    slaDays: 4,
     status: "A fazer",
   },
 ];
@@ -200,6 +210,10 @@ export const CHECKLIST_LEGACY_TITLES = new Set<string>([
   "Receber solicitação via Pipe",
   "Envio no canal ASSEMBLEIAS (Slack)",
   "Análise da pauta e verificação de deliberações críticas",
+  // Removidas em jun/2026 (simplificação do fluxo pré-assembleia):
+  "Comunicar o PMO da solicitação",
+  "Agendar reunião prévia de alinhamento",
+  "Realizar reunião prévia de alinhamento",
 ]);
 
 export const SPES_DISPONIVEIS: string[] = [

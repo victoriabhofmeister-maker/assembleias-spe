@@ -2,11 +2,19 @@ export type TipoAssembleia = "AGE" | "AGO" | "RCF" | "STD" | "RII" | "RTD";
 export type Criticidade = "Alto" | "Medio" | "Baixo";
 export type ChecklistStatus = "A fazer" | "Em andamento" | "Concluído";
 
+export type EtapaKanban =
+  | "a_elaborar"
+  | "aprazado"
+  | "apresentacao"
+  | "edital_enviado"
+  | "realizada";
+
 export interface ChecklistItem {
   titulo: string;
   responsavel: string;
   prazo: string;
   status: ChecklistStatus;
+  slaDays?: number;
 }
 
 export interface Assembleia {
@@ -26,6 +34,9 @@ export interface Assembleia {
   linkEdital: string;
   situacao: string;
   observacoes: string;
+  comentarios?: string;
+  etapa?: EtapaKanban;
+  solicitacaoOrigemId?: string;
   checklist: ChecklistItem[];
   checklistPos: ChecklistItem[];
 }

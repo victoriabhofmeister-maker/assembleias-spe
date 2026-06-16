@@ -146,6 +146,14 @@ export async function updateAssembleia(
   return rows[idx];
 }
 
+export async function deleteAssembleia(id: string): Promise<boolean> {
+  const rows = await readAssembleias();
+  const next = rows.filter((r) => r.id !== id);
+  if (next.length === rows.length) return false;
+  await writeAssembleias(next);
+  return true;
+}
+
 export async function readSolicitacoes(): Promise<Solicitacao[]> {
   const rows = await readJson<Solicitacao>(SOLICITACOES_FILE);
   let mutated = false;
@@ -163,6 +171,23 @@ export async function appendSolicitacao(row: Solicitacao): Promise<void> {
   const rows = await readSolicitacoes();
   rows.push(row);
   await writeJson(SOLICITACOES_FILE, rows);
+}
+
+export async function getSolicitacao(id: string): Promise<Solicitacao | null> {
+  const rows = await readSolicitacoes();
+  return rows.find((r) => r.id === id) ?? null;
+}
+
+export async function updateSolicitacao(
+  id: string,
+  patch: Partial<Solicitacao>,
+): Promise<Solicitacao | null> {
+  const rows = await readSolicitacoes();
+  const idx = rows.findIndex((r) => r.id === id);
+  if (idx === -1) return null;
+  rows[idx] = { ...rows[idx], ...patch };
+  await writeJson(SOLICITACOES_FILE, rows);
+  return rows[idx];
 }
 
 type LegacyProcuracao = Partial<Procuracao> & {

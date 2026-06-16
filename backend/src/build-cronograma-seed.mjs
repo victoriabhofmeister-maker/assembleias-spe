@@ -15,12 +15,9 @@ const OUT_FILE = path.join(__dirname, "seed-assembleias.json");
 
 // Mantidos em sincronia com CHECKLIST_TEMPLATE / CHECKLIST_POS_TEMPLATE (types.ts).
 const CHECKLIST_TEMPLATE = [
-  { titulo: "Comunicar o PMO da solicitação", responsavel: "Jurídico", prazo: "No mesmo dia do recebimento", status: "A fazer" },
-  { titulo: "Elaborar apresentação da assembleia", responsavel: "Jurídico", prazo: "Antes da convocação", status: "A fazer" },
-  { titulo: "Comunicar documentos faltantes", responsavel: "Jurídico", prazo: "Antes da convocação", status: "A fazer" },
-  { titulo: "Convocar a assembleia (prazo mínimo 10 dias)", responsavel: "Jurídico", prazo: "Mínimo 10 dias antes da assembleia", status: "A fazer" },
-  { titulo: "Agendar reunião prévia de alinhamento", responsavel: "Jurídico + PMO", prazo: "48h antes da assembleia", status: "A fazer" },
-  { titulo: "Realizar reunião prévia de alinhamento", responsavel: "Jurídico + PMO", prazo: "48h antes da assembleia", status: "A fazer" },
+  { titulo: "Elaborar apresentação da assembleia", responsavel: "Jurídico", prazo: "D+2", slaDays: 2, status: "A fazer" },
+  { titulo: "Comunicar documentos faltantes", responsavel: "Jurídico", prazo: "D+3", slaDays: 3, status: "A fazer" },
+  { titulo: "Convocar a assembleia (prazo mínimo 10 dias)", responsavel: "Jurídico", prazo: "D+4 (1 dia após comunicar documentos)", slaDays: 4, status: "A fazer" },
 ];
 const CHECKLIST_POS_TEMPLATE = [
   { titulo: "Enviar comunicado/resumo no Slack", responsavel: "Jurídico", prazo: "Até 24h após a assembleia", status: "A fazer" },

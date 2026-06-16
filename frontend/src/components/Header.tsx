@@ -17,7 +17,6 @@ interface Props {
 const TABS: { key: View; label: string }[] = [
   { key: "dashboard", label: "Dashboard" },
   { key: "estatisticas", label: "Estatísticas" },
-  { key: "solicitacoes", label: "Solicitações" },
   { key: "procuracoes", label: "Procurações" },
 ];
 
@@ -153,6 +152,21 @@ export function Header({
                     <div className="my-1 h-px bg-line" />
                   </>
                 )}
+                <button
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => {
+                    onChange("solicitacoes");
+                    setMenuOpen(false);
+                  }}
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm text-fg transition hover:bg-muted"
+                >
+                  <span>📨 Solicitações recebidas</span>
+                  {solicitacoesCount > 0 && (
+                    <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-semibold tabular-nums text-muted-fg">
+                      {solicitacoesCount}
+                    </span>
+                  )}
+                </button>
                 <button
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={handleReset}

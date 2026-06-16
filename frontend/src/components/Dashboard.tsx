@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Assembleia, Criticidade, Solicitacao } from "../types";
+import type { Assembleia, Criticidade, EtapaKanban, Solicitacao } from "../types";
 import { CRITICIDADES, temEdital } from "../types";
-import { patchAssembleia } from "../api";
+import { patchAssembleia, promoverSolicitacao, deleteAssembleia } from "../api";
 import {
   CRITICIDADE_BADGE,
   CRITICIDADE_EMOJI,
@@ -11,17 +11,12 @@ import {
   isRealizada,
   pendencias,
   progressoChecklist,
+  temSlaAtrasado,
 } from "../utils";
 
-// MIME type usado para identificar drags de KanbanCard.
+// MIME types para identificar o que está sendo arrastado no kanban.
 const KANBAN_DRAG_MIME = "application/x-seazone-assembleia-id";
-
-// Colunas onde "soltar" um card de Assembleia tem semântica definida
-// (toggle do editalEnviado). Cards de Stage 1 (Solicitacoes) não são draggable.
-const DROP_TARGETS_EDITAL: Record<string, boolean> = {
-  edital_enviado: true,
-  aprazado: true,
-};
+const SOLIC_DRAG_MIME = "application/x-seazone-solicitacao-id";
 
 type View = "lista" | "kanban";
 type FiltroStatus = "todas" | "proximas" | "realizadas";
@@ -79,6 +74,22 @@ type ColunaKanban =
   | "edital_enviado"
   | "realizada";
 
+// Coluna ⇄ etapa salva. A coluna "solicitacoes" é o estágio "A elaborar".
+const ETAPA_TO_COLUNA: Record<EtapaKanban, ColunaKanban> = {
+  a_elaborar: "solicitacoes",
+  aprazado: "aprazado",
+  apresentacao: "apresentacao",
+  edital_enviado: "edital_enviado",
+  realizada: "realizada",
+};
+const COLUNA_TO_ETAPA: Record<ColunaKanban, EtapaKanban> = {
+  solicitacoes: "a_elaborar",
+  aprazado: "aprazado",
+  apresentacao: "apresentacao",
+  edital_enviado: "edital_enviado",
+  realizada: "realizada",
+};
+
 // Deriva um selo de situação a partir das colunas "Situação"/"Observações"
 // do cronograma (a planilha às vezes registra o status em qualquer uma das duas).
 function situacaoTag(a: Assembleia): { label: string; cls: string } | null {
@@ -106,7 +117,9 @@ function temPendenciaDocumentos(a: Assembleia): boolean {
 
 // Mapeia uma Assembleia para sua coluna no kanban (Stages 2-5).
 // Stage 1 (solicitacoes) é populado a partir de Solicitacoes, não Assembleias.
-function colunaKanbanFor(a: Assembleia): Exclude<ColunaKanban, "solicitacoes"> {
+function colunaKanbanFor(a: Assembleia): ColunaKanban {
+  // Etapa salva (via drag) é a fonte de verdade; senão, deriva pelo estado.
+  if (a.etapa) return ETAPA_TO_COLUNA[a.etapa];
   if (isRealizada(a)) return "realizada";
   if (a.editalEnviado) return "edital_enviado";
   if (temApresentacao(a)) return "apresentacao";
@@ -135,8 +148,8 @@ const COLUNAS_KANBAN: {
 }[] = [
   {
     key: "solicitacoes",
-    titulo: "Solicitações",
-    emoji: "📥",
+    titulo: "A elaborar",
+    emoji: "📝",
     dot: "bg-[#A855F7]",
     tone: "from-[#A855F7]/10 to-transparent border-[#A855F7]/30",
   },
@@ -236,17 +249,12 @@ export function Dashboard({
   }, [solicitacoes]);
 
   const colunasKanban = useMemo(() => {
-    return COLUNAS_KANBAN.map((c) => {
-      if (c.key === "solicitacoes") {
-        // Stage 1 é populado por Solicitacoes, não Assembleias.
-        return { ...c, rows: [] as Assembleia[], solicitacoes: solicitacoesAbertas };
-      }
-      return {
-        ...c,
-        rows: filtradas.filter((a) => colunaKanbanFor(a) === c.key),
-        solicitacoes: [] as Solicitacao[],
-      };
-    });
+    // "A elaborar" mostra solicitações abertas + assembleias com etapa a_elaborar.
+    return COLUNAS_KANBAN.map((c) => ({
+      ...c,
+      rows: filtradas.filter((a) => colunaKanbanFor(a) === c.key),
+      solicitacoes: c.key === "solicitacoes" ? solicitacoesAbertas : ([] as Solicitacao[]),
+    }));
   }, [filtradas, solicitacoesAbertas]);
 
   const alertas = rows.filter(isProximaComPendencias).length;
@@ -254,25 +262,46 @@ export function Dashboard({
     return filtradas.find((a) => a.data && !isRealizada(a))?.data ?? "";
   }, [filtradas]);
 
-  // Handler do drag-and-drop do kanban: arrastar entre as colunas
-  // "edital_enviado" ⇄ "edital_nao_enviado" alterna o campo `editalEnviado`.
-  // Outras colunas (sem_data, apresentacao, realizadas) não aceitam drop
-  // porque a transição exige preencher outros campos manualmente.
-  async function handleMoveEdital(assembleiaId: string, target: ColunaKanban) {
-    const alvo = target === "edital_enviado";
+  // Arrastar um card de Assembleia entre quaisquer colunas grava a etapa.
+  async function handleMoveAssembleia(assembleiaId: string, target: ColunaKanban) {
     const atual = rows.find((r) => r.id === assembleiaId);
     if (!atual) return;
-    // Assembleias já realizadas não permitem alteração do status do edital.
-    if (isRealizada(atual)) return;
-    if (atual.editalEnviado === alvo) return; // no-op
+    if (colunaKanbanFor(atual) === target) return; // no-op (mesma coluna)
     try {
-      await patchAssembleia(assembleiaId, { editalEnviado: alvo });
+      await patchAssembleia(assembleiaId, { etapa: COLUNA_TO_ETAPA[target] });
       await onRefresh();
     } catch (err) {
-      console.error("[kanban] falha ao mover edital:", err);
-      alert(
-        "Não foi possível atualizar o status do edital. Tente novamente em alguns segundos.",
-      );
+      console.error("[kanban] falha ao mover card:", err);
+      alert("Não foi possível mover o card. Tente novamente em alguns segundos.");
+    }
+  }
+
+  // Arrastar uma Solicitação de "A elaborar" para frente a converte em Assembleia.
+  async function handlePromoverSolicitacao(solicitacaoId: string, target: ColunaKanban) {
+    if (target === "solicitacoes") return; // continua em "A elaborar"
+    try {
+      await promoverSolicitacao(solicitacaoId, COLUNA_TO_ETAPA[target]);
+      await onRefresh();
+    } catch (err) {
+      console.error("[kanban] falha ao promover solicitação:", err);
+      alert("Não foi possível converter a solicitação em assembleia. Tente novamente.");
+    }
+  }
+
+  async function handleDelete(assembleiaId: string) {
+    const atual = rows.find((r) => r.id === assembleiaId);
+    if (
+      !window.confirm(
+        `Excluir esta assembleia${atual ? ` — ${atual.spe}` : ""}? Esta ação não pode ser desfeita.`,
+      )
+    )
+      return;
+    try {
+      await deleteAssembleia(assembleiaId);
+      await onRefresh();
+    } catch (err) {
+      console.error("[kanban] falha ao excluir:", err);
+      alert("Não foi possível excluir o card. Tente novamente.");
     }
   }
 
@@ -343,12 +372,15 @@ export function Dashboard({
           gruposFuturas={gruposFuturas}
           gruposRealizadas={gruposRealizadas}
           onOpen={onOpen}
+          onDelete={handleDelete}
         />
       ) : (
         <KanbanView
           colunas={colunasKanban}
           onOpen={onOpen}
-          onMoveEdital={handleMoveEdital}
+          onMoveAssembleia={handleMoveAssembleia}
+          onPromoverSolicitacao={handlePromoverSolicitacao}
+          onDelete={handleDelete}
           onOpenSolicitacoes={onOpenSolicitacoes}
         />
       )}
@@ -413,17 +445,19 @@ function ListaView({
   gruposFuturas,
   gruposRealizadas,
   onOpen,
+  onDelete,
 }: {
   gruposFuturas: { label: string; rows: Assembleia[] }[];
   gruposRealizadas: { label: string; rows: Assembleia[] }[];
   onOpen: (a: Assembleia) => void;
+  onDelete: (id: string) => void;
 }) {
   const mostrarDivisor = gruposFuturas.length > 0 && gruposRealizadas.length > 0;
 
   return (
     <div className="space-y-10 animate-fade-in">
       {gruposFuturas.map((g) => (
-        <MonthGroup key={`f-${g.label}`} group={g} dimmed={false} onOpen={onOpen} />
+        <MonthGroup key={`f-${g.label}`} group={g} dimmed={false} onOpen={onOpen} onDelete={onDelete} />
       ))}
 
       {mostrarDivisor && (
@@ -431,7 +465,7 @@ function ListaView({
       )}
 
       {gruposRealizadas.map((g) => (
-        <MonthGroup key={`r-${g.label}`} group={g} dimmed={true} onOpen={onOpen} />
+        <MonthGroup key={`r-${g.label}`} group={g} dimmed={true} onOpen={onOpen} onDelete={onDelete} />
       ))}
     </div>
   );
@@ -441,10 +475,12 @@ function MonthGroup({
   group,
   dimmed,
   onOpen,
+  onDelete,
 }: {
   group: { label: string; rows: Assembleia[] };
   dimmed: boolean;
   onOpen: (a: Assembleia) => void;
+  onDelete: (id: string) => void;
 }) {
   return (
     <section>
@@ -456,7 +492,7 @@ function MonthGroup({
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {group.rows.map((a) => (
-          <AssembleiaCard key={a.id} a={a} onOpen={() => onOpen(a)} />
+          <AssembleiaCard key={a.id} a={a} onOpen={() => onOpen(a)} onDelete={() => onDelete(a.id)} />
         ))}
       </div>
     </section>
@@ -487,7 +523,9 @@ function DivisorRealizadas({ total }: { total: number }) {
 function KanbanView({
   colunas,
   onOpen,
-  onMoveEdital,
+  onMoveAssembleia,
+  onPromoverSolicitacao,
+  onDelete,
   onOpenSolicitacoes,
 }: {
   colunas: {
@@ -501,7 +539,9 @@ function KanbanView({
     solicitacoes: Solicitacao[];
   }[];
   onOpen: (a: Assembleia) => void;
-  onMoveEdital: (assembleiaId: string, target: ColunaKanban) => void;
+  onMoveAssembleia: (assembleiaId: string, target: ColunaKanban) => void;
+  onPromoverSolicitacao: (solicitacaoId: string, target: ColunaKanban) => void;
+  onDelete: (id: string) => void;
   onOpenSolicitacoes: () => void;
 }) {
   // Coluna sob hover do drag — usado pra dar feedback visual (highlight).
@@ -510,10 +550,8 @@ function KanbanView({
   return (
     <div className="flex gap-4 overflow-x-auto pb-4 animate-fade-in">
       {colunas.map((c) => {
-        const aceitaDrop = !!DROP_TARGETS_EDITAL[c.key];
-        const sobHover = dragOverKey === c.key && aceitaDrop;
-        const isStageSolicitacoes = c.key === "solicitacoes";
-        const total = isStageSolicitacoes ? c.solicitacoes.length : c.rows.length;
+        const sobHover = dragOverKey === c.key;
+        const total = c.rows.length + c.solicitacoes.length;
         return (
           <div
             key={c.key}
@@ -521,8 +559,8 @@ function KanbanView({
               sobHover ? "ring-2 ring-fg/40 ring-offset-2 ring-offset-bg" : ""
             }`}
             onDragOver={(e) => {
-              if (!aceitaDrop) return;
-              if (!e.dataTransfer.types.includes(KANBAN_DRAG_MIME)) return;
+              const t = e.dataTransfer.types;
+              if (!t.includes(KANBAN_DRAG_MIME) && !t.includes(SOLIC_DRAG_MIME)) return;
               e.preventDefault();
               e.dataTransfer.dropEffect = "move";
               if (dragOverKey !== c.key) setDragOverKey(c.key);
@@ -533,11 +571,15 @@ function KanbanView({
               if (dragOverKey === c.key) setDragOverKey(null);
             }}
             onDrop={(e) => {
-              if (!aceitaDrop) return;
               e.preventDefault();
               setDragOverKey(null);
-              const id = e.dataTransfer.getData(KANBAN_DRAG_MIME);
-              if (id) onMoveEdital(id, c.key);
+              const assembleiaId = e.dataTransfer.getData(KANBAN_DRAG_MIME);
+              if (assembleiaId) {
+                onMoveAssembleia(assembleiaId, c.key);
+                return;
+              }
+              const solicId = e.dataTransfer.getData(SOLIC_DRAG_MIME);
+              if (solicId) onPromoverSolicitacao(solicId, c.key);
             }}
           >
             <header className={`border-b border-line bg-gradient-to-b px-4 py-3 ${c.tone}`}>
@@ -557,23 +599,20 @@ function KanbanView({
                 <p className="py-8 text-center text-xs text-muted-fg italic">
                   {sobHover ? "Solte aqui" : "Vazio"}
                 </p>
-              ) : isStageSolicitacoes ? (
-                c.solicitacoes.map((s) => (
-                  <SolicitacaoKanbanCard
-                    key={s.id}
-                    s={s}
-                    onOpen={onOpenSolicitacoes}
-                  />
-                ))
               ) : (
-                c.rows.map((a) => (
-                  <KanbanCard
-                    key={a.id}
-                    a={a}
-                    onOpen={() => onOpen(a)}
-                    draggable={!isRealizada(a)}
-                  />
-                ))
+                <>
+                  {c.solicitacoes.map((s) => (
+                    <SolicitacaoKanbanCard key={s.id} s={s} onOpen={onOpenSolicitacoes} />
+                  ))}
+                  {c.rows.map((a) => (
+                    <KanbanCard
+                      key={a.id}
+                      a={a}
+                      onOpen={() => onOpen(a)}
+                      onDelete={() => onDelete(a.id)}
+                    />
+                  ))}
+                </>
               )}
             </div>
           </div>
@@ -583,7 +622,15 @@ function KanbanView({
   );
 }
 
-function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
+function AssembleiaCard({
+  a,
+  onOpen,
+  onDelete,
+}: {
+  a: Assembleia;
+  onOpen: () => void;
+  onDelete: () => void;
+}) {
   const dias = diasAte(a.data);
   const pend = pendencias(a);
   const destaque = isProximaComPendencias(a);
@@ -591,6 +638,7 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
   const prog = progressoChecklist(a);
   const sit = situacaoTag(a);
   const obs = a.observacoes?.trim();
+  const atrasado = !realizada && temSlaAtrasado(a);
 
   return (
     <article
@@ -608,10 +656,11 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
       } ${realizada ? "opacity-[0.6]" : ""}`}
     >
       {realizada && (
-        <span className="absolute right-4 top-4 text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-fg">
+        <span className="absolute right-12 top-4 text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-fg">
           Realizada
         </span>
       )}
+      <CardDeleteButton onDelete={onDelete} />
 
       <div className="flex items-start gap-3">
         <CriticidadeBlock c={a.criticidade} />
@@ -619,6 +668,11 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
           <div className="mb-1 flex flex-wrap items-center gap-1.5">
             <span className="chip">{a.tipo}</span>
             {sit && <span className={`chip ${sit.cls}`}>{sit.label}</span>}
+            {atrasado && (
+              <span className="chip border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300">
+                ⏰ SLA vencido
+              </span>
+            )}
             {!realizada && dias !== null && dias >= 0 && dias <= 7 && (
               <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
                 {dias === 0 ? "Hoje" : `em ${dias}d`}
@@ -688,23 +742,23 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
 function KanbanCard({
   a,
   onOpen,
-  draggable = false,
+  onDelete,
 }: {
   a: Assembleia;
   onOpen: () => void;
-  draggable?: boolean;
+  onDelete: () => void;
 }) {
   const prog = progressoChecklist(a);
   const realizada = isRealizada(a);
+  const atrasado = !realizada && temSlaAtrasado(a);
 
   return (
     <article
       onClick={onOpen}
       role="button"
       tabIndex={0}
-      draggable={draggable}
+      draggable
       onDragStart={(e) => {
-        if (!draggable) return;
         e.dataTransfer.effectAllowed = "move";
         e.dataTransfer.setData(KANBAN_DRAG_MIME, a.id);
       }}
@@ -714,16 +768,20 @@ function KanbanCard({
           onOpen();
         }
       }}
-      className={`relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20 ${
+      className={`group relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20 active:cursor-grabbing ${
         realizada ? "opacity-60" : ""
-      } ${draggable ? "active:cursor-grabbing" : ""}`}
-      title={draggable ? "Arraste para 'Edital enviado' ou 'Aprazado' para alternar status do edital" : undefined}
+      } ${atrasado ? "ring-1 ring-rose-500/40" : ""}`}
+      title="Arraste para outra coluna para mudar a etapa"
     >
       <div className="mb-1.5 flex items-center gap-1.5">
         <CriticidadeDot c={a.criticidade} />
         <span className="chip py-0.5 px-1.5 text-[10px]">{a.tipo}</span>
-        <span className="ml-auto text-[11px] font-semibold tabular-nums text-muted-fg">
-          {prog.done}/{prog.total}
+        {atrasado && <span className="text-[11px]" title="SLA vencido">⏰</span>}
+        <span className="ml-auto flex items-center gap-1.5">
+          <span className="text-[11px] font-semibold tabular-nums text-muted-fg">
+            {prog.done}/{prog.total}
+          </span>
+          <CardDeleteButton onDelete={onDelete} small />
         </span>
       </div>
       <h4 className="text-display text-sm font-semibold leading-tight">{a.spe}</h4>
@@ -739,6 +797,30 @@ function KanbanCard({
         <ProgressBar value={prog.pct} thin />
       </div>
     </article>
+  );
+}
+
+// Botão de excluir reutilizável (para de propagar o clique de abrir o card).
+function CardDeleteButton({ onDelete, small = false }: { onDelete: () => void; small?: boolean }) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        onDelete();
+      }}
+      onMouseDown={(e) => e.stopPropagation()}
+      aria-label="Excluir card"
+      title="Excluir"
+      className={`${
+        small ? "p-0.5" : "absolute right-3 top-3 z-10 p-1"
+      } rounded-md text-muted-fg/60 opacity-0 transition hover:bg-rose-500/10 hover:text-rose-600 group-hover:opacity-100 focus:opacity-100`}
+    >
+      <svg width={small ? "13" : "15"} height={small ? "13" : "15"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <polyline points="3 6 5 6 21 6" />
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      </svg>
+    </button>
   );
 }
 
@@ -759,14 +841,19 @@ function SolicitacaoKanbanCard({
       onClick={onOpen}
       role="button"
       tabIndex={0}
+      draggable
+      onDragStart={(e) => {
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData(SOLIC_DRAG_MIME, s.id);
+      }}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           onOpen();
         }
       }}
-      className="relative cursor-pointer rounded-lg border border-line bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-fg/20"
-      title="Abrir lista de solicitações para analisar e criar a assembleia"
+      className="relative cursor-pointer rounded-lg border border-dashed border-[#A855F7]/40 bg-card p-3 shadow-sm transition hover:shadow-soft hover:border-[#A855F7]/70 active:cursor-grabbing"
+      title="Arraste para 'Aprazado' (ou outro estágio) para converter em assembleia"
     >
       <div className="mb-1.5 flex items-center gap-1.5">
         <span className="chip py-0.5 px-1.5 text-[10px]">{s.tipo}</span>

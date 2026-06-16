@@ -18,39 +18,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -100,39 +85,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -182,39 +152,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -264,39 +219,24 @@
     "observacoes": "Unidade",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -346,39 +286,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -428,39 +353,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -510,39 +420,24 @@
     "observacoes": "Não aconteceu",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -592,39 +487,24 @@
     "observacoes": "Não aconteceu",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -674,39 +554,24 @@
     "observacoes": "elaborar ata e termos de posse do conselho - grupo dos investidores de Foz criado - Grupo do Conselho criar",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -756,39 +621,24 @@
     "observacoes": "Sempre às quartas, 17h. Estamos migrando de administrador",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -838,39 +688,24 @@
     "observacoes": "Projetos aprovados, alvará protocolado",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -920,39 +755,24 @@
     "observacoes": "AGE continuada",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1002,39 +822,24 @@
     "observacoes": "cancelada",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1084,39 +889,24 @@
     "observacoes": "Letícia Fernanda Sonny disponibilizar o link da reunião aqui para incluirmos o Gui na call. Precisamos pedir pra eles enviarem a apresentação que elaboraram pra gente no grupo para verificarmos quem da Seazone precisa estar presente",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1166,39 +956,24 @@
     "observacoes": "Sem retorno sobre: (I) se vamos precisar de chamada de capital ou não; (II) qual o valor e o cronograma (fluxo de caixa); (II) cálculo da devolução da ARV, eles precisam pagar 84; (III) SEGURO - a SPE recebeu 300 mil já dos valores devidos pela ARV pela venda da unidade 305 (confirmar antes os valores corretos para apresentarmos aos investidores). Franciele Rocha Felix ficou de confirmar até segunda-feira se haverá chamada de capital ou não. Pelo que foi adiantado na reunião do dia 22/05, não será necessário.  Estratégia: seguir com a chamada para evitar nova chamada ate o final do empreendimento, se sobrar no final do empreendimento devolve. Portas de correr - vamos entregar fechada e depois incluir porta nas unidades suplas",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1248,39 +1023,24 @@
     "observacoes": "Não houve aprovação do formato assíncrono, os investidores solicitaram uma reunião de aprovação de contas.  Solicitei para Celsiane a participação da contabilidade na AGO, dada a criticidade desta SPE.  28/05: card aberto para o time financeiro preencher as informações faltantes na apresentação - https://app.pipefy.com/open-cards/1357965015 precisamos deixar claro que apresentaremos a AGO mas quem precisa tirar todas as dúvidas é ARV com contabilidade do empreendimento (externa)",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1330,39 +1090,24 @@
     "observacoes": "[EM ABERTO - não recebemos o orçamento] está pendente o valor da chamada pela AD pediram mais uma semana em 20/05",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1412,39 +1157,24 @@
     "observacoes": "[EM ABERTO - não recebemos o orçamento] Aguardar confirmação do orçamento pelo time de orçamentos - Fran.",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1494,39 +1224,24 @@
     "observacoes": "Em 19/05 tivemos uma reunião com o conselho fiscal e Puel, fomos informados na reunião pela adm de obras sobre uma pendência de valores para finalização da obra e a necessidade de chamada de capital. A informação sobre uma nova chamada de capital (última foi em dezembro/2025) deixou os conselheiros extremamente atritados - Puel apresentou planilha com os valores e se comprometeu a comparecer na AGE, através de seu representante para detalhar a cobrança.  28/05: Cards abertos para o time financeiro, obras, marketplace e pmo - contribuirem com as informações atualizadas para apresentação. https://app.pipefy.com/open-cards/1358164073 / https://app.pipefy.com/open-cards/1358165437 /  https://app.pipefy.com/open-cards/1358165712 /",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1576,39 +1291,24 @@
     "observacoes": "Sem pontos críticos, somente a entrega  Atualizações 25/05: Falei com a Bruna e ela informou que ainda não temos todas as informações para AGE de entrega, por isso o card ainda não foi aberto com a solicitação de AGE.",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1658,39 +1358,24 @@
     "observacoes": "Letícia Sonny elaborar apresentação somente com os slides padrão iniciais sobre status do empreendimento, status financeiro e inadimplentes",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1740,39 +1425,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1822,39 +1492,24 @@
     "observacoes": "Ainda precisamos fazer reunião do conselho antes disso.",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1904,39 +1559,24 @@
     "observacoes": "Aguardando validação do orçamento executivo",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -1986,39 +1626,24 @@
     "observacoes": "Orçamento executivo validado. Barbara vai montar a apresentação e precisamos marcar a reunião. Verificar como está o conselho fiscal (se precisa fazer reeleição)",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2068,39 +1693,24 @@
     "observacoes": "Letícia Sonny providenciar edital e apresentação para seeguirmos",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2150,39 +1760,24 @@
     "observacoes": "aguardando definição sobre chamada de capital",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2232,39 +1827,24 @@
     "observacoes": "Letícia Sonny elaborar apresentação somente com os slides padrão iniciais sobre status do empreendimento, status financeiro e inadimplentes",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2314,39 +1894,24 @@
     "observacoes": "aguardando Sarah verificar os pontos pendentes",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2396,39 +1961,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2478,39 +2028,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2560,39 +2095,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2642,39 +2162,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2724,39 +2229,24 @@
     "observacoes": "Unidade — Mariele tem 2 no dia, verificar horários",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2806,39 +2296,24 @@
     "observacoes": "Mariele tem 2 no dia, verificar horários",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2888,39 +2363,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -2970,39 +2430,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -3052,39 +2497,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -3134,39 +2564,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -3216,39 +2631,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],
@@ -3298,39 +2698,24 @@
     "observacoes": "",
     "checklist": [
       {
-        "titulo": "Comunicar o PMO da solicitação",
-        "responsavel": "Jurídico",
-        "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
         "titulo": "Elaborar apresentação da assembleia",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+2",
+        "slaDays": 2,
         "status": "A fazer"
       },
       {
         "titulo": "Comunicar documentos faltantes",
         "responsavel": "Jurídico",
-        "prazo": "Antes da convocação",
+        "prazo": "D+3",
+        "slaDays": 3,
         "status": "A fazer"
       },
       {
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
-        "prazo": "Mínimo 10 dias antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Agendar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Realizar reunião prévia de alinhamento",
-        "responsavel": "Jurídico + PMO",
-        "prazo": "48h antes da assembleia",
+        "prazo": "D+4 (1 dia após comunicar documentos)",
+        "slaDays": 4,
         "status": "A fazer"
       }
     ],

@@ -1,16 +1,16 @@
 import { useRef, useState } from "react";
 import type { Assembleia, ChecklistItem, ChecklistStatus, TipoAssembleia } from "../types";
 import { PONTOS_FOCAIS, STATUS_CHECKLIST, TIPO_DESCRICAO, temEdital } from "../types";
-import { updateChecklist, updateChecklistPos } from "../api";
-import { fmtData, progressoChecklist } from "../utils";
+import { patchAssembleia, updateChecklist, updateChecklistPos } from "../api";
+import { fmtData, progressoChecklist, slaInfo } from "../utils";
 import { RoteiroPanel } from "./RoteiroPanel";
 import { AtaPanel } from "./AtaPanel";
 
 type Tab = "checklist" | "roteiro" | "ata";
 
-function etapaParaTipo(c: ChecklistItem, idx: number, tipo: TipoAssembleia): ChecklistItem {
-  // Etapa "Convocar a assembleia" (índice 4 das 7) é condicional por tipo
-  if (idx !== 4) return c;
+function etapaParaTipo(c: ChecklistItem, _idx: number, tipo: TipoAssembleia): ChecklistItem {
+  // A etapa "Convocar a assembleia" é condicional por tipo (só faz sentido com edital).
+  if (!c.titulo.startsWith("Convocar a assembleia")) return c;
   if (temEdital(tipo)) return c;
   return {
     ...c,
@@ -114,26 +114,35 @@ export function AssembleiaDetail({ assembleia, onClose, onChange }: Props) {
           {tab === "roteiro" && <RoteiroPanel assembleia={a} />}
           {tab === "ata" && <AtaPanel assembleia={a} />}
           {tab === "checklist" && (
-            <ChecklistSection
-              a={a}
-              changeStatus={changeStatus}
-              changeStatusPos={async (idx, status) => {
-                setSavingIdx(idx + 100);
-                setError(null);
-                try {
-                  const updated = await updateChecklistPos(a.id, idx, status);
+            <>
+              <ChecklistSection
+                a={a}
+                changeStatus={changeStatus}
+                changeStatusPos={async (idx, status) => {
+                  setSavingIdx(idx + 100);
+                  setError(null);
+                  try {
+                    const updated = await updateChecklistPos(a.id, idx, status);
+                    setA(updated);
+                    onChange(updated);
+                  } catch (err) {
+                    setError(err instanceof Error ? err.message : String(err));
+                  } finally {
+                    setSavingIdx(null);
+                  }
+                }}
+                savingIdx={savingIdx}
+                error={error}
+                onPrint={() => window.print()}
+              />
+              <ComentariosEditor
+                a={a}
+                onSaved={(updated) => {
                   setA(updated);
                   onChange(updated);
-                } catch (err) {
-                  setError(err instanceof Error ? err.message : String(err));
-                } finally {
-                  setSavingIdx(null);
-                }
-              }}
-              savingIdx={savingIdx}
-              error={error}
-              onPrint={() => window.print()}
-            />
+                }}
+              />
+            </>
           )}
         </div>
       </div>
@@ -230,6 +239,23 @@ function ChecklistSection({
                 <p className="mt-0.5 text-xs text-muted-fg">
                   <span className="font-medium text-fg">{c.responsavel}</span> · {c.prazo}
                 </p>
+                {(() => {
+                  const sla = slaInfo(a, c);
+                  if (!sla) return null;
+                  return (
+                    <p
+                      className={`mt-0.5 text-[11px] font-semibold ${
+                        sla.overdue
+                          ? "text-rose-600 dark:text-rose-400"
+                          : "text-emerald-700 dark:text-emerald-400"
+                      }`}
+                    >
+                      {sla.overdue
+                        ? `⏰ SLA vencido (limite ${sla.dueLabel})`
+                        : `🎯 SLA: vence ${sla.dueLabel}`}
+                    </p>
+                  );
+                })()}
               </div>
               <select
                 value={c.status}
@@ -324,14 +350,6 @@ function ChecklistSection({
         </div>
       )}
 
-      <div className="rounded-xl border-2 border-rose-500/40 bg-rose-500/[0.06] px-4 py-3 text-sm text-rose-800 dark:text-rose-200">
-        <strong>⚠️ REUNIÃO PRÉVIA DE ALINHAMENTO (48hrs antes)</strong>
-        <p className="mt-1 text-xs opacity-90">
-          Garantir alinhamento entre Jurídico, PMO e demais áreas envolvidas 48 horas antes da
-          assembleia.
-        </p>
-      </div>
-
       <div>
         <p className="text-eyebrow mb-3">Pontos focais por área</p>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
@@ -350,6 +368,62 @@ function ChecklistSection({
       <div>
         <p className="text-eyebrow mb-2">Ordem do dia</p>
         <p className="text-sm text-fg whitespace-pre-wrap">{a.ordemDoDia}</p>
+      </div>
+    </div>
+  );
+}
+
+function ComentariosEditor({
+  a,
+  onSaved,
+}: {
+  a: Assembleia;
+  onSaved: (updated: Assembleia) => void;
+}) {
+  const [texto, setTexto] = useState(a.comentarios ?? "");
+  const [saving, setSaving] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const dirty = texto !== (a.comentarios ?? "");
+
+  async function salvar() {
+    setSaving(true);
+    setErr(null);
+    try {
+      const updated = await patchAssembleia(a.id, { comentarios: texto });
+      onSaved(updated);
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : String(e));
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="mt-6 border-t border-line pt-5">
+      <div className="mb-2 flex items-center justify-between">
+        <p className="text-eyebrow">💬 Comentários</p>
+        {dirty && (
+          <span className="text-[11px] font-medium text-amber-600 dark:text-amber-400">
+            não salvo
+          </span>
+        )}
+      </div>
+      <textarea
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+        rows={3}
+        placeholder="Anotações internas sobre esta assembleia…"
+        className="w-full rounded-lg border border-line bg-card px-3 py-2 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+      />
+      {err && <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">{err}</p>}
+      <div className="mt-2 flex justify-end">
+        <button
+          onClick={salvar}
+          disabled={!dirty || saving}
+          className="btn-ghost text-xs disabled:opacity-50"
+        >
+          {saving ? "Salvando…" : "Salvar comentários"}
+        </button>
       </div>
     </div>
   );

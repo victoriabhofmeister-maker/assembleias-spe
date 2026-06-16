@@ -37,9 +37,39 @@ export function isProximaComPendencias(a: Assembleia): boolean {
 }
 
 export function isRealizada(a: Assembleia): boolean {
+  // Etapa salva (via drag) é a fonte de verdade quando presente.
+  if (a.etapa) return a.etapa === "realizada";
   if (!a.data) return false;
   const d = diasAte(a.data);
   return d !== null && d < 0;
+}
+
+// SLA: data-limite = createdAt + slaDays dias corridos. Atrasado = hoje > limite
+// e a etapa ainda não está concluída.
+export function slaInfo(
+  a: Assembleia,
+  item: { slaDays?: number; status: ChecklistStatus },
+): { dueLabel: string; overdue: boolean; dueISO: string } | null {
+  if (typeof item.slaDays !== "number" || !a.createdAt) return null;
+  const base = new Date(a.createdAt);
+  if (isNaN(base.getTime())) return null;
+  const due = new Date(base);
+  due.setDate(due.getDate() + item.slaDays);
+  due.setHours(23, 59, 59, 999);
+  const concluido = item.status === "Concluído";
+  const overdue = !concluido && Date.now() > due.getTime();
+  const dd = String(due.getDate()).padStart(2, "0");
+  const mm = String(due.getMonth() + 1).padStart(2, "0");
+  return {
+    dueLabel: `${dd}/${mm}`,
+    overdue,
+    dueISO: `${due.getFullYear()}-${mm}-${dd}`,
+  };
+}
+
+// Há alguma etapa pré-assembleia com SLA vencido e não concluída?
+export function temSlaAtrasado(a: Assembleia): boolean {
+  return (a.checklist ?? []).some((c) => slaInfo(a, c)?.overdue);
 }
 
 export function progressoChecklist(a: Assembleia): { done: number; total: number; pct: number } {

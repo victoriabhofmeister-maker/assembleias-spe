@@ -113,7 +113,9 @@ function InternalApp() {
             rows={rows}
             solicitacoes={solicitacoes}
             loading={loading}
-            onRefresh={refresh}
+            onRefresh={async () => {
+              await Promise.all([refresh(), refreshSolicitacoesCount()]);
+            }}
             onOpen={(a) => setOpenAssembleia(a)}
             onOpenSolicitacoes={() => setView("solicitacoes")}
           />

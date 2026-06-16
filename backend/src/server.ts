@@ -18,8 +18,10 @@ import {
   applyAssembleiasSeedIfNeeded,
   appendAssembleia,
   appendSolicitacao,
+  deleteAssembleia,
   deleteRelatorio,
   deleteRoteiro,
+  getSolicitacao,
   readAssembleias,
   readProcuracoes,
   readRelatorio,
@@ -30,6 +32,7 @@ import {
   saveRoteiro,
   updateAssembleia,
   updateProcuracao,
+  updateSolicitacao,
   UPLOADS_DIR,
 } from "./storage.js";
 import {
@@ -42,12 +45,14 @@ import { gerarRelatorioAtaIA, gerarRoteiroIA } from "./anthropic.js";
 import {
   CHECKLIST_TEMPLATE,
   CHECKLIST_POS_TEMPLATE,
+  ETAPAS_KANBAN,
   type Assembleia,
   type AssembleiaInput,
   type ChecklistStatus,
   type Criticidade,
   type DepartamentoSolicitante,
   type DocumentoUpload,
+  type EtapaKanban,
   type Indicacao,
   type QuorumStatus,
   type Relatorio,
@@ -172,6 +177,8 @@ function validateAssembleia(body: unknown): { ok: true; value: AssembleiaInput }
     linkEdital: String(b.linkEdital ?? ""),
     situacao: String(b.situacao ?? ""),
     observacoes: String(b.observacoes ?? ""),
+    ...(ETAPAS_KANBAN.includes(b.etapa as EtapaKanban) ? { etapa: b.etapa as EtapaKanban } : {}),
+    ...(typeof b.solicitacaoOrigemId === "string" ? { solicitacaoOrigemId: b.solicitacaoOrigemId } : {}),
   };
   return { ok: true, value };
 }
@@ -204,10 +211,18 @@ app.post("/api/assembleias", async (req: Request, res: Response) => {
 app.patch("/api/assembleias/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const body = req.body ?? {};
-  const patch: Partial<Pick<Assembleia, "editalEnviado">> = {};
+  const patch: Partial<Pick<Assembleia, "editalEnviado" | "etapa" | "comentarios">> = {};
 
   if (typeof body.editalEnviado === "boolean") {
     patch.editalEnviado = body.editalEnviado;
+  }
+  if (typeof body.comentarios === "string") {
+    patch.comentarios = body.comentarios;
+  }
+  if (ETAPAS_KANBAN.includes(body.etapa)) {
+    patch.etapa = body.etapa as EtapaKanban;
+    // Mover para "edital enviado" implica o edital estar enviado (consistência).
+    if (body.etapa === "edital_enviado") patch.editalEnviado = true;
   }
 
   if (Object.keys(patch).length === 0) {
@@ -217,6 +232,58 @@ app.patch("/api/assembleias/:id", async (req: Request, res: Response) => {
   const updated = await updateAssembleia(id, (a) => ({ ...a, ...patch }));
   if (!updated) return res.status(404).json({ error: "Assembleia não encontrada" });
   res.json(updated);
+});
+
+app.delete("/api/assembleias/:id", async (req: Request, res: Response) => {
+  const ok = await deleteAssembleia(req.params.id);
+  if (!ok) return res.status(404).json({ error: "Assembleia não encontrada" });
+  res.json({ ok: true });
+});
+
+// Promove uma solicitação do formulário a assembleia, posicionando-a no estágio
+// alvo do kanban (default: aprazado). Marca a solicitação como Aprovada para sair
+// do estágio "A elaborar". Mantém o vínculo via solicitacaoOrigemId (anexos).
+app.post("/api/solicitacoes/:id/promover", async (req: Request, res: Response) => {
+  const sol = await getSolicitacao(req.params.id);
+  if (!sol) return res.status(404).json({ error: "Solicitação não encontrada" });
+
+  const etapaAlvo = ETAPAS_KANBAN.includes(req.body?.etapa)
+    ? (req.body.etapa as EtapaKanban)
+    : "aprazado";
+
+  const pautas = [...(sol.ordensDoDia ?? [])];
+  if (sol.outraOrdemDescricao?.trim()) pautas.push(sol.outraOrdemDescricao.trim());
+  const ordemDoDia = pautas.join("; ");
+
+  const obsOrigem = `Convertida de solicitação do formulário — solicitante: ${sol.nomeSolicitante || "—"} (${sol.departamentoSolicitante || "—"}).`;
+
+  const row: Assembleia = {
+    id: randomUUID(),
+    createdAt: new Date().toISOString(),
+    data: sol.dataPretendida || "",
+    tipo: TIPOS.includes(sol.tipo) ? sol.tipo : "AGE",
+    ordemDoDia,
+    dataLimiteEdital: "",
+    suporteCsi: "",
+    editalEnviado: false,
+    apresentacao: "",
+    dptosEnvolvidos: sol.departamentoSolicitante || "",
+    spe: sol.spe || "",
+    criticidade: "Medio",
+    responsavel: "",
+    linkEdital: "",
+    situacao: "",
+    observacoes: sol.observacoes ? `${sol.observacoes}\n\n${obsOrigem}` : obsOrigem,
+    etapa: etapaAlvo,
+    solicitacaoOrigemId: sol.id,
+    checklist: CHECKLIST_TEMPLATE.map((c) => ({ ...c })),
+    checklistPos: CHECKLIST_POS_TEMPLATE.map((c) => ({ ...c })),
+  };
+  await appendAssembleia(row);
+  await updateSolicitacao(sol.id, { status: "Aprovada" });
+
+  const slack = await sendAssembleiaToSlack(row);
+  res.status(201).json({ assembleia: row, slack });
 });
 
 app.patch("/api/assembleias/:id/checklist/:index", async (req: Request, res: Response) => {

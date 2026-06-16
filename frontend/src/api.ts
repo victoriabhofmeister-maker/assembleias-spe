@@ -35,7 +35,7 @@ export async function createAssembleia(input: AssembleiaInput): Promise<CreateAs
 
 export async function patchAssembleia(
   id: string,
-  patch: Partial<Pick<Assembleia, "editalEnviado">>,
+  patch: Partial<Pick<Assembleia, "editalEnviado" | "etapa" | "comentarios">>,
 ): Promise<Assembleia> {
   const res = await fetch(`${BASE}/assembleias/${id}`, {
     method: "PATCH",
@@ -45,6 +45,27 @@ export async function patchAssembleia(
   const body = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(body?.error ?? `PATCH falhou: ${res.status}`);
   return body as Assembleia;
+}
+
+export async function deleteAssembleia(id: string): Promise<void> {
+  const res = await fetch(`${BASE}/assembleias/${id}`, { method: "DELETE" });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `DELETE falhou: ${res.status}`);
+}
+
+// Promove uma solicitação a assembleia, posicionando-a no estágio alvo do kanban.
+export async function promoverSolicitacao(
+  id: string,
+  etapa: import("./types").EtapaKanban,
+): Promise<CreateAssembleiaResult> {
+  const res = await fetch(`${BASE}/solicitacoes/${id}/promover`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ etapa }),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body?.error ?? `POST falhou: ${res.status}`);
+  return body as CreateAssembleiaResult;
 }
 
 export async function updateChecklist(
