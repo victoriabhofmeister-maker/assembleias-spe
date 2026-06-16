@@ -95,6 +95,15 @@ export function AssembleiaDetail({ assembleia, onClose, onChange }: Props) {
           </button>
         </header>
 
+        <div className="border-b border-line bg-gradient-to-r from-[#FA5F5B]/10 to-transparent px-6 py-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FA5F5B] mb-1">
+            Ordem do dia
+          </p>
+          <p className="text-display text-base font-semibold leading-snug text-fg whitespace-pre-wrap">
+            {a.ordemDoDia || "—"}
+          </p>
+        </div>
+
         <div className="no-print flex gap-1 border-b border-line bg-card px-6">
           <TabButton active={tab === "checklist"} onClick={() => setTab("checklist")}>
             ✅ Checklist
@@ -365,10 +374,6 @@ function ChecklistSection({
         </div>
       </div>
 
-      <div>
-        <p className="text-eyebrow mb-2">Ordem do dia</p>
-        <p className="text-sm text-fg whitespace-pre-wrap">{a.ordemDoDia}</p>
-      </div>
     </div>
   );
 }
