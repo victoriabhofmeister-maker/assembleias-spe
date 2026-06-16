@@ -1,29 +1,26 @@
 [
   {
     "id": "1",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-12",
     "tipo": "AGE",
     "ordemDoDia": "Deliberação ADM + chamada de capital",
     "dataLimiteEdital": "02/05",
     "suporteCsi": "",
     "editalEnviado": true,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Financeiro/Engenharia/Jurídico",
     "spe": "Japaratinga Spot",
     "criticidade": "Alto",
     "responsavel": "PMO",
+    "situacao": "Discussões sérias sobre chamada de capital x terrenista",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -42,35 +39,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "2",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-13",
     "tipo": "RCF",
     "ordemDoDia": "Reunião recorrente com os adms transitórios",
     "dataLimiteEdital": "",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "PMO/Jurídico",
     "spe": "Barra Spot",
     "criticidade": "Alto",
     "responsavel": "PMO",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -89,35 +121,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "3",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-13",
     "tipo": "STD",
-    "ordemDoDia": "Alteração de projeto antes do envio dos aditivos",
-    "dataLimiteEdital": "",
+    "ordemDoDia": "Alteração de projeto antes do envio dos aditivos (alteraçãoda numeração) + Atualização do status geral do empreendimento",
+    "dataLimiteEdital": "x",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Caraguá Spot",
     "criticidade": "Baixo",
     "responsavel": "PMO",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -136,35 +203,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "4",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-14",
     "tipo": "RII",
     "ordemDoDia": "Sem definição",
-    "dataLimiteEdital": "",
+    "dataLimiteEdital": "x",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "",
+    "dptosEnvolvidos": "-",
     "spe": "Novo Campeche Spot",
     "criticidade": "Baixo",
     "responsavel": "PMO",
+    "situacao": "",
+    "observacoes": "Unidade",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -183,35 +285,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "5",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-14",
     "tipo": "STD",
-    "ordemDoDia": "Esclarecimento sobre o envio do aditivo - Alteração da administração",
-    "dataLimiteEdital": "",
+    "ordemDoDia": "Esclarecimento sobre o envio do aditivo - Alteração da administradora de obras a Seazone Gestão",
+    "dataLimiteEdital": "x",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Jurídico",
     "spe": "Jurerê Spot II",
     "criticidade": "Baixo",
     "responsavel": "PMO",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -230,35 +367,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "6",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-15",
     "tipo": "RCF",
     "ordemDoDia": "Alteração projeto",
     "dataLimiteEdital": "",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Sul da Ilha Spot",
     "criticidade": "Medio",
     "responsavel": "PMO",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -277,35 +449,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "7",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-18",
     "tipo": "RCF",
     "ordemDoDia": "Atualização sobre o início de obra e apresentação do planejamento",
     "dataLimiteEdital": "",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Rosa Norte Spot",
     "criticidade": "Baixo",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Não aconteceu",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -324,35 +531,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "8",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-19",
     "tipo": "RII",
     "ordemDoDia": "Sem definição",
     "dataLimiteEdital": "",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "",
+    "dptosEnvolvidos": "-",
     "spe": "Itacaré Spot",
     "criticidade": "Baixo",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Não aconteceu",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -371,35 +613,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "9",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-19",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "46151",
     "suporteCsi": "",
     "editalEnviado": true,
-    "apresentacao": "https://docs.google.com/presentation",
+    "linkEdital": "",
+    "apresentacao": "Link",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Foz Spot",
     "criticidade": "Baixo",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "elaborar ata e termos de posse do conselho - grupo dos investidores de Foz criado - Grupo do Conselho criar",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -418,35 +695,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "10",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-20",
     "tipo": "RCF",
     "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
     "dataLimiteEdital": "",
     "suporteCsi": "",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Barra Spot",
     "criticidade": "Alto",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Sempre às quartas, 17h. Estamos migrando de administrador",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -465,35 +777,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "11",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-21",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "11/05",
     "suporteCsi": "",
     "editalEnviado": true,
-    "apresentacao": "https://docs.google.com/presentation",
+    "linkEdital": "",
+    "apresentacao": "Link",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Canas Beach Spot",
     "criticidade": "Baixo",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Projetos aprovados, alvará protocolado",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -512,35 +859,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "12",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-26",
     "tipo": "AGE",
     "ordemDoDia": "Retirada da Jay e apresentação de outras empresas administradoras",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "dataLimiteEdital": "x",
+    "suporteCsi": "x",
     "editalEnviado": false,
-    "apresentacao": "https://docs.google.com/presentation",
+    "linkEdital": "",
+    "apresentacao": "link",
     "dptosEnvolvidos": "Jurídico",
     "spe": "Imbassaí",
     "criticidade": "Medio",
-    "responsavel": "Victória",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "AGE continuada",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -559,35 +941,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "13",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-05-27",
     "tipo": "RCF",
     "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "dataLimiteEdital": "x",
+    "suporteCsi": "x",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "PMO/Jurídico",
     "spe": "Barra Spot",
     "criticidade": "Alto",
     "responsavel": "",
+    "situacao": "cancelada",
+    "observacoes": "cancelada",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -606,35 +1023,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "14",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-06-01",
     "tipo": "RTD",
     "ordemDoDia": "Tira dúvidas - Barra Spot",
-    "dataLimiteEdital": "25/05",
-    "suporteCsi": "",
+    "dataLimiteEdital": "x",
+    "suporteCsi": "25/05",
     "editalEnviado": false,
-    "apresentacao": "",
+    "linkEdital": "",
+    "apresentacao": "Adm's serão responsáveis pela apresentação",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Barra Spot",
     "criticidade": "Alto",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Letícia Fernanda Sonny disponibilizar o link da reunião aqui para incluirmos o Gui na call. Precisamos pedir pra eles enviarem a apresentação que elaboraram pra gente no grupo para verificarmos quem da Seazone precisa estar presente",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -653,35 +1105,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "15",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-06-02",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
-    "editalEnviado": false,
-    "apresentacao": "",
-    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Rosa Sul Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Victória",
+    "ordemDoDia": "[CRÍTICO] AGE de Entrega",
+    "dataLimiteEdital": "23/05",
+    "suporteCsi": "Sim",
+    "editalEnviado": true,
+    "linkEdital": "Link",
+    "apresentacao": "Link",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Ingleses Spot",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "situacao": "Organizar o passo a passo da entrega -  3 unidades duplas por andar",
+    "observacoes": "Sem retorno sobre: (I) se vamos precisar de chamada de capital ou não; (II) qual o valor e o cronograma (fluxo de caixa); (II) cálculo da devolução da ARV, eles precisam pagar 84; (III) SEGURO - a SPE recebeu 300 mil já dos valores devidos pela ARV pela venda da unidade 305 (confirmar antes os valores corretos para apresentarmos aos investidores). Franciele Rocha Felix ficou de confirmar até segunda-feira se haverá chamada de capital ou não. Pelo que foi adiantado na reunião do dia 22/05, não será necessário.  Estratégia: seguir com a chamada para evitar nova chamada ate o final do empreendimento, se sobrar no final do empreendimento devolve. Portas de correr - vamos entregar fechada e depois incluir porta nas unidades suplas",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -700,35 +1187,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "16",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-06-03",
-    "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
-    "editalEnviado": false,
-    "apresentacao": "",
-    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "tipo": "AGO",
+    "ordemDoDia": "[CRÍTICO] AGO - Prestação de contas",
+    "dataLimiteEdital": "24/05",
+    "suporteCsi": "Sim",
+    "editalEnviado": true,
+    "linkEdital": "Link",
+    "apresentacao": "Link",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
     "spe": "Ingleses Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Victória",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Não houve aprovação do formato assíncrono, os investidores solicitaram uma reunião de aprovação de contas.  Solicitei para Celsiane a participação da contabilidade na AGO, dada a criticidade desta SPE.  28/05: card aberto para o time financeiro preencher as informações faltantes na apresentação - https://app.pipefy.com/open-cards/1357965015 precisamos deixar claro que apresentaremos a AGO mas quem precisa tirar todas as dúvidas é ARV com contabilidade do empreendimento (externa)",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -747,35 +1269,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "17",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-04",
-    "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "",
+    "tipo": "RCF",
+    "ordemDoDia": "Andamento do Projeto Executivo; Orçamento Executivo x Preliminar; Chamada de Capital",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Canasvieiras Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Mariele",
+    "spe": "Urubici Spot II",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "[EM ABERTO - não recebemos o orçamento] está pendente o valor da chamada pela AD pediram mais uma semana em 20/05",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -794,35 +1351,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "18",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-05",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento + Chamada de Capital Preliminar + Chamada de Capital",
+    "ordemDoDia": "Apresentação do orçamento executivo",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Novo Campeche Spot",
+    "spe": "Jurerê Beach Spot",
     "criticidade": "Baixo",
-    "responsavel": "PMO",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "[EM ABERTO - não recebemos o orçamento] Aguardar confirmação do orçamento pelo time de orçamentos - Fran.",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -841,35 +1433,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "19",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-09",
     "tipo": "AGE",
-    "ordemDoDia": "Apresentação do orçamento executivo",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
-    "editalEnviado": false,
-    "apresentacao": "",
+    "ordemDoDia": "Apresentação dos valores e chamada e capital",
+    "dataLimiteEdital": "30/05",
+    "suporteCsi": "Sim",
+    "editalEnviado": true,
+    "linkEdital": "Link",
+    "apresentacao": "Link",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Jurerê Beach Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Victória",
+    "spe": "Urubici Spot",
+    "criticidade": "Medio",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Em 19/05 tivemos uma reunião com o conselho fiscal e Puel, fomos informados na reunião pela adm de obras sobre uma pendência de valores para finalização da obra e a necessidade de chamada de capital. A informação sobre uma nova chamada de capital (última foi em dezembro/2025) deixou os conselheiros extremamente atritados - Puel apresentou planilha com os valores e se comprometeu a comparecer na AGE, através de seu representante para detalhar a cobrança.  28/05: Cards abertos para o time financeiro, obras, marketplace e pmo - contribuirem com as informações atualizadas para apresentação. https://app.pipefy.com/open-cards/1358164073 / https://app.pipefy.com/open-cards/1358165437 /  https://app.pipefy.com/open-cards/1358165712 /",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -888,35 +1515,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "20",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-09",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "",
     "tipo": "AGE",
-    "ordemDoDia": "Apresentação dos valores e chamada e capital",
+    "ordemDoDia": "AGE de Entrega",
     "dataLimiteEdital": "30/05",
-    "suporteCsi": "",
-    "editalEnviado": true,
-    "apresentacao": "https://docs.google.com/presentation",
-    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Urubici Spot",
-    "criticidade": "Medio",
-    "responsavel": "Sabrina",
+    "suporteCsi": "Não",
+    "editalEnviado": false,
+    "linkEdital": "",
+    "apresentacao": "Link",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Trancoso Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Sem pontos críticos, somente a entrega  Atualizações 25/05: Falei com a Bruna e ela informou que ainda não temos todas as informações para AGE de entrega, por isso o card ainda não foi aberto com a solicitação de AGE.",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -935,35 +1597,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "21",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-11",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-16",
     "tipo": "AGE",
-    "ordemDoDia": "AGE de Entrega",
-    "dataLimiteEdital": "30/05",
-    "suporteCsi": "",
-    "editalEnviado": false,
-    "apresentacao": "https://docs.google.com/presentation",
-    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
-    "spe": "Trancoso Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Mariele",
+    "ordemDoDia": "AGE apresentação de projeto",
+    "dataLimiteEdital": "04/06",
+    "suporteCsi": "Sim",
+    "editalEnviado": true,
+    "linkEdital": "Link",
+    "apresentacao": "Feita pelos adm's",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Barra Spot",
+    "criticidade": "Alto",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Letícia Sonny elaborar apresentação somente com os slides padrão iniciais sobre status do empreendimento, status financeiro e inadimplentes",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -982,35 +1679,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "22",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "",
     "tipo": "AGE",
     "ordemDoDia": "Apresentação do orçamento executivo",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Campeche Spot",
     "criticidade": "Baixo",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1029,35 +1761,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "23",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "",
     "tipo": "STD",
     "ordemDoDia": "Alteração de Projeto",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO",
     "spe": "Sul da Ilha Spot",
     "criticidade": "Medio",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Ainda precisamos fazer reunião do conselho antes disso.",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1076,35 +1843,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "24",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "",
     "tipo": "RCF",
     "ordemDoDia": "Apresentação do orçamento executivo x preliminar",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Jurerê Beach Spot",
     "criticidade": "Alto",
-    "responsavel": "Victória",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "Aguardando validação do orçamento executivo",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1123,35 +1925,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "25",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "",
     "tipo": "RCF",
     "ordemDoDia": "Apresentação do orçamento executivo x preliminar",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Campeche Spot",
     "criticidade": "Baixo",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Orçamento executivo validado. Barbara vai montar a apresentação e precisamos marcar a reunião. Verificar como está o conselho fiscal (se precisa fazer reeleição)",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1170,35 +2007,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "26",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-15",
-    "tipo": "AGE",
-    "ordemDoDia": "Sem definição - solicitada pelos adm's - Reunião recorrente",
-    "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-30",
+    "tipo": "AGO",
+    "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
+    "dataLimiteEdital": "18/06",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "PMO/Jurídico",
-    "spe": "Barra Spot",
-    "criticidade": "Alto",
-    "responsavel": "Victória",
+    "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
+    "spe": "Santo Antônio Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Letícia Sonny providenciar edital e apresentação para seeguirmos",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1217,35 +2089,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "27",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-15",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-16",
     "tipo": "AGE",
-    "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
+    "ordemDoDia": "Andamento do Projeto Executivo; Orçamento Executivo x Preliminar",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
-    "spe": "Santo Antônio Spot",
-    "criticidade": "Baixo",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Urubici Spot II",
+    "criticidade": "Alto",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "aguardando definição sobre chamada de capital",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1264,35 +2171,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "28",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-16",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-07-02",
     "tipo": "AGE",
-    "ordemDoDia": "Andamento do Projeto Executivo; Orçamento Executivo x Preliminar",
-    "dataLimiteEdital": "",
+    "ordemDoDia": "AGE deliberação de projeto",
+    "dataLimiteEdital": "22/06",
     "suporteCsi": "",
     "editalEnviado": false,
-    "apresentacao": "",
+    "linkEdital": "",
+    "apresentacao": "Feita pelos adm's",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Urubici Spot II",
+    "spe": "Barra Spot",
     "criticidade": "Alto",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "Letícia Sonny elaborar apresentação somente com os slides padrão iniciais sobre status do empreendimento, status financeiro e inadimplentes",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1311,35 +2253,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "29",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-17",
-    "tipo": "RCF",
-    "ordemDoDia": "Planejamento + Orçamento",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-07-09",
+    "tipo": "AGE",
+    "ordemDoDia": "AGE de Entrega",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Canasvieiras Spot",
-    "criticidade": "Baixo",
-    "responsavel": "Mariele",
+    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
+    "spe": "Rosa Sul Spot",
+    "criticidade": "Medio",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "aguardando Sarah verificar os pontos pendentes",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1358,35 +2335,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "30",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-18",
-    "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-17",
+    "tipo": "RCF",
+    "ordemDoDia": "Planejamento + Orçamento",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Caraguá Spot",
+    "spe": "Canasvieiras Spot",
     "criticidade": "Baixo",
-    "responsavel": "Victória",
+    "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1405,35 +2417,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "31",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-23",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-18",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "ordemDoDia": "Aguardando fechar grupo - Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Barra Grande Spot",
+    "spe": "Caraguá Spot",
     "criticidade": "Baixo",
-    "responsavel": "Sabrina",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1452,35 +2499,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "32",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-25",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-23",
     "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Bonito Spot II",
+    "spe": "Barra Grande Spot",
     "criticidade": "Baixo",
-    "responsavel": "Mariele",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1499,35 +2581,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "33",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-06-30",
-    "tipo": "RII",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-25",
+    "tipo": "AGE",
+    "ordemDoDia": "Aguardando fechar grupo - Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Bonito Spot II",
     "criticidade": "Baixo",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1546,35 +2663,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "34",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-06-30",
-    "tipo": "AGE",
-    "ordemDoDia": "Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "tipo": "RII",
+    "ordemDoDia": "Aguardando fechar grupo - Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Itacaré Spot",
+    "spe": "Bonito Spot II",
     "criticidade": "Baixo",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Unidade — Mariele tem 2 no dia, verificar horários",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1593,35 +2745,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "35",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-07-02",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-06-30",
     "tipo": "AGE",
-    "ordemDoDia": "Apresentação do Orçamento executivo e atualização sobre o andamento",
+    "ordemDoDia": "Aguardando fechar grupo - Eleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Rosa Norte Spot",
+    "spe": "Itacaré Spot",
     "criticidade": "Baixo",
-    "responsavel": "Sabrina",
+    "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "Mariele tem 2 no dia, verificar horários",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1640,35 +2827,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "36",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-07-07",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-07-02",
     "tipo": "AGE",
-    "ordemDoDia": "Planejamento + Orçamento",
+    "ordemDoDia": "Apresentação do Orçamento executivo e atualização sobre o andamento da obra",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
-    "spe": "Canasvieiras Spot",
+    "spe": "Rosa Norte Spot",
     "criticidade": "Baixo",
-    "responsavel": "Mariele",
+    "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1687,35 +2909,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "37",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
-    "data": "2026-07-23",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "data": "2026-07-07",
     "tipo": "AGE",
-    "ordemDoDia": "AGE de Entrega",
+    "ordemDoDia": "Planejamento + Orçamento",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
-    "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
-    "spe": "Rosa Sul Spot",
-    "criticidade": "Medio",
-    "responsavel": "Victória",
+    "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
+    "spe": "Canasvieiras Spot",
+    "criticidade": "Baixo",
+    "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1734,35 +2991,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "38",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-07-30",
     "tipo": "AGE",
-    "ordemDoDia": "Reeleição Conselho Fiscal + Acompanhamento do andamento do empreendimento",
+    "ordemDoDia": "Reeleição Conselho Fiscal + Acompanhamento do andamento do empreendimento: (i) Situação Financeira; (ii) Situação das Aprovações e Projetos;",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "Engenharia/PMO/Jurídico",
     "spe": "Ilha do Campeche Spot",
     "criticidade": "Medio",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1781,35 +3073,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "39",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-08-27",
-    "tipo": "AGE",
+    "tipo": "AGO",
     "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
     "spe": "Bonito Spot",
     "criticidade": "Baixo",
     "responsavel": "Sabrina",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1828,35 +3155,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "40",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-12-17",
-    "tipo": "AGE",
+    "tipo": "AGO",
     "ordemDoDia": "Alteração de Projeto + Aprovação de Contas + Reeleição Conselho Fiscal",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "PMO/Financeiro/Engenharia/Jurídico",
     "spe": "Jurerê Beach Spot",
     "criticidade": "Baixo",
-    "responsavel": "Victória",
+    "responsavel": "Victoria",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1875,35 +3237,70 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]
   },
   {
     "id": "41",
-    "createdAt": "2026-05-27T12:38:30.826862Z",
+    "createdAt": "2026-06-16T12:00:00.000Z",
     "data": "2026-12-22",
-    "tipo": "AGE",
+    "tipo": "AGO",
     "ordemDoDia": "Aprovação de Contas + Reeleição do Conselho Fiscal",
     "dataLimiteEdital": "",
-    "suporteCsi": "",
+    "suporteCsi": "Não",
     "editalEnviado": false,
+    "linkEdital": "",
     "apresentacao": "",
     "dptosEnvolvidos": "PMO/Financeiro/Jurídico",
     "spe": "Japaratinga Spot",
     "criticidade": "Alto",
     "responsavel": "Mariele",
+    "situacao": "",
+    "observacoes": "",
     "checklist": [
       {
         "titulo": "Comunicar o PMO da solicitação",
         "responsavel": "Jurídico",
         "prazo": "No mesmo dia do recebimento",
-        "status": "A fazer"
-      },
-      {
-        "titulo": "Análise da pauta e verificação de deliberações críticas",
-        "responsavel": "Jurídico + KREMER",
-        "prazo": "Logo após receber a pauta",
         "status": "A fazer"
       },
       {
@@ -1922,6 +3319,44 @@
         "titulo": "Convocar a assembleia (prazo mínimo 10 dias)",
         "responsavel": "Jurídico",
         "prazo": "Mínimo 10 dias antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Agendar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Realizar reunião prévia de alinhamento",
+        "responsavel": "Jurídico + PMO",
+        "prazo": "48h antes da assembleia",
+        "status": "A fazer"
+      }
+    ],
+    "checklistPos": [
+      {
+        "titulo": "Enviar comunicado/resumo no Slack",
+        "responsavel": "Jurídico",
+        "prazo": "Até 24h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata elaborada no WhatsApp para o grupo com o conselho",
+        "responsavel": "Jurídico",
+        "prazo": "Até 72h após a assembleia",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Enviar ata para validação dos investidores",
+        "responsavel": "Jurídico",
+        "prazo": "3 dias úteis para validação",
+        "status": "A fazer"
+      },
+      {
+        "titulo": "Abrir suporte no CSI para assinatura da ata pelos investidores",
+        "responsavel": "Jurídico + CSI",
+        "prazo": "Até 48h após término da validação",
         "status": "A fazer"
       }
     ]

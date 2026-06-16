@@ -25,6 +25,13 @@ const ROTEIROS_FILE = path.join(DATA_DIR, "roteiros.json");
 const RELATORIOS_FILE = path.join(DATA_DIR, "relatorios.json");
 export const UPLOADS_DIR = path.join(DATA_DIR, "uploads");
 
+// Marcador (no disco persistente) da versão do snapshot de assembleias já aplicado.
+const SEED_MARKER_FILE = path.join(DATA_DIR, ".assembleias-seed-version");
+// Bumpar sempre que `seed-assembleias.json` for regerado da planilha de cronograma.
+// No boot, se a versão no disco diferir, as assembleias são recarregadas do seed
+// SEM apagar procurações/solicitações/roteiros/uploads (diferente de resetData).
+export const ASSEMBLEIAS_SEED_VERSION = "2026-06-16-cronograma-v2";
+
 async function ensureFile(file: string, initial: string): Promise<void> {
   await fs.mkdir(path.dirname(file), { recursive: true });
   try {
@@ -104,6 +111,13 @@ export async function readAssembleias(): Promise<Assembleia[]> {
     if (pos.changed) {
       a.checklistPos = pos.next;
       mutated = true;
+    }
+    // Backfill de campos adicionados depois (linhas antigas no disco persistente).
+    for (const k of ["linkEdital", "situacao", "observacoes"] as const) {
+      if (typeof (a as Partial<Assembleia>)[k] !== "string") {
+        (a as Record<string, unknown>)[k] = "";
+        mutated = true;
+      }
     }
   }
   if (mutated) await writeJson(ASSEMBLEIAS_FILE, rows);
@@ -321,6 +335,44 @@ export async function resetData(): Promise<void> {
   } catch {
     /* ignore */
   }
+}
+
+// Recarrega APENAS as assembleias a partir do snapshot embarcado, se a versão
+// gravada no disco persistente diferir de ASSEMBLEIAS_SEED_VERSION. Preserva
+// solicitações, procurações, roteiros, relatórios e uploads — ao contrário de
+// resetData(). Idempotente: roda no máximo uma vez por bump de versão.
+export async function applyAssembleiasSeedIfNeeded(
+  force = false,
+): Promise<{ applied: boolean; count: number }> {
+  let current = "";
+  try {
+    current = (await fs.readFile(SEED_MARKER_FILE, "utf8")).trim();
+  } catch {
+    current = "";
+  }
+  if (!force && current === ASSEMBLEIAS_SEED_VERSION) {
+    const rows = await readJson<Assembleia>(ASSEMBLEIAS_FILE);
+    return { applied: false, count: rows.length };
+  }
+
+  const seedFile = path.resolve(__dirname, "./seed-assembleias.json");
+  let count = 0;
+  try {
+    const raw = await fs.readFile(seedFile, "utf8");
+    await ensureFile(ASSEMBLEIAS_FILE, "[]");
+    await fs.writeFile(ASSEMBLEIAS_FILE, raw, "utf8");
+    const parsed = JSON.parse(raw);
+    count = Array.isArray(parsed) ? parsed.length : 0;
+  } catch (err) {
+    console.error("[seazone] falha ao aplicar seed de assembleias:", err);
+    return { applied: false, count: 0 };
+  }
+  await fs.mkdir(DATA_DIR, { recursive: true });
+  await fs.writeFile(SEED_MARKER_FILE, ASSEMBLEIAS_SEED_VERSION, "utf8");
+  console.log(
+    `[seazone] seed de assembleias aplicado (v${ASSEMBLEIAS_SEED_VERSION}): ${count} assembleias`,
+  );
+  return { applied: true, count };
 }
 
 async function readRelatoriosMap(): Promise<Record<string, Relatorio>> {

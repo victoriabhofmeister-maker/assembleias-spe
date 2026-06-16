@@ -79,6 +79,17 @@ type ColunaKanban =
   | "edital_enviado"
   | "realizada";
 
+// Deriva um selo de situação a partir das colunas "Situação"/"Observações"
+// do cronograma (a planilha às vezes registra o status em qualquer uma das duas).
+function situacaoTag(a: Assembleia): { label: string; cls: string } | null {
+  const txt = `${a.situacao} ${a.observacoes}`.toLowerCase();
+  if (txt.includes("cancel"))
+    return { label: "Cancelada", cls: "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300" };
+  if (txt.includes("não aconteceu") || txt.includes("nao aconteceu"))
+    return { label: "Não aconteceu", cls: "border-slate-400/30 bg-slate-400/10 text-slate-600 dark:text-slate-300" };
+  return null;
+}
+
 function temApresentacao(a: Assembleia): boolean {
   const v = a.apresentacao.trim().toLowerCase();
   if (!v) return false;
@@ -578,6 +589,8 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
   const destaque = isProximaComPendencias(a);
   const realizada = isRealizada(a);
   const prog = progressoChecklist(a);
+  const sit = situacaoTag(a);
+  const obs = a.observacoes?.trim();
 
   return (
     <article
@@ -605,6 +618,7 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex flex-wrap items-center gap-1.5">
             <span className="chip">{a.tipo}</span>
+            {sit && <span className={`chip ${sit.cls}`}>{sit.label}</span>}
             {!realizada && dias !== null && dias >= 0 && dias <= 7 && (
               <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
                 {dias === 0 ? "Hoje" : `em ${dias}d`}
@@ -652,6 +666,15 @@ function AssembleiaCard({ a, onOpen }: { a: Assembleia; onOpen: () => void }) {
       {destaque && (
         <div className="mt-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-300">
           <strong>Pendências:</strong> {pend.join(" · ")}
+        </div>
+      )}
+
+      {obs && (
+        <div className="mt-4 border-t border-line pt-3">
+          <div className="text-eyebrow mb-1">Observações</div>
+          <p className="text-xs leading-relaxed text-muted-fg line-clamp-3" title={obs}>
+            {obs}
+          </p>
         </div>
       )}
 

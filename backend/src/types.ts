@@ -23,6 +23,12 @@ export interface Assembleia {
   spe: string;
   criticidade: Criticidade;
   responsavel: string;
+  // Link do edital (coluna "Link Edital" do cronograma).
+  linkEdital: string;
+  // Situação da assembleia (coluna "Situação da Assembleia": ex. cancelada, realizada).
+  situacao: string;
+  // Observações livres (coluna "Observações" do cronograma).
+  observacoes: string;
   checklist: ChecklistItem[];
   checklistPos: ChecklistItem[];
 }

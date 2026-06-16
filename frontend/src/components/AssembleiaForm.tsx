@@ -25,6 +25,9 @@ const EMPTY: AssembleiaInput = {
   spe: "",
   criticidade: "Medio",
   responsavel: "",
+  linkEdital: "",
+  situacao: "",
+  observacoes: "",
 };
 
 function labelOrdem(ordem: string): string {

@@ -15,6 +15,7 @@ import {
   verifyGoogleCredential,
 } from "./auth.js";
 import {
+  applyAssembleiasSeedIfNeeded,
   appendAssembleia,
   appendSolicitacao,
   deleteRelatorio,
@@ -95,6 +96,12 @@ const DEPARTAMENTOS: DepartamentoSolicitante[] = [
 
 await fs.mkdir(UPLOADS_DIR, { recursive: true });
 
+// Re-seed não-destrutivo das assembleias no boot (gated por versão). Recarrega a
+// lista a partir do snapshot da planilha sem apagar procurações/solicitações/etc.
+await applyAssembleiasSeedIfNeeded().catch((err) => {
+  console.error("[seazone] applyAssembleiasSeedIfNeeded falhou no boot:", err);
+});
+
 const ALLOWED_UPLOAD_EXT = new Set([
   ".pdf",
   ".doc",
@@ -162,6 +169,9 @@ function validateAssembleia(body: unknown): { ok: true; value: AssembleiaInput }
     spe: String(b.spe),
     criticidade: b.criticidade as Criticidade,
     responsavel: String(b.responsavel ?? ""),
+    linkEdital: String(b.linkEdital ?? ""),
+    situacao: String(b.situacao ?? ""),
+    observacoes: String(b.observacoes ?? ""),
   };
   return { ok: true, value };
 }
@@ -503,6 +513,20 @@ app.post("/api/assembleias/:id/relatorio/gerar", async (req: Request, res: Respo
 app.delete("/api/assembleias/:id/relatorio", async (req: Request, res: Response) => {
   const ok = await deleteRelatorio(req.params.id);
   res.json({ ok });
+});
+
+// Sync NÃO-destrutivo: recarrega só as assembleias do snapshot da planilha,
+// preservando procurações/solicitações/roteiros/uploads. Útil para repuxar o
+// cronograma sem redeploy depois de regerar o seed.
+app.post("/api/admin/sync-assembleias", async (_req: Request, res: Response) => {
+  try {
+    const r = await applyAssembleiasSeedIfNeeded(true);
+    res.json({ ok: true, ...r });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ ok: false, error: err instanceof Error ? err.message : String(err) });
+  }
 });
 
 app.post("/api/admin/reset-seed", async (_req: Request, res: Response) => {

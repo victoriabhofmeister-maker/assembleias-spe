@@ -23,6 +23,9 @@ export interface Assembleia {
   spe: string;
   criticidade: Criticidade;
   responsavel: string;
+  linkEdital: string;
+  situacao: string;
+  observacoes: string;
   checklist: ChecklistItem[];
   checklistPos: ChecklistItem[];
 }
